@@ -1,6 +1,6 @@
 
 TITLE: 
-Shahala - 100% Fully Responsive News Website Template
+We are customising this template.
 
 AUTHOR:
 DESIGNED & DEVELOPED by FreeHTML5.co
