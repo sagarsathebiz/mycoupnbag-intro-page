@@ -12,15 +12,19 @@
         font-family: Verdana, Sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #fdf5e6; /* Warm light background for a coupon theme */
-        color: #333;
+        background-color: #f9f9f9; /* Light neutral background */
+        color: #333; /* Standard dark text */
     }
 
     /* Navbar */
     nav {
-        background: linear-gradient(to right, #ff9800, #ff5722); /* Bright gradient for energy */
+        background: linear-gradient(to right, #ff9800, #ff5722); /* Vibrant gradient for navbar */
         color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle depth */
+        padding: 10px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        position: sticky;
+        top: 0; /* Navbar fixed on scroll */
+        z-index: 1000;
     }
 
     nav h1 {
@@ -29,50 +33,71 @@
         letter-spacing: 1px;
     }
 
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers items */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
     nav ul li a {
         color: white;
         text-decoration: none;
         font-weight: bold;
-        padding: 8px 12px;
-        border-radius: 5px;
+        padding: 8px 15px;
         transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 5px; /* Rounded corners for modern style */
     }
 
     nav ul li a:hover {
-        background-color: #ffeb3b; /* Highlight links with vibrant yellow */
+        background-color: #ffeb3b; /* Highlight with vibrant yellow on hover */
         color: #333; /* Change text color on hover */
     }
 
     /* Social Icons */
     .social-icons img {
-        width: 40px; /* Slightly larger for visibility */
+        width: 40px; /* Larger, more vibrant icons */
         margin: 10px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .social-icons img:hover {
-        transform: scale(1.2); /* Hover animation */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+        transform: scale(1.2); /* Hover zoom */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     }
 
-    /* Flex Content */
+    /* Flex Containers */
+    .flex {
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        gap: 20px; /* Add spacing between items */
+        justify-content: center; /* Center-align content */
+    }
+
     .flex div {
-        background: #ffeb3b; /* Coupon-like vibrant yellow */
+        background: #ffeb3b; /* Bright yellow for coupon feel */
         color: #333;
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px; /* Rounded for a softer look */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        font-weight: bold;
         transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
     .flex div:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
-        background-color: #ffc107; /* Hover color enhancement */
+        transform: scale(1.05); /* Slight zoom on hover */
+        background-color: #ffc107; /* Enhance color on hover */
     }
 
     /* Buttons */
     a {
-        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for action buttons */
+        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for buttons */
         color: white;
         padding: 10px 20px;
         border-radius: 5px;
@@ -83,30 +108,35 @@
 
     a:hover {
         background: #4caf50; /* Darker green on hover */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Hover shadow for depth */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow effect */
     }
 
     /* Footer */
     footer {
-        background: #ff5722; /* Bold orange for footer */
+        background: #ff5722; /* Vibrant orange footer */
         color: white;
         text-align: center;
         padding: 20px;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
     }
 
-    /* Media Queries for Mobile */
+    /* Media Queries for Mobile Responsiveness */
     @media (max-width: 768px) {
         nav ul {
             flex-direction: column; /* Stack navigation items vertically */
             gap: 10px;
         }
 
+        nav ul li a {
+            padding: 10px; /* Larger tappable area for mobile */
+        }
+
         .social-icons img {
-            width: 30px; /* Adjust icon size for mobile */
+            width: 30px; /* Adjust icon size for mobile screens */
         }
     }
 </style>
+
 
 
 
