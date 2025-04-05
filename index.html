@@ -7,140 +7,70 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
-    /* General Styles */
     body {
         font-family: Verdana, Sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #fff7e6; /* Warm light background for an inviting feel */
-        color: #333;
-    }
-
-    /* Navbar */
-    nav {
-        background: linear-gradient(to right, #ff9800, #ff5722); /* Bright gradient for vibrancy */
-        color: white;
-        padding: 10px 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    nav h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        letter-spacing: 1px; /* Slight spacing for elegance */
     }
 
     nav ul {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        list-style: none;
+        justify-content: center; /* Centers items on smaller screens */
         padding: 0;
-        margin: 0;
+        list-style: none;
     }
 
     nav ul li {
         margin: 0 10px;
     }
 
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 8px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease, color 0.3s ease;
+    .social-icons {
+        margin: 20px 0;
+        display: flex; /* Ensures horizontal layout */
+        justify-content: center; /* Centers the icons horizontally */
+        flex-wrap: wrap; /* Wraps icons on smaller screens */
     }
 
-    nav ul li a:hover {
-        background-color: #ffeb3b; /* Highlight links with a vibrant yellow */
-        color: #333; /* Change text color on hover */
-    }
-
-    /* Social Icons */
     .social-icons img {
-        width: 40px; /* Slightly larger for a modern feel */
-        margin: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 30px;
+        margin: 5px; /* Adjust spacing for better fit */
     }
 
-    .social-icons img:hover {
-        transform: scale(1.2); /* Hover animation */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    }
-
-    /* Flex Containers */
     .flex {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allows wrapping for smaller screens */
         gap: 20px;
-        justify-content: center;
+        justify-content: center; /* Centers content horizontally */
     }
+   .hamburger {
+    display: none; /* Hide hamburger icon for larger screens */
+  }
 
-    .flex div {
-        background: #ffeb3b; /* Bright yellow for coupon-like feel */
-        color: #333;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        font-weight: bold;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .flex div:hover {
-        transform: scale(1.05); /* Hover zoom effect */
-        background-color: #ffc107; /* Slightly brighter yellow on hover */
-    }
-
-    /* Hamburger Menu */
-    .hamburger {
-        display: none; /* Hidden for desktop */
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 15px;
-    }
-
-    /* Buttons */
-    a {
-        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for action buttons */
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    a:hover {
-        background: #4caf50; /* Darker green on hover */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    }
-
-    /* Footer */
-    footer {
-        background: #ff5722; /* Bold orange for footer */
-        color: white;
-        text-align: center;
-        padding: 20px;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    }
+  .nav-links {
+    display: flex; /* Keep links visible for desktop */
+    gap: 15px; /* Add spacing between links */
+  }
 
     /* Media Queries for Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .nav-links {
-            flex-direction: column; /* Stack links vertically on mobile */
-            gap: 10px;
-        }
-
-        .social-icons img {
-            width: 30px; /* Adjust size for mobile screens */
-        }
+   @media (max-width: 768px) {
+    .nav-links { 
+      display: none; /* Hide the nav links by default */
+      flex-direction: column; /* Stack links vertically when visible */
+      background-color: #ffffff; /* Optional: White background for the dropdown */
+      position: absolute; /* Dropdown position */
+      top: 60px; /* Adjust to place below navbar */
+      right: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+      z-index: 1000;
     }
+
+    .hamburger {
+      display: block; /* Show hamburger icon */
+      cursor: pointer;
+    }
+  }
 </style>
 
 
