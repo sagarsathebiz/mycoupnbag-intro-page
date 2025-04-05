@@ -43,44 +43,56 @@
         gap: 20px;
         justify-content: center; /* Centers content horizontally */
     }
+   .hamburger {
+    display: none; /* Hide hamburger icon for larger screens */
+  }
+
+  .nav-links {
+    display: flex; /* Keep links visible for desktop */
+    gap: 15px; /* Add spacing between links */
+  }
 
     /* Media Queries for Mobile Responsiveness */
-    @media (max-width: 768px) {
-        nav ul {
-            flex-direction: column; /* Stack navigation items */
-            gap: 10px;
-        }
-
-        .subtitle {
-            font-size: 32px; /* Reduce font size for smaller screens */
-        }
-
-        .social-icons img {
-            width: 25px; /* Slightly smaller icons for smaller devices */
-        }
-
-        .partners {
-            flex-direction: column; /* Stack partner logos */
-            text-align: center; /* Center content */
-        }
-
-        .banner-img {
-            max-width: 100%; /* Fit image within screen width */
-            height: auto; /* Maintain aspect ratio */
-        }
+   @media (max-width: 768px) {
+    .nav-links { 
+      display: none; /* Hide the nav links by default */
+      flex-direction: column; /* Stack links vertically when visible */
+      background-color: #ffffff; /* Optional: White background for the dropdown */
+      position: absolute; /* Dropdown position */
+      top: 60px; /* Adjust to place below navbar */
+      right: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+      z-index: 1000;
     }
+
+    .hamburger {
+      display: block; /* Show hamburger icon */
+      cursor: pointer;
+    }
+  }
 </style>
 
 <body class="bg-white text-gray-800 font-sans">
+  
   <!-- Navbar -->
  <nav class="flex justify-between items-center p-4 bg-blue-600 text-white">
     <h1 class="text-2xl font-bold">MyCouponBag</h1>
-    <ul class="flex gap-3"> <!-- Adjusted the gap to be smaller -->
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
       <li><a href="#home" class="hover:underline">Home</a></li>
       <li><a href="#partner" class="hover:underline">Partner</a></li>
       <li><a href="#contact" class="hover:underline">Contact</a></li>
       <li><a href="#download" class="hover:underline">Download</a></li>
     </ul>
+  </nav>
 </nav>
 
 
@@ -134,5 +146,11 @@
   <footer class="text-center p-4 bg-blue-600 text-white mt-10">
     &copy; 2025 MyCouponBag. All rights reserved.
   </footer>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector(".nav-links");
+      navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </body>
 </html>
