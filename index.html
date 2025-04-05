@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyCouponBag</title>
-    <style>
-        body {
-            font-family: Verdana, Sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-        .logo {
-            width: 100px;
-            margin: 20px auto;
-        }
-        .subtitle {
-            font-size: 58px;
-            margin: 10px 0;
-        }
-        .notification-btn {
-            padding: 10px 20px;
-            font-size: 18px;
-        }
-        .about {
-            font-size: 16px;
-            margin: 20px 0;
-        }
-        .social-icons {
-            margin: 20px 0;
-        }
-        .social-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-	.banner-img {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-	}
-	.container-notif {
-            display: inline-flex;
-            justify-content: space-between; /* Adjusts the space between the divs */
-            align-items: center; /* Aligns items vertically in the center */
-        }
-    </style>
-	<link rel="icon" href="imgs/mcb-logo.png" type="img/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyCouponBag</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-	<br><br>
-	<h2 class="subtitle" style="color: black;">!!!!Launching soon!</h2>
-			<a href="https://forms.gle/QD7i3hP2Jn8DRKKHA" target="_blank" class="notification-btn" style="color: black;">Click here to get launch updates on email</a><br>
-        <img class="logo" src="imgs/mcb-logo-slogan.png" class="banner-img" style="width: 300px; height: 320px;">
-	<p class="about" style="color: black;">
-            <b>MyCouponBag acts as a centralized hub for users to manage and organize coupons received from various sources, it categorizes those coupons for easy access and redemption.</b>
-        </p>
-	<br>
-        <p class="contact" style="color: black;">
-            <b>Contact:</b> <i>support@mycouponbag.com</i>
-        </p>
-        <div class="social-icons">
-		<a href="https://www.reddit.com/r/mycouponbag" target="_blank"><img src="imgs/reddit-icon.png" alt="Reddit"></a>
-        	<a href="https://www.facebook.com/mycouponbagfb" target="_blank"><img src="imgs/facebook-icon.png" alt="Facebook"></a>
-		<a href="https://www.instagram.com/mycouponbag" target="_blank"><img src="imgs/instagram-icon.png" alt="Instagram"></a>
-        	<a href="https://x.com/BagCoupon18773" target="_blank"><img src="imgs/twitter-icon.png" alt="Twitter"></a>
-		<a href="https://discord.gg/ZjcSXUzn72" target="_blank"><img src="imgs/discord-icon.png" alt="Discord"></a>
-		<a href="https://www.linkedin.com/company/mycouponbag" target="_blank"><img src="imgs/linkedin-icon.png" alt="LinkedIn"></a>
-		<a href="https://www.youtube.com/@MyCouponBag" target="_blank"><img src="imgs/youtube-icon.png" alt="YouTube"></a>
-        </div>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-4 bg-blue-600 text-white">
+    <h1 class="text-2xl font-bold">MyCouponBag</h1>
+    <ul class="flex gap-6">
+      <li><a href="#home" class="hover:underline">Home</a></li>
+      <li><a href="#partner" class="hover:underline">Partner</a></li>
+      <li><a href="#contact" class="hover:underline">Contact</a></li>
+      <li><a href="#download" class="hover:underline">Download</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="p-10 text-center bg-gray-50">
+    <h2 class="text-3xl font-bold mb-4">Welcome to MyCouponBag</h2>
+    <p class="text-lg max-w-2xl mx-auto">MyCouponBag is your daily savings companion. Discover and collect the best coupons from top brands, right from your pocket. Never miss a deal again!</p>
+  </section>
+
+  <!-- Partner Section -->
+  <section id="partner" class="p-10 bg-white text-center">
+    <h2 class="text-3xl font-bold mb-4">Our Partners</h2>
+    <p class="mb-6">We proudly partner with top brands and retailers who provide verified and updated coupons.</p>
+    <div class="flex flex-wrap justify-center gap-6">
+      <div class="p-4 bg-gray-100 rounded shadow">Amazon</div>
+      <div class="p-4 bg-gray-100 rounded shadow">Flipkart</div>
+      <div class="p-4 bg-gray-100 rounded shadow">Swiggy</div>
+      <div class="p-4 bg-gray-100 rounded shadow">Zomato</div>
+      <!-- Add more partners here -->
     </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="p-10 bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+    <p>Email: support@mycouponbag.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Address: 123 Savings Lane, Discount City, India</p>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="p-10 bg-white text-center">
+    <h2 class="text-3xl font-bold mb-4">Download the App</h2>
+    <p class="mb-6">Start saving today! Download MyCouponBag on your mobile device.</p>
+    <div class="flex justify-center gap-6">
+      <a href="#" class="bg-black text-white px-6 py-3 rounded-lg">App Store</a>
+      <a href="#" class="bg-green-600 text-white px-6 py-3 rounded-lg">Google Play</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 bg-blue-600 text-white mt-10">
+    &copy; 2025 MyCouponBag. All rights reserved.
+  </footer>
 </body>
 </html>
