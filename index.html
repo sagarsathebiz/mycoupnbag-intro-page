@@ -7,71 +7,176 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
+    /* General Styles */
     body {
-        font-family: Verdana, Sans-serif;
+        font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
+        background-color: #f9f9f9; /* Light background for contrast */
+        color: #333; /* Dark text for readability */
+    }
+
+    /* Navbar */
+    nav {
+        background: linear-gradient(to right, #ff9800, #ff5722); /* Vibrant gradient */
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav h1 {
+        font-size: 2rem;
+        font-weight: bold;
     }
 
     nav ul {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* Centers items on smaller screens */
+        justify-content: center;
         padding: 0;
         list-style: none;
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 0 15px;
     }
 
-    .social-icons {
-        margin: 20px 0;
-        display: flex; /* Ensures horizontal layout */
-        justify-content: center; /* Centers the icons horizontally */
-        flex-wrap: wrap; /* Wraps icons on smaller screens */
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #ffeb3b; /* Highlight on hover */
+    }
+
+    /* Hero Section */
+    #home {
+        background: linear-gradient(to right, #ffeb3b, #ffc107);
+        color: #333;
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #home h2 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 20px auto;
+    }
+
+    /* Partner Section */
+    #partner {
+        background-color: #ffffff;
+        padding: 40px 20px;
+    }
+
+    #partner h2 {
+        font-size: 2.5rem;
+        color: #ff5722;
+    }
+
+    #partner .flex div {
+        background: #ffeb3b;
+        color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+
+    #partner .flex div:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Contact Section */
+    #contact {
+        background: #f1f8e9; /* Light green for freshness */
+        padding: 40px 20px;
+    }
+
+    #contact h2 {
+        font-size: 2.5rem;
+        color: #4caf50;
+    }
+
+    #contact p {
+        font-size: 1.1rem;
+        margin: 10px 0;
     }
 
     .social-icons img {
-        width: 30px;
-        margin: 5px; /* Adjust spacing for better fit */
+        width: 40px;
+        margin: 10px;
+        transition: transform 0.3s ease;
     }
 
-    .flex {
-        display: flex;
-        flex-wrap: wrap; /* Allows wrapping for smaller screens */
-        gap: 20px;
-        justify-content: center; /* Centers content horizontally */
-    }
-   .hamburger {
-    display: none; /* Hide hamburger icon for larger screens */
-  }
-
-  .nav-links {
-    display: flex; /* Keep links visible for desktop */
-    gap: 15px; /* Add spacing between links */
-  }
-
-    /* Media Queries for Mobile Responsiveness */
-   @media (max-width: 768px) {
-    .nav-links { 
-      display: none; /* Hide the nav links by default */
-      flex-direction: column; /* Stack links vertically when visible */
-      background-color: #ffffff; /* Optional: White background for the dropdown */
-      position: absolute; /* Dropdown position */
-      top: 60px; /* Adjust to place below navbar */
-      right: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
-      z-index: 1000;
+    .social-icons img:hover {
+        transform: scale(1.2); /* Enlarge icons on hover */
     }
 
-    .hamburger {
-      display: block; /* Show hamburger icon */
-      cursor: pointer;
+    /* Download Section */
+    #download {
+        background: linear-gradient(to right, #4caf50, #8bc34a);
+        color: white;
+        padding: 40px 20px;
     }
-  }
+
+    #download h2 {
+        font-size: 2.5rem;
+    }
+
+    #download a {
+        background: white;
+        color: #4caf50;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #download a:hover {
+        background: #4caf50;
+        color: white;
+    }
+
+    /* Footer */
+    footer {
+        background: #ff5722;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #home h2 {
+            font-size: 2rem;
+        }
+
+        #partner .flex div {
+            flex: 1 1 100%; /* Full width on mobile */
+        }
+
+        .social-icons img {
+            width: 30px; /* Smaller icons for mobile */
+        }
+    }
 </style>
+
 
 <body class="bg-white text-gray-800 font-sans">
   
