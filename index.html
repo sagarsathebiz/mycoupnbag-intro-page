@@ -122,6 +122,12 @@ section h2 {
     cursor: pointer;
     color: #000000 !important;
   }
+  @media (max-width: 768px) {
+  .nav-links.mobile-active li a {
+    color: black !important;
+  }
+}
+
 }
 </style>
 
@@ -291,10 +297,37 @@ section h2 {
     &copy; 2025 MyCouponBag. All rights reserved.
   </footer>
   <script>
-    function toggleMenu() {
-      const navLinks = document.querySelector(".nav-links");
-      navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+  function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    const isVisible = navLinks.style.display === "flex";
+
+    if (!isVisible) {
+      navLinks.style.display = "flex";
+      navLinks.classList.add("mobile-active");
+
+      // Add outside click listener
+      document.addEventListener("click", handleOutsideClick);
+    } else {
+      navLinks.style.display = "none";
+      navLinks.classList.remove("mobile-active");
+
+      // Remove outside click listener
+      document.removeEventListener("click", handleOutsideClick);
     }
-  </script>
+  }
+
+  function handleOutsideClick(event) {
+    const nav = document.querySelector("nav");
+    const navLinks = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (!nav.contains(event.target)) {
+      navLinks.style.display = "none";
+      navLinks.classList.remove("mobile-active");
+      document.removeEventListener("click", handleOutsideClick);
+    }
+  }
+</script>
+
 </body>
 </html>
