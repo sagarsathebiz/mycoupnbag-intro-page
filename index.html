@@ -7,71 +7,111 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
+    /* General Styles */
     body {
         font-family: Verdana, Sans-serif;
         margin: 0;
         padding: 0;
+        background-color: #f9f9f9; /* Light neutral background for contrast */
+        color: #333;
     }
 
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Centers items on smaller screens */
-        padding: 0;
-        list-style: none;
+    /* Navbar */
+    nav {
+        background: linear-gradient(to right, #ff9800, #ff5722); /* Vibrant gradient for the navbar */
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     }
 
-    nav ul li {
-        margin: 0 10px;
+    nav h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1px; /* Slight spacing for elegance */
     }
 
-    .social-icons {
-        margin: 20px 0;
-        display: flex; /* Ensures horizontal layout */
-        justify-content: center; /* Centers the icons horizontally */
-        flex-wrap: wrap; /* Wraps icons on smaller screens */
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
     }
 
+    nav ul li a:hover {
+        color: #ffeb3b; /* Highlight navigation links on hover */
+    }
+
+    /* Social Icons */
     .social-icons img {
-        width: 30px;
-        margin: 5px; /* Adjust spacing for better fit */
+        width: 40px; /* Slightly larger for visibility */
+        margin: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .flex {
-        display: flex;
-        flex-wrap: wrap; /* Allows wrapping for smaller screens */
-        gap: 20px;
-        justify-content: center; /* Centers content horizontally */
+    .social-icons img:hover {
+        transform: scale(1.2); /* Enlarge icons on hover */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
     }
-   .hamburger {
-    display: none; /* Hide hamburger icon for larger screens */
-  }
 
-  .nav-links {
-    display: flex; /* Keep links visible for desktop */
-    gap: 15px; /* Add spacing between links */
-  }
+    /* Flex Content */
+    .flex div {
+        background: #ffeb3b; /* Bright yellow for coupon-like theme */
+        color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .flex div:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+        background-color: #ffc107; /* Slight color change on hover */
+    }
 
     /* Media Queries for Mobile Responsiveness */
-   @media (max-width: 768px) {
-    .nav-links { 
-      display: none; /* Hide the nav links by default */
-      flex-direction: column; /* Stack links vertically when visible */
-      background-color: #ffffff; /* Optional: White background for the dropdown */
-      position: absolute; /* Dropdown position */
-      top: 60px; /* Adjust to place below navbar */
-      right: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
-      z-index: 1000;
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Keep dropdown hidden by default */
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
     }
 
-    .hamburger {
-      display: block; /* Show hamburger icon */
-      cursor: pointer;
+    /* Button Hover Effects */
+    a {
+        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for buttons */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-  }
+
+    a:hover {
+        background: #4caf50; /* Darker green on hover */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow on hover for focus */
+    }
+
+    /* Footer */
+    footer {
+        background: #ff5722; /* Bold orange for footer */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    }
 </style>
+
 
 
 
