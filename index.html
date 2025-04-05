@@ -7,14 +7,67 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
+    body {
+        font-family: Verdana, Sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers items on smaller screens */
+        padding: 0;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
     .social-icons {
         margin: 20px 0;
         display: flex; /* Ensures horizontal layout */
         justify-content: center; /* Centers the icons horizontally */
+        flex-wrap: wrap; /* Wraps icons on smaller screens */
     }
+
     .social-icons img {
         width: 30px;
-        margin: 0 10px;
+        margin: 5px; /* Adjust spacing for better fit */
+    }
+
+    .flex {
+        display: flex;
+        flex-wrap: wrap; /* Allows wrapping for smaller screens */
+        gap: 20px;
+        justify-content: center; /* Centers content horizontally */
+    }
+
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column; /* Stack navigation items */
+            gap: 10px;
+        }
+
+        .subtitle {
+            font-size: 32px; /* Reduce font size for smaller screens */
+        }
+
+        .social-icons img {
+            width: 25px; /* Slightly smaller icons for smaller devices */
+        }
+
+        .partners {
+            flex-direction: column; /* Stack partner logos */
+            text-align: center; /* Center content */
+        }
+
+        .banner-img {
+            max-width: 100%; /* Fit image within screen width */
+            height: auto; /* Maintain aspect ratio */
+        }
     }
 </style>
 
@@ -54,18 +107,16 @@
     <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
     <p>Email: support@mycouponbag.com</p>
     <p>sssathesagar@gmail.com/pspujashinde@gmail.com</p>
-    <p>Address:Vasant Vihar,Solapur,Maharashtra,India</p>
-	   <p class="contact" style="color: black;">
-        </p>
-        <div class="social-icons">
-		<a href="https://www.reddit.com/r/mycouponbag" target="_blank"><img src="imgs/reddit-icon.png" alt="Reddit"></a>
-        	<a href="https://www.facebook.com/mycouponbagfb" target="_blank"><img src="imgs/facebook-icon.png" alt="Facebook"></a>
-		<a href="https://www.instagram.com/mycouponbag" target="_blank"><img src="imgs/instagram-icon.png" alt="Instagram"></a>
-        	<a href="https://x.com/BagCoupon18773" target="_blank"><img src="imgs/twitter-icon.png" alt="Twitter"></a>
-		<a href="https://discord.gg/ZjcSXUzn72" target="_blank"><img src="imgs/discord-icon.png" alt="Discord"></a>
-		<a href="https://www.linkedin.com/company/mycouponbag" target="_blank"><img src="imgs/linkedin-icon.png" alt="LinkedIn"></a>
-		<a href="https://www.youtube.com/@MyCouponBag" target="_blank"><img src="imgs/youtube-icon.png" alt="YouTube"></a>
-        </div>
+    <p>Address: Vasant Vihar, Solapur, Maharashtra, India</p>
+    <div class="social-icons">
+      <a href="https://www.reddit.com/r/mycouponbag" target="_blank"><img src="imgs/reddit-icon.png" alt="Reddit"></a>
+      <a href="https://www.facebook.com/mycouponbagfb" target="_blank"><img src="imgs/facebook-icon.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/mycouponbag" target="_blank"><img src="imgs/instagram-icon.png" alt="Instagram"></a>
+      <a href="https://x.com/BagCoupon18773" target="_blank"><img src="imgs/twitter-icon.png" alt="Twitter"></a>
+      <a href="https://discord.gg/ZjcSXUzn72" target="_blank"><img src="imgs/discord-icon.png" alt="Discord"></a>
+      <a href="https://www.linkedin.com/company/mycouponbag" target="_blank"><img src="imgs/linkedin-icon.png" alt="LinkedIn"></a>
+      <a href="https://www.youtube.com/@MyCouponBag" target="_blank"><img src="imgs/youtube-icon.png" alt="YouTube"></a>
+    </div>
   </section>
 
   <!-- Download Section -->
