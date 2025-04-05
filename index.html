@@ -12,32 +12,35 @@
         font-family: Verdana, Sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f9f9f9; /* Light neutral background for contrast */
+        background-color: #fdf5e6; /* Warm light background for a coupon theme */
         color: #333;
     }
 
     /* Navbar */
     nav {
-        background: linear-gradient(to right, #ff9800, #ff5722); /* Vibrant gradient for the navbar */
+        background: linear-gradient(to right, #ff9800, #ff5722); /* Bright gradient for energy */
         color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle depth */
     }
 
     nav h1 {
         font-size: 2rem;
         font-weight: bold;
-        letter-spacing: 1px; /* Slight spacing for elegance */
+        letter-spacing: 1px;
     }
 
     nav ul li a {
         color: white;
         text-decoration: none;
         font-weight: bold;
-        transition: color 0.3s ease;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     nav ul li a:hover {
-        color: #ffeb3b; /* Highlight navigation links on hover */
+        background-color: #ffeb3b; /* Highlight links with vibrant yellow */
+        color: #333; /* Change text color on hover */
     }
 
     /* Social Icons */
@@ -48,13 +51,13 @@
     }
 
     .social-icons img:hover {
-        transform: scale(1.2); /* Enlarge icons on hover */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        transform: scale(1.2); /* Hover animation */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow effect */
     }
 
     /* Flex Content */
     .flex div {
-        background: #ffeb3b; /* Bright yellow for coupon-like theme */
+        background: #ffeb3b; /* Coupon-like vibrant yellow */
         color: #333;
         padding: 20px;
         border-radius: 10px;
@@ -64,42 +67,23 @@
 
     .flex div:hover {
         transform: scale(1.05); /* Slight zoom effect on hover */
-        background-color: #ffc107; /* Slight color change on hover */
+        background-color: #ffc107; /* Hover color enhancement */
     }
 
-    /* Media Queries for Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none; /* Keep dropdown hidden by default */
-            flex-direction: column;
-            background-color: white;
-            position: absolute;
-            top: 60px;
-            right: 10px;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .hamburger {
-            display: block;
-            cursor: pointer;
-        }
-    }
-
-    /* Button Hover Effects */
+    /* Buttons */
     a {
-        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for buttons */
+        background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient for action buttons */
         color: white;
         padding: 10px 20px;
         border-radius: 5px;
-        text-decoration: none;
         font-weight: bold;
+        text-decoration: none;
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     a:hover {
         background: #4caf50; /* Darker green on hover */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow on hover for focus */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Hover shadow for depth */
     }
 
     /* Footer */
@@ -108,9 +92,22 @@
         color: white;
         text-align: center;
         padding: 20px;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column; /* Stack navigation items vertically */
+            gap: 10px;
+        }
+
+        .social-icons img {
+            width: 30px; /* Adjust icon size for mobile */
+        }
     }
 </style>
+
 
 
 
