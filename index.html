@@ -8,29 +8,391 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
+/* --- VIBRANT COLOR PALETTE --- */
+:root {
+  --primary: #ff512f;
+  --secondary: #dd2476;
+  --accent: #24c6dc;
+  --accent2: #5433ff;
+  --bg-gradient: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+  --card-gradient: linear-gradient(135deg, #24c6dc 0%, #5433ff 100%);
+  --button-gradient: linear-gradient(90deg, #ff512f 0%, #dd2476 50%, #24c6dc 100%);
+  --text-dark: #22223b;
+  --text-light: #fff;
+}
+
+/* --- BODY & SECTION BACKGROUND --- */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #a7bfff 40%, #fbc2eb 100%);
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- GLASSMORPHISM WITH VIBRANT BORDER --- */
+.glass {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,81,47,0.3);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(221,36,118,0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  color: var(--text-light);
+}
+
+/* --- NAVBAR --- */
+nav {
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  border-bottom: 2px solid #fff3;
+  box-shadow: 0 4px 24px 0 rgba(255,81,47,0.15);
+}
+nav .navbar-center h1 {
+  background: var(--button-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #2224;
+}
+
+/* --- FEATURE CARDS --- */
+.feature-card {
+  background: var(--card-gradient);
+  color: var(--text-light);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px -5px rgba(36,198,220,0.15);
+  border: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 6s ease-in-out infinite;
+}
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 40px -5px rgba(84,51,255,0.2);
+}
+.feature-card span {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: drop-shadow(0 2px 8px #fff8);
+}
+
+/* --- MODERN BUTTONS --- */
+.modern-button {
+  background: var(--button-gradient);
+  color: var(--text-light);
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0 10px 20px -5px rgba(255,81,47,0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.modern-button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 15px 25px -5px rgba(36,198,220,0.4);
+  filter: brightness(1.1);
+}
+
+/* --- PARTNER CARDS --- */
+.partner-card {
+  background: var(--card-gradient);
+  color: var(--text-light);
+  border-radius: 1.5rem;
+  border: 2px solid rgba(36,198,220,0.2);
+  box-shadow: 0 8px 24px 0 rgba(36,198,220,0.12);
+  animation: float 6s ease-in-out infinite;
+}
+.partner-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  background: linear-gradient(135deg, #5433ff 0%, #24c6dc 100%);
+}
+
+/* --- STATS CARDS --- */
+.stats-card {
+  background: linear-gradient(90deg, #ff512f 0%, #24c6dc 100%);
+  color: var(--text-light);
+  border-radius: 100px;
+  padding: 1rem 2rem;
+  border: 2px solid #fff3;
+  box-shadow: 0 10px 20px -5px rgba(255,81,47,0.15);
+  font-weight: 600;
+}
+
+/* --- SOCIAL ICONS --- */
+.social-icons a {
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px;
+  border: 2px solid #fff3;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px 0 rgba(36,198,220,0.12);
+}
+.social-icons a:hover {
+  background: var(--button-gradient);
+  box-shadow: 0 10px 20px -5px rgba(221,36,118,0.2);
+}
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 2px 8px #fff8);
+}
+
+/* --- SECTION HEADINGS --- */
+section h2 {
+  font-size: 2.7rem;
+  background: var(--button-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #2224;
+}
+
+/* --- RESPONSIVE TWEAKS --- */
+@media (max-width: 768px) {
+  .feature-card, .partner-card {
+    padding: 1.5rem;
+  }
+  section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* --- REST OF YOUR EXISTING STYLES ... --- */
+
+/* Modern Animation Keyframes */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Updated Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #fff5f0 0%, #ffd4b8 40%, #ff9f66 100%);
   color: #2d3748;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Enhanced Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(255, 159, 102, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(255, 159, 102, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px 0 rgba(255, 159, 102, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Modern Navigation */
+nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 159, 102, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav .navbar-center h1 {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Card Styles */
+.feature-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: none;
+  box-shadow: 
+    0 10px 30px -5px rgba(255, 159, 102, 0.15),
+    0 0 0 1px rgba(255, 159, 102, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 40px -5px rgba(255, 159, 102, 0.2),
+    0 0 0 2px rgba(255, 159, 102, 0.2);
+}
+
+.feature-card span {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover span {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Modern Button Styles */
+.modern-button {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.modern-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px -5px rgba(249, 115, 22, 0.4);
+}
+
+.modern-button:hover::before {
+  transform: translateX(100%);
+}
+
+/* Social Icons Enhancement */
+.social-icons a {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(249, 115, 22, 0.1);
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: white;
+  box-shadow: 
+    0 10px 20px -5px rgba(249, 115, 22, 0.2),
+    0 0 0 2px rgba(249, 115, 22, 0.1);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+/* Section Enhancements */
+section {
+  margin: 4rem 0;
+  padding: 4rem 1.5rem;
+  opacity: 0;
+  animation: slideIn 0.6s ease forwards;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+}
+
+/* Partner Section Enhancement */
+#partner .grid {
+  gap: 2rem;
+}
+
+#partner .grid > div {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(249, 115, 22, 0.1);
+}
+
+#partner .grid > div:hover {
+  transform: translateY(-5px);
+  background: white;
+  box-shadow: 
+    0 15px 30px -5px rgba(249, 115, 22, 0.2),
+    0 0 0 2px rgba(249, 115, 22, 0.1);
+}
+
+/* Stats Enhancement */
+.stats-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(249, 115, 22, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.15);
 }
 
 /* Glassmorphism Base Style */
 .glass {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(173, 216, 230, 0.18);
+  border: 1px solid rgba(255, 159, 102, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(255, 159, 102, 0.18);
 }
 
 nav {
-  background: linear-gradient(90deg, #fbc2eb 0%, #a7bfff 100%);
+  background: linear-gradient(90deg, #ff9f66 0%, #ffd4b8 100%);
   background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 4px 24px 0 rgba(91,33,182,0.10);
-  border-bottom: 2px solid #a7bfff;
+  box-shadow: 0 4px 24px 0 rgba(255, 159, 102, 0.15);
+  border-bottom: 2px solid #ff9f66;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -56,7 +418,7 @@ nav ul li {
 
 nav ul li a {
   font-weight: 600;
-  color: #5b21b6;
+  color: #c2410c;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -68,7 +430,7 @@ nav ul li a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #f472b6;
+  background-color: #fb923c;
   transition: width 0.3s ease;
 }
 
@@ -84,147 +446,12 @@ nav ul li a:hover::after {
   gap: 15px;
 }
 
-.social-icons a {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(91, 33, 182, 0.2);
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  filter: none;
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgba(91, 33, 182, 0.1);
-}
-
-/* Modern Card Styles */
-.feature-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px) saturate(180%);
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  border: 2px dashed #5b21b6;
-  color: #4f46e5;
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 50px 50px 0;
-  border-color: transparent #fbc2eb transparent transparent;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover::after {
-  border-width: 0 60px 60px 0;
-}
-
-.feature-card h3 {
-  color: #5b21b6;
-}
-
-.feature-card p {
-  color: #6b21a8;
-}
-
-/* Button Styles */
-.modern-button {
-  background: #5b21b6;
-  color: white;
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 4px 15px rgba(91, 33, 182, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.modern-button::before {
-  content: '🎯';
-  position: absolute;
-  left: -30px;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.modern-button:hover {
-  background: #6d28d9;
-  color: white;
-  transform: translateY(-2px) scale(1.04);
-  padding-left: 40px;
-}
-
-.modern-button:hover::before {
-  left: 10px;
-  opacity: 1;
-}
-
-/* Partner Section */
-#partner .flex > div {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px) saturate(180%);
-  border-radius: 15px;
-  border: 2px dashed #5b21b6;
-  color: #5b21b6;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-#partner .flex > div:hover {
-  transform: translateY(-5px) scale(1.02);
-  background: rgba(251, 194, 235, 0.15);
-  border-style: solid;
-  box-shadow: 0 10px 20px rgba(91, 33, 182, 0.1);
-}
-
-#partner .flex > div::before {
-  content: '🏷️';
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  font-size: 1.2rem;
-  transform: rotate(45deg);
-}
-
-/* Section Styling */
-section {
-  margin: 2rem 0;
-  padding: 3rem 1rem;
-}
-
-section h2 {
-  color: #5b21b6;
-  font-weight: 700;
-  text-shadow: 1px 1px 0 #fbc2eb, 0 2px 8px rgba(167,191,255,0.12);
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .hamburger {
     display: block !important;
     cursor: pointer;
-    color: #5b21b6;
+    color: #c2410c;
     z-index: 1100;
     position: relative;
   }
@@ -240,12 +467,12 @@ section h2 {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 8px 32px 0 rgba(91,33,182,0.12);
+    box-shadow: 0 8px 32px 0 rgba(255, 159, 102, 0.12);
     padding: 1.5rem;
     gap: 20px;
     z-index: 1000;
     text-align: center;
-    border: 1px solid #e0e7ff;
+    border: 1px solid #fed7aa;
     margin: 0 20px;
   }
   
@@ -262,6 +489,23 @@ section h2 {
   }
 }
 
+/* Utility Classes */
+[class*="text-\[#5b21b6\]"] {
+  color: #c2410c;
+}
+
+[class*="text-\[#6b21a8\]"] {
+  color: #ea580c;
+}
+
+[class*="bg-\[#5b21b6\]"] {
+  background-color: #f97316;
+}
+
+[class*="border-\[#a7bfff\]"] {
+  border-color: #fed7aa;
+}
+
 /* Default state for larger screens */
 .hamburger {
   display: none;
@@ -276,135 +520,321 @@ section h2 {
 .headingPadding {
   padding: 0.5rem;
 }
+
+/* Staggered Animation Delays */
+section > * {
+  opacity: 0;
+  animation: slideIn 0.6s ease forwards;
+}
+
+section h2 { animation-delay: 0.1s; }
+section p { animation-delay: 0.2s; }
+section .grid { animation-delay: 0.3s; }
+section .social-icons { animation-delay: 0.4s; }
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Hover Effects */
+.stats-card {
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.2);
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.loading {
+  background: linear-gradient(90deg, 
+    rgba(249, 115, 22, 0.1) 25%, 
+    rgba(249, 115, 22, 0.2) 37%, 
+    rgba(249, 115, 22, 0.1) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  transition: transform 0.1s ease;
+  z-index: 1100;
+}
+
+.feature-card,
+.partner-card,
+.stats-card,
+.glass {
+  color: #fff !important; /* Ensures white text on all cards and glass sections */
+}
+
+.feature-card h3,
+.partner-card .text-2xl,
+.stats-card,
+.glass h2,
+.glass p,
+.glass div,
+.glass span {
+  color: #fff !important; /* Ensures all headings, paragraphs, and spans are white */
+}
+
+/* If you want to use a dark text color for lighter backgrounds, use this instead: */
+/*
+.feature-card,
+.partner-card,
+.stats-card,
+.glass {
+  color: #22223b !important;
+}
+*/
+
+/* --- ORANGE & BLACK TEXT THEME --- */
+
+/* Set default text color to black everywhere */
+body,
+.glass,
+.feature-card,
+.partner-card,
+.stats-card {
+  color: #222 !important;
+}
+
+/* Headings and highlights in orange */
+h1, h2, h3, h4, h5, h6,
+.feature-card h3,
+.partner-card .text-2xl,
+.stats-card strong,
+.glass h2,
+.glass h1 {
+  color: #ff512f !important;
+}
+
+/* For orange accent text (e.g., in paragraphs or spans) */
+.text-orange,
+.text-accent,
+.text-highlight {
+  color: #ff512f !important;
+}
+
+/* If you want to style links as orange on hover */
+a, a:visited {
+  color: #ff512f;
+  text-decoration: none;
+}
+a:hover {
+  color: #dd2476;
+}
+
+/* Remove previous white text overrides */
+.feature-card h3,
+.partner-card .text-2xl,
+.stats-card,
+.glass h2,
+.glass p,
+.glass div,
+.glass span {
+  color: inherit !important;
+}
 </style>
 
 <body>
   <!-- Navbar -->
   <nav class="flex items-center relative headingPadding">
     <div class="navbar-center">
-      <h1 class="text-2xl font-bold text-[#5b21b6] drop-shadow-lg bg-white/60 px-6 py-2 rounded-full border-2 border-[#a7bfff]">MyCouponBag</h1>
+      <h1 class="text-3xl font-bold drop-shadow-lg px-6 py-2 rounded-full">MyCouponBag(Launching Soon)</h1>
     </div>
   </nav>
 
   <!-- Home Section -->
-  <section id="home" class="glass mx-4 md:mx-auto max-w-6xl rounded-2xl my-8">
+  <section id="home" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <div class="absolute top-4 right-4 text-[#5b21b6] bg-white/50 px-4 py-2 rounded-full text-sm font-semibold">
-        🔥 Active Deals: 1000+*
-      </div>
-      <h2 class="text-4xl font-bold text-center mb-6 text-[#5b21b6]">Your AI-Powered Coupon Wallet!</h2>
       
-      <p class="text-lg max-w-3xl mx-auto text-center mb-6 text-[#6b21a8]">
-        Tired of losing coupons in texts, emails, or apps? <strong>MyCouponBag</strong> is your one-stop solution to manage all coupons in one place - smart, simple, and AI-powered.
+      <h2 class="text-5xl font-bold text-center mb-8">Your AI-Powered Coupon Wallet!</h2>
+      
+      <p class="text-xl max-w-3xl mx-auto text-center mb-8 text-[#ea580c]">
+        Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> is your one-stop solution to manage all coupons in one place - smart, simple, and AI-powered.
       </p>
 
-      <div class="flex justify-center gap-4 mb-8">
-        <div class="bg-white/50 px-6 py-3 rounded-full text-[#5b21b6] font-semibold">
-          📊 Average Savings: ₹2,000/month*
+      <div class="flex flex-wrap justify-center gap-6 mb-12">
+        <div class="stats-card">
+          📊 Average Savings: ₹0/month*
         </div>
-        <div class="bg-white/50 px-6 py-3 rounded-full text-[#5b21b6] font-semibold">
-          👥 10,000+ Happy Users
+        <div class="stats-card">
+          👥 0 Happy Users
         </div>
       </div>
 
       <!-- Highlights Row -->
-      <div class="grid md:grid-cols-3 gap-6 my-12">
-        <div class="feature-card">
-          <span class="text-3xl mb-4 block">🏷️</span>
-          <h3 class="text-xl font-semibold text-[#5b21b6] mb-2">No More Expired Deals</h3>
-          <p class="text-[#6b21a8]">Smart notifications keep you updated</p>
+      <div class="grid md:grid-cols-3 gap-8 my-16">
+        <div class="feature-card" style="animation-delay: 0.1s">
+          <span>🏷️</span>
+          <h3 class="text-2xl font-semibold mb-4">No More Expired Deals</h3>
+          <p>Smart notifications keep you updated</p>
         </div>
-        <div class="feature-card">
-          <span class="text-3xl mb-4 block">💰</span>
-          <h3 class="text-xl font-semibold text-[#5b21b6] mb-2">Maximum Savings</h3>
-          <p class="text-[#6b21a8]">AI-powered deal recommendations</p>
+        <div class="feature-card" style="animation-delay: 0.2s">
+          <span>💰</span>
+          <h3 class="text-2xl font-semibold mb-4">Maximum Savings</h3>
+          <p>AI-powered deal recommendations</p>
         </div>
-        <div class="feature-card">
-          <span class="text-3xl mb-4 block">📱</span>
-          <h3 class="text-xl font-semibold text-[#5b21b6] mb-2">All-in-One Solution</h3>
-          <p class="text-[#6b21a8]">Manage all your coupons effortlessly</p>
+        <div class="feature-card" style="animation-delay: 0.3s">
+          <span>��</span>
+          <h3 class="text-2xl font-semibold mb-4">All-in-One Solution</h3>
+          <p>Manage all your coupons effortlessly</p>
         </div>
       </div>
 
-      <div class="flex justify-center gap-4 mb-10">
-        <a href="#download" class="modern-button">Download Now</a>
-        <a href="#contact" class="modern-button">Learn More</a>
+      <div class="flex flex-wrap justify-center gap-6 mb-10">
+        <a href="#download" class="modern-button">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            Download Now
+          </span>
+        </a>
+        <a href="#contact" class="modern-button">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            Learn More
+          </span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Partner Section -->
-  <section id="partner" class="glass mx-4 md:mx-auto max-w-6xl rounded-2xl my-8">
+  <section id="partner" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <div class="absolute top-4 right-4 bg-[#5b21b6] text-white px-4 py-2 rounded-full text-sm font-semibold">
+      <div class="stats-card absolute top-4 right-4">
         🤝 Verified Partners
       </div>
-      <h2 class="text-3xl font-bold text-center mb-6">Our Partners</h2>
-      <p class="text-[#6b21a8] mb-8 text-center">We proudly partner with top brands and retailers who provide verified and updated coupons.</p>
+      <h2 class="text-5xl font-bold text-center mb-8">Our Partners</h2>
+      <p class="text-xl text-center mb-12">We proudly partner with top brands and retailers who provide verified and updated coupons.</p>
+      
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">ABC</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.1s">
+          <div class="text-2xl font-bold">Updating Soon!</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">DEF</div>
+        <!-- <div class="partner-card p-8 text-center" style="animation-delay: 0.2s">
+          <div class="text-2xl font-bold">DEF</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">GHI</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.3s">
+          <div class="text-2xl font-bold">GHI</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">JKL</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.4s">
+          <div class="text-2xl font-bold">JKL</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">MNO</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.5s">
+          <div class="text-2xl font-bold">MNO</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">PQR</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.6s">
+          <div class="text-2xl font-bold">PQR</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">STU</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.7s">
+          <div class="text-2xl font-bold">STU</div>
         </div>
-        <div class="p-6 text-center">
-          <div class="text-2xl font-bold mb-2">VWX</div>
-        </div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.8s">
+          <div class="text-2xl font-bold">VWX</div>
+        </div> -->
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-2xl my-8">
+  <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <h2 class="text-3xl font-bold text-center mb-6">Contact Us</h2>
-      <div class="text-[#6b21a8] text-center space-y-2">
-        <p>Email: admin@mycouponbag.com / pspujashinde@gmail.com</p>
-        <p>Address: Vasant Vihar, Solapur, Maharashtra, India</p>
+      <h2 class="text-5xl font-bold text-center mb-8">Contact Us</h2>
+      <div class="text-center space-y-4 mb-12">
+        <div class="stats-card inline-block">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            admin@mycouponbag.com
+          </span>
+        </div>
+        <div class="stats-card inline-block">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            pspujashinde@gmail.com
+          </span>
+        </div>
+        <div class="stats-card inline-block">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            Vasant Vihar, Solapur, Maharashtra, India
+          </span>
+        </div>
       </div>
-      <div class="social-icons mt-8">
-        <a href="https://www.reddit.com/r/mycouponbag" target="_blank"><img src="imgs/reddit-icon.png" alt="Reddit"></a>
-        <a href="https://www.facebook.com/mycouponbagfb" target="_blank"><img src="imgs/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/mycouponbag" target="_blank"><img src="imgs/instagram-icon.png" alt="Instagram"></a>
-        <a href="https://x.com/mycouponbag_x" target="_blank"><img src="imgs/twitter-icon.png" alt="Twitter"></a>
-        <a href="https://discord.gg/ZjcSXUzn72" target="_blank"><img src="imgs/discord-icon.png" alt="Discord"></a>
-        <a href="https://www.linkedin.com/company/mycouponbag" target="_blank"><img src="imgs/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.youtube.com/@MyCouponBag" target="_blank"><img src="imgs/youtube-icon.png" alt="YouTube"></a>
+      <div class="social-icons mt-12">
+        <a href="https://www.reddit.com/r/mycouponbag" target="_blank" class="hover:rotate-12">
+          <img src="imgs/reddit-icon.png" alt="Reddit">
+        </a>
+        <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12">
+          <img src="imgs/facebook-icon.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/mycouponbag" target="_blank" class="hover:rotate-12">
+          <img src="imgs/instagram-icon.png" alt="Instagram">
+        </a>
+        <a href="https://x.com/mycouponbag_x" target="_blank" class="hover:-rotate-12">
+          <img src="imgs/twitter-icon.png" alt="Twitter">
+        </a>
+        <a href="https://discord.gg/ZjcSXUzn72" target="_blank" class="hover:rotate-12">
+          <img src="imgs/discord-icon.png" alt="Discord">
+        </a>
+        <a href="https://www.linkedin.com/company/mycouponbag" target="_blank" class="hover:-rotate-12">
+          <img src="imgs/linkedin-icon.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com/@MyCouponBag" target="_blank" class="hover:rotate-12">
+          <img src="imgs/youtube-icon.png" alt="YouTube">
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Download Section -->
-  <section id="download" class="glass mx-4 md:mx-auto max-w-6xl rounded-2xl my-8">
+  <section id="download" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <h2 class="text-3xl font-bold text-center mb-6">Download the App</h2>
-      <p class="text-[#6b21a8] text-center mb-8">Start saving today! Download MyCouponBag on your mobile device.</p>
-      <div class="flex justify-center gap-6">
+      <h2 class="text-5xl font-bold text-center mb-8">Download the App</h2>
+      <p class="text-xl text-center mb-12">Start saving today! Download MyCouponBag on your mobile device.</p>
+      <div class="flex flex-wrap justify-center gap-8">
         <a href="#" class="modern-button">
-          <span class="flex items-center gap-2">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+            </svg>
             App Store
           </span>
         </a>
         <a href="#" class="modern-button">
-          <span class="flex items-center gap-2">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+            </svg>
             Google Play
           </span>
         </a>
@@ -413,8 +843,10 @@ section h2 {
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-6 text-[#6b21a8]">
-    &copy; 2025 MyCouponBag. All rights reserved.
+  <footer class="text-center p-8">
+    <div class="stats-card inline-block">
+      &copy; 2025 MyCouponBag. All rights reserved.
+    </div>
   </footer>
 
   <script>
