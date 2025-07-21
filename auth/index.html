@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 40%, #1e90ff 100%);
+      background: linear-gradient(135deg, #fff5f0 0%, #ffd4b8 40%, #ff9f66 100%);
       color: #222;
       min-height: 100vh;
       margin: 0;
@@ -19,9 +19,9 @@
       justify-content: center;
     }
     .glass {
-      background: rgba(30,144,255,0.15);
+      background: rgba(255,255,255,0.7);
       border-radius: 2rem;
-      box-shadow: 0 8px 32px 0 rgba(30,144,255,0.18);
+      box-shadow: 0 8px 32px 0 rgba(255,159,102,0.18);
       backdrop-filter: blur(18px) saturate(180%);
       -webkit-backdrop-filter: blur(18px) saturate(180%);
       padding: 2.5rem 2rem;
@@ -29,7 +29,7 @@
       width: 100%;
     }
     h2 {
-      background: linear-gradient(135deg, #1e90ff 0%, #24c6dc 100%);
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -39,13 +39,13 @@
       font-weight: 700;
     }
     .modern-button {
-      background: linear-gradient(135deg, #1e90ff 0%, #24c6dc 100%);
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
       color: white;
       font-weight: 600;
       padding: 0.75rem 2rem;
       border-radius: 100px;
       border: none;
-      box-shadow: 0 10px 20px -5px rgba(30,144,255,0.3);
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       font-size: 1.1rem;
       cursor: pointer;
@@ -76,10 +76,10 @@
       width: 100%;
       padding: 0.75rem 1rem;
       border-radius: 0.75rem;
-      border: 1px solid #b2ebf2;
+      border: 1px solid #fed7aa;
       margin-bottom: 1rem;
       font-size: 1rem;
-      background: #e0f7fa;
+      background: #fff;
       color: #222;
       font-family: 'Poppins', sans-serif;
     }
@@ -106,44 +106,32 @@
 
     // Step 1: Parse hash and log
     const hash = window.location.hash.substring(1);
-    console.log('[Step 1] window.location.hash:', window.location.hash);
-    console.log('[Step 1] hash (no #):', hash);
     const params = new URLSearchParams(hash);
     const access_token = params.get('access_token');
     const refresh_token = params.get('refresh_token');
     const type = params.get('type');
-    console.log('[Step 1] access_token:', access_token);
-    console.log('[Step 1] refresh_token:', refresh_token);
-    console.log('[Step 1] type:', type);
     const resetForm = document.getElementById('resetForm');
     const messageDiv = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
 
     async function setSessionAndShowForm() {
-      console.log('[Step 2] setSessionAndShowForm called');
       if (!access_token || !refresh_token || type !== 'recovery') {
-        console.log('[Step 2] Invalid or missing token/type:', { access_token, refresh_token, type });
         messageDiv.innerHTML = '<span class="error">Invalid or missing reset token.<br>Please use the link from your email, or request a new password reset.</span>';
         messageDiv.className = 'message error';
         return;
       }
       try {
-        console.log('[Step 2] Calling supabase.auth.setSession with access_token and refresh_token');
         const { data, error } = await supabase.auth.setSession({ access_token, refresh_token });
-        console.log('[Step 2] setSession result:', { data, error });
         if (error) {
           messageDiv.textContent = 'Session error: ' + error.message;
           messageDiv.className = 'message error';
-          console.log('[Step 2] Session error:', error.message);
           return;
         }
         // Show the form
         resetForm.style.display = 'block';
-        console.log('[Step 2] Form displayed');
       } catch (err) {
         messageDiv.textContent = 'Unexpected error: ' + err.message;
         messageDiv.className = 'message error';
-        console.log('[Step 2] Unexpected error:', err.message);
       }
     }
 
@@ -152,30 +140,32 @@
       submitBtn.disabled = true;
       messageDiv.textContent = '';
       const newPassword = document.getElementById('newPassword').value;
-      console.log('[Step 3] Form submitted, newPassword:', newPassword);
       try {
-        console.log('[Step 3] Calling supabase.auth.updateUser');
         const { data, error } = await supabase.auth.updateUser({ password: newPassword });
-        console.log('[Step 3] updateUser result:', { data, error });
         if (error) {
           messageDiv.textContent = error.message;
           messageDiv.className = 'message error';
-          console.log('[Step 3] updateUser error:', error.message);
         } else {
           messageDiv.textContent = 'Password updated successfully! You can now log in with your new password.';
           messageDiv.className = 'message success';
           resetForm.style.display = 'none';
-          console.log('[Step 3] Password updated successfully');
         }
       } catch (err) {
         messageDiv.textContent = 'Unexpected error: ' + err.message;
         messageDiv.className = 'message error';
-        console.log('[Step 3] Unexpected error:', err.message);
       }
       submitBtn.disabled = false;
     });
 
-    setSessionAndShowForm();
+    // Handle verification link (signup/email_confirm)
+    if (type === 'signup' || type === 'email_confirm') {
+      if (resetForm) resetForm.style.display = 'none';
+      messageDiv.innerHTML = '<span class="success">Your account is verified and please login into mobile app.</span>';
+    } else if (type === 'recovery') {
+      setSessionAndShowForm();
+    } else {
+      // Optionally handle other types or show nothing
+    }
   </script>
 </body>
 </html> 
