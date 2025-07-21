@@ -110,8 +110,10 @@
     console.log('[Step 1] hash (no #):', hash);
     const params = new URLSearchParams(hash);
     const access_token = params.get('access_token');
+    const refresh_token = params.get('refresh_token');
     const type = params.get('type');
     console.log('[Step 1] access_token:', access_token);
+    console.log('[Step 1] refresh_token:', refresh_token);
     console.log('[Step 1] type:', type);
     const resetForm = document.getElementById('resetForm');
     const messageDiv = document.getElementById('message');
@@ -119,15 +121,15 @@
 
     async function setSessionAndShowForm() {
       console.log('[Step 2] setSessionAndShowForm called');
-      if (!access_token || type !== 'recovery') {
-        console.log('[Step 2] Invalid or missing token/type:', { access_token, type });
+      if (!access_token || !refresh_token || type !== 'recovery') {
+        console.log('[Step 2] Invalid or missing token/type:', { access_token, refresh_token, type });
         messageDiv.innerHTML = '<span class="error">Invalid or missing reset token.<br>Please use the link from your email, or request a new password reset.</span>';
         messageDiv.className = 'message error';
         return;
       }
       try {
-        console.log('[Step 2] Calling supabase.auth.setSession with access_token');
-        const { data, error } = await supabase.auth.setSession({ access_token });
+        console.log('[Step 2] Calling supabase.auth.setSession with access_token and refresh_token');
+        const { data, error } = await supabase.auth.setSession({ access_token, refresh_token });
         console.log('[Step 2] setSession result:', { data, error });
         if (error) {
           messageDiv.textContent = 'Session error: ' + error.message;
