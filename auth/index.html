@@ -102,17 +102,23 @@
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM'; // <-- REPLACE THIS
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+    // Improved hash parsing and debug output
     const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash.replace(/&/g, '&'));
+    const params = new URLSearchParams(hash);
     const access_token = params.get('access_token');
     const type = params.get('type');
     const resetForm = document.getElementById('resetForm');
     const messageDiv = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
 
+    // Debug output
+    console.log('window.location.hash:', window.location.hash);
+    console.log('access_token:', access_token);
+    console.log('type:', type);
+
     async function setSessionAndShowForm() {
       if (!access_token || type !== 'recovery') {
-        messageDiv.textContent = 'Invalid or missing reset token.';
+        messageDiv.innerHTML = '<span class="error">Invalid or missing reset token.<br>Please use the link from your email, or request a new password reset.</span>';
         messageDiv.className = 'message error';
         return;
       }
