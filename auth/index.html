@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Password | MyCouponBag</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff5f0 0%, #ffd4b8 40%, #ff9f66 100%);
+      color: #222;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .glass {
+      background: rgba(255,255,255,0.7);
+      border-radius: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(255,159,102,0.18);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      padding: 2.5rem 2rem;
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .modern-button {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 100px;
+      border: none;
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .modern-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: 500;
+    }
+    .success {
+      color: #16a34a;
+    }
+    .error {
+      color: #dc2626;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #fed7aa;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #222;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass">
+    <h2>Reset Your Password</h2>
+    <form id="resetForm" style="display:none;">
+      <label for="newPassword">New Password</label>
+      <input type="password" id="newPassword" name="newPassword" required minlength="6" placeholder="Enter new password" />
+      <button type="submit" class="modern-button" id="submitBtn">Update Password</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+  <script>
+    // === CONFIGURE YOUR SUPABASE PROJECT ===
+    const SUPABASE_URL = 'https://wmebscxxizvfktkjvylp.supabase.co'; // <-- REPLACE THIS
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM'; // <-- REPLACE THIS
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash.replace(/&/g, '&'));
+    const access_token = params.get('access_token');
+    const type = params.get('type');
+    const resetForm = document.getElementById('resetForm');
+    const messageDiv = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+
+    async function setSessionAndShowForm() {
+      if (!access_token || type !== 'recovery') {
+        messageDiv.textContent = 'Invalid or missing reset token.';
+        messageDiv.className = 'message error';
+        return;
+      }
+      try {
+        // Set the session with the access token
+        const { data, error } = await supabase.auth.setSession({ access_token });
+        if (error) {
+          messageDiv.textContent = 'Session error: ' + error.message;
+          messageDiv.className = 'message error';
+          return;
+        }
+        // Show the form
+        resetForm.style.display = 'block';
+      } catch (err) {
+        messageDiv.textContent = 'Unexpected error: ' + err.message;
+        messageDiv.className = 'message error';
+      }
+    }
+
+    resetForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      messageDiv.textContent = '';
+      const newPassword = document.getElementById('newPassword').value;
+      try {
+        const { data, error } = await supabase.auth.updateUser({ password: newPassword });
+        if (error) {
+          messageDiv.textContent = error.message;
+          messageDiv.className = 'message error';
+        } else {
+          messageDiv.textContent = 'Password updated successfully! You can now log in with your new password.';
+          messageDiv.className = 'message success';
+          resetForm.style.display = 'none';
+        }
+      } catch (err) {
+        messageDiv.textContent = 'Unexpected error: ' + err.message;
+        messageDiv.className = 'message error';
+      }
+      submitBtn.disabled = false;
+    });
+
+    setSessionAndShowForm();
+  </script>
+</body>
+</html> 
