@@ -102,39 +102,44 @@
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM'; // <-- REPLACE THIS
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Improved hash parsing and debug output
+    // Step 1: Parse hash and log
     const hash = window.location.hash.substring(1);
+    console.log('[Step 1] window.location.hash:', window.location.hash);
+    console.log('[Step 1] hash (no #):', hash);
     const params = new URLSearchParams(hash);
     const access_token = params.get('access_token');
     const type = params.get('type');
+    console.log('[Step 1] access_token:', access_token);
+    console.log('[Step 1] type:', type);
     const resetForm = document.getElementById('resetForm');
     const messageDiv = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Debug output
-    console.log('window.location.hash:', window.location.hash);
-    console.log('access_token:', access_token);
-    console.log('type:', type);
-
     async function setSessionAndShowForm() {
+      console.log('[Step 2] setSessionAndShowForm called');
       if (!access_token || type !== 'recovery') {
+        console.log('[Step 2] Invalid or missing token/type:', { access_token, type });
         messageDiv.innerHTML = '<span class="error">Invalid or missing reset token.<br>Please use the link from your email, or request a new password reset.</span>';
         messageDiv.className = 'message error';
         return;
       }
       try {
-        // Set the session with the access token
+        console.log('[Step 2] Calling supabase.auth.setSession with access_token');
         const { data, error } = await supabase.auth.setSession({ access_token });
+        console.log('[Step 2] setSession result:', { data, error });
         if (error) {
           messageDiv.textContent = 'Session error: ' + error.message;
           messageDiv.className = 'message error';
+          console.log('[Step 2] Session error:', error.message);
           return;
         }
         // Show the form
         resetForm.style.display = 'block';
+        console.log('[Step 2] Form displayed');
       } catch (err) {
         messageDiv.textContent = 'Unexpected error: ' + err.message;
         messageDiv.className = 'message error';
+        console.log('[Step 2] Unexpected error:', err.message);
       }
     }
 
@@ -143,19 +148,25 @@
       submitBtn.disabled = true;
       messageDiv.textContent = '';
       const newPassword = document.getElementById('newPassword').value;
+      console.log('[Step 3] Form submitted, newPassword:', newPassword);
       try {
+        console.log('[Step 3] Calling supabase.auth.updateUser');
         const { data, error } = await supabase.auth.updateUser({ password: newPassword });
+        console.log('[Step 3] updateUser result:', { data, error });
         if (error) {
           messageDiv.textContent = error.message;
           messageDiv.className = 'message error';
+          console.log('[Step 3] updateUser error:', error.message);
         } else {
           messageDiv.textContent = 'Password updated successfully! You can now log in with your new password.';
           messageDiv.className = 'message success';
           resetForm.style.display = 'none';
+          console.log('[Step 3] Password updated successfully');
         }
       } catch (err) {
         messageDiv.textContent = 'Unexpected error: ' + err.message;
         messageDiv.className = 'message error';
+        console.log('[Step 3] Unexpected error:', err.message);
       }
       submitBtn.disabled = false;
     });
