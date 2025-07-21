@@ -6,7 +6,6 @@
   <title>Reset Password | MyCouponBag</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -96,10 +95,13 @@
     </form>
     <div id="message" class="message"></div>
   </div>
+  <!-- Load Supabase CDN first -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+  <!-- Then run your custom script -->
   <script>
     // === CONFIGURE YOUR SUPABASE PROJECT ===
-    const SUPABASE_URL = 'https://wmebscxxizvfktkjvylp.supabase.co'; // <-- REPLACE THIS
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM'; // <-- REPLACE THIS
+    const SUPABASE_URL = 'https://wmebscxxizvfktkjvylp.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // Step 1: Parse hash and log
