@@ -10,14 +10,14 @@
 <style>
 /* --- VIBRANT COLOR PALETTE --- */
 :root {
-  --primary: #ff512f;
-  --secondary: #dd2476;
-  --accent: #24c6dc;
-  --accent2: #5433ff;
-  --bg-gradient: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
-  --card-gradient: linear-gradient(135deg, #24c6dc 0%, #5433ff 100%);
-  --button-gradient: linear-gradient(90deg, #ff512f 0%, #dd2476 50%, #24c6dc 100%);
-  --text-dark: #22223b;
+  --primary: #3b82f6;
+  --secondary: #1d4ed8;
+  --accent: #06b6d4;
+  --accent2: #6366f1;
+  --bg-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --card-gradient: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  --button-gradient: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 50%, #06b6d4 100%);
+  --text-dark: #1e293b;
   --text-light: #fff;
 }
 
@@ -35,9 +35,9 @@ body {
 /* --- GLASSMORPHISM WITH VIBRANT BORDER --- */
 .glass {
   background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,81,47,0.3);
+  border: 2px solid rgba(59,130,246,0.3);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px 0 rgba(221,36,118,0.18);
+  box-shadow: 0 8px 32px 0 rgba(29,78,216,0.18);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   color: var(--text-light);
@@ -48,7 +48,7 @@ nav {
   background: var(--bg-gradient);
   color: var(--text-light);
   border-bottom: 2px solid #fff3;
-  box-shadow: 0 4px 24px 0 rgba(255,81,47,0.15);
+  box-shadow: 0 4px 24px 0 rgba(59,130,246,0.15);
 }
 nav .navbar-center h1 {
   background: var(--button-gradient);
@@ -73,7 +73,7 @@ nav .navbar-center h1 {
 }
 .feature-card:hover {
   transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 20px 40px -5px rgba(84,51,255,0.2);
+  box-shadow: 0 20px 40px -5px rgba(99,102,241,0.2);
 }
 .feature-card span {
   font-size: 3rem;
@@ -90,7 +90,7 @@ nav .navbar-center h1 {
   padding: 1rem 2.5rem;
   border-radius: 100px;
   border: none;
-  box-shadow: 0 10px 20px -5px rgba(255,81,47,0.3);
+  box-shadow: 0 10px 20px -5px rgba(59,130,246,0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -99,7 +99,7 @@ nav .navbar-center h1 {
 }
 .modern-button:hover {
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 15px 25px -5px rgba(36,198,220,0.4);
+  box-shadow: 0 15px 25px -5px rgba(6,182,212,0.4);
   filter: brightness(1.1);
 }
 
@@ -108,23 +108,23 @@ nav .navbar-center h1 {
   background: var(--card-gradient);
   color: var(--text-light);
   border-radius: 1.5rem;
-  border: 2px solid rgba(36,198,220,0.2);
-  box-shadow: 0 8px 24px 0 rgba(36,198,220,0.12);
+  border: 2px solid rgba(6,182,212,0.2);
+  box-shadow: 0 8px 24px 0 rgba(6,182,212,0.12);
   animation: float 6s ease-in-out infinite;
 }
 .partner-card:hover {
   transform: translateY(-10px) scale(1.03);
-  background: linear-gradient(135deg, #5433ff 0%, #24c6dc 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
 }
 
 /* --- STATS CARDS --- */
 .stats-card {
-  background: linear-gradient(90deg, #ff512f 0%, #24c6dc 100%);
+  background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
   color: var(--text-light);
   border-radius: 100px;
   padding: 1rem 2rem;
   border: 2px solid #fff3;
-  box-shadow: 0 10px 20px -5px rgba(255,81,47,0.15);
+  box-shadow: 0 10px 20px -5px rgba(59,130,246,0.15);
   font-weight: 600;
 }
 
@@ -134,11 +134,11 @@ nav .navbar-center h1 {
   border-radius: 12px;
   border: 2px solid #fff3;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px 0 rgba(36,198,220,0.12);
+  box-shadow: 0 4px 12px 0 rgba(6,182,212,0.12);
 }
 .social-icons a:hover {
   background: var(--button-gradient);
-  box-shadow: 0 10px 20px -5px rgba(221,36,118,0.2);
+  box-shadow: 0 10px 20px -5px rgba(29,78,216,0.2);
 }
 .social-icons img {
   width: 28px;
@@ -187,7 +187,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #fff5f0 0%, #ffd4b8 40%, #ff9f66 100%);
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 40%, #3b82f6 100%);
   color: #2d3748;
   min-height: 100vh;
   overflow-x: hidden;
@@ -198,9 +198,9 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px) saturate(200%);
   -webkit-backdrop-filter: blur(20px) saturate(200%);
-  border: 1px solid rgba(255, 159, 102, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   box-shadow: 
-    0 8px 32px 0 rgba(255, 159, 102, 0.15),
+    0 8px 32px 0 rgba(59, 130, 246, 0.15),
     inset 0 0 0 1px rgba(255, 255, 255, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -208,7 +208,7 @@ body {
 .glass:hover {
   transform: translateY(-5px);
   box-shadow: 
-    0 12px 40px 0 rgba(255, 159, 102, 0.2),
+    0 12px 40px 0 rgba(59, 130, 246, 0.2),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -217,7 +217,7 @@ nav {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 159, 102, 0.2);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -225,7 +225,7 @@ nav {
 }
 
 nav .navbar-center h1 {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -241,8 +241,8 @@ nav .navbar-center h1 {
   padding: 2.5rem;
   border: none;
   box-shadow: 
-    0 10px 30px -5px rgba(255, 159, 102, 0.15),
-    0 0 0 1px rgba(255, 159, 102, 0.1);
+    0 10px 30px -5px rgba(59, 130, 246, 0.15),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: float 6s ease-in-out infinite;
 }
@@ -250,8 +250,8 @@ nav .navbar-center h1 {
 .feature-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 
-    0 20px 40px -5px rgba(255, 159, 102, 0.2),
-    0 0 0 2px rgba(255, 159, 102, 0.2);
+    0 20px 40px -5px rgba(59, 130, 246, 0.2),
+    0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .feature-card span {
@@ -268,13 +268,13 @@ nav .navbar-center h1 {
 
 /* Modern Button Styles */
 .modern-button {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 100px;
   border: none;
-  box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -294,7 +294,7 @@ nav .navbar-center h1 {
 
 .modern-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 25px -5px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
 }
 
 .modern-button:hover::before {
@@ -307,15 +307,15 @@ nav .navbar-center h1 {
   padding: 1rem;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .social-icons a:hover {
   transform: translateY(-5px) scale(1.1);
   background: white;
   box-shadow: 
-    0 10px 20px -5px rgba(249, 115, 22, 0.2),
-    0 0 0 2px rgba(249, 115, 22, 0.1);
+    0 10px 20px -5px rgba(59, 130, 246, 0.2),
+    0 0 0 2px rgba(59, 130, 246, 0.1);
 }
 
 .social-icons img {
@@ -334,7 +334,7 @@ section {
 
 section h2 {
   font-size: 2.5rem;
-  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -353,15 +353,15 @@ section h2 {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 #partner .grid > div:hover {
   transform: translateY(-5px);
   background: white;
   box-shadow: 
-    0 15px 30px -5px rgba(249, 115, 22, 0.2),
-    0 0 0 2px rgba(249, 115, 22, 0.1);
+    0 15px 30px -5px rgba(59, 130, 246, 0.2),
+    0 0 0 2px rgba(59, 130, 246, 0.1);
 }
 
 /* Stats Enhancement */
@@ -370,13 +370,13 @@ section h2 {
   border-radius: 100px;
   padding: 1rem 2rem;
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.1);
   transition: all 0.3s ease;
 }
 
 .stats-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.15);
 }
 
 /* Glassmorphism Base Style */
@@ -384,15 +384,15 @@ section h2 {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 159, 102, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(255, 159, 102, 0.18);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.18);
 }
 
 nav {
-  background: linear-gradient(90deg, #ff9f66 0%, #ffd4b8 100%);
+  background: linear-gradient(90deg, #3b82f6 0%, #dbeafe 100%);
   background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 4px 24px 0 rgba(255, 159, 102, 0.15);
-  border-bottom: 2px solid #ff9f66;
+  box-shadow: 0 4px 24px 0 rgba(59, 130, 246, 0.15);
+  border-bottom: 2px solid #3b82f6;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -418,7 +418,7 @@ nav ul li {
 
 nav ul li a {
   font-weight: 600;
-  color: #c2410c;
+  color: #1d4ed8;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -430,7 +430,7 @@ nav ul li a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #fb923c;
+  background-color: #3b82f6;
   transition: width 0.3s ease;
 }
 
@@ -467,12 +467,12 @@ nav ul li a:hover::after {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 8px 32px 0 rgba(255, 159, 102, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.12);
     padding: 1.5rem;
     gap: 20px;
     z-index: 1000;
     text-align: center;
-    border: 1px solid #fed7aa;
+    border: 1px solid #dbeafe;
     margin: 0 20px;
   }
   
@@ -491,19 +491,19 @@ nav ul li a:hover::after {
 
 /* Utility Classes */
 [class*="text-\[#5b21b6\]"] {
-  color: #c2410c;
+  color: #1d4ed8;
 }
 
 [class*="text-\[#6b21a8\]"] {
-  color: #ea580c;
+  color: #3b82f6;
 }
 
 [class*="bg-\[#5b21b6\]"] {
-  background-color: #f97316;
+  background-color: #3b82f6;
 }
 
 [class*="border-\[#a7bfff\]"] {
-  border-color: #fed7aa;
+  border-color: #dbeafe;
 }
 
 /* Default state for larger screens */
@@ -556,9 +556,9 @@ html {
 
 .loading {
   background: linear-gradient(90deg, 
-    rgba(249, 115, 22, 0.1) 25%, 
-    rgba(249, 115, 22, 0.2) 37%, 
-    rgba(249, 115, 22, 0.1) 63%
+    rgba(59, 130, 246, 0.1) 25%, 
+    rgba(59, 130, 246, 0.2) 37%, 
+    rgba(59, 130, 246, 0.1) 63%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -571,7 +571,7 @@ html {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
   transform-origin: 0 50%;
   transform: scaleX(0);
   transition: transform 0.1s ease;
@@ -616,30 +616,30 @@ body,
   color: #222 !important;
 }
 
-/* Headings and highlights in orange */
+/* Headings and highlights in blue */
 h1, h2, h3, h4, h5, h6,
 .feature-card h3,
 .partner-card .text-2xl,
 .stats-card strong,
 .glass h2,
 .glass h1 {
-  color: #ff512f !important;
+  color: #3b82f6 !important;
 }
 
-/* For orange accent text (e.g., in paragraphs or spans) */
+/* For blue accent text (e.g., in paragraphs or spans) */
 .text-orange,
 .text-accent,
 .text-highlight {
-  color: #ff512f !important;
+  color: #3b82f6 !important;
 }
 
-/* If you want to style links as orange on hover */
+/* If you want to style links as blue on hover */
 a, a:visited {
-  color: #ff512f;
+  color: #3b82f6;
   text-decoration: none;
 }
 a:hover {
-  color: #dd2476;
+  color: #1d4ed8;
 }
 
 /* Remove previous white text overrides */
@@ -673,7 +673,7 @@ a:hover {
       
       <h2 class="text-5xl font-bold text-center mb-8">Your AI-Powered Coupon Wallet!</h2>
       
-      <p class="text-xl max-w-3xl mx-auto text-center mb-8 text-[#ea580c]">
+      <p class="text-xl max-w-3xl mx-auto text-center mb-8 text-[#1d4ed8]">
         Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> is your one-stop solution to manage all coupons in one place - smart, simple, and AI-powered.
       </p>
 
