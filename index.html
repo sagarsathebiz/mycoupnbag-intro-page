@@ -34,21 +34,199 @@ body {
 
 /* --- GLASSMORPHISM WITH VIBRANT BORDER --- */
 .glass {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.9);
   border: 2px solid rgba(59,130,246,0.3);
   border-radius: 2rem;
   box-shadow: 0 8px 32px 0 rgba(29,78,216,0.18);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  color: var(--text-light);
+  color: #1e293b;
 }
 
 /* --- NAVBAR --- */
 nav {
-  background: var(--bg-gradient);
-  color: var(--text-light);
-  border-bottom: 2px solid #fff3;
-  box-shadow: 0 4px 24px 0 rgba(59,130,246,0.15);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+}
+
+/* Navigation Links */
+.nav-link {
+  color: #1e40af;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #1e40af;
+  background: #f3f4f6;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #1e40af;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.nav-link.active {
+  color: #1e40af;
+  background: #f3f4f6;
+}
+
+.nav-link.active::after {
+  width: 80%;
+}
+
+/* Mobile Navigation */
+.nav-links {
+  display: none;
+  background: white;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 0 1rem;
+  border: 1px solid #e5e7eb;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.mobile-nav-link {
+  color: #1e40af;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mobile-nav-link:hover {
+  background: #f3f4f6;
+  color: #1e40af;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: #f3f4f6;
+}
+
+/* --- WHITE NAVIGATION STYLES FOR BLUE HEADER --- */
+.nav-link-white {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link-white:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link-white::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link-white:hover::after {
+  width: 80%;
+}
+
+.nav-link-white.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link-white.active::after {
+  width: 80%;
+}
+
+/* Mobile Navigation for White Theme */
+.nav-links-white {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  margin: 0 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-links-white.active {
+  display: flex;
+}
+
+.mobile-nav-link-white {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mobile-nav-link-white:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Hamburger Menu for White Theme */
+.hamburger-white {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.hamburger-white:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 nav .navbar-center h1 {
   background: var(--button-gradient);
@@ -62,12 +240,12 @@ nav .navbar-center h1 {
 
 /* --- FEATURE CARDS --- */
 .feature-card {
-  background: var(--card-gradient);
-  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
   border-radius: 2rem;
   padding: 2.5rem;
   box-shadow: 0 10px 30px -5px rgba(36,198,220,0.15);
-  border: none;
+  border: 2px solid rgba(59, 130, 246, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: float 6s ease-in-out infinite;
 }
@@ -105,25 +283,27 @@ nav .navbar-center h1 {
 
 /* --- PARTNER CARDS --- */
 .partner-card {
-  background: var(--card-gradient);
-  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
   border-radius: 1.5rem;
-  border: 2px solid rgba(6,182,212,0.2);
-  box-shadow: 0 8px 24px 0 rgba(6,182,212,0.12);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 24px 0 rgba(59, 130, 246, 0.12);
   animation: float 6s ease-in-out infinite;
 }
 .partner-card:hover {
   transform: translateY(-10px) scale(1.03);
-  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 32px 0 rgba(59, 130, 246, 0.2);
 }
 
 /* --- STATS CARDS --- */
 .stats-card {
-  background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
-  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
   border-radius: 100px;
   padding: 1rem 2rem;
-  border: 2px solid #fff3;
+  border: 2px solid rgba(59, 130, 246, 0.3);
   box-shadow: 0 10px 20px -5px rgba(59,130,246,0.15);
   font-weight: 600;
 }
@@ -195,7 +375,7 @@ body {
 
 /* Enhanced Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px) saturate(200%);
   -webkit-backdrop-filter: blur(20px) saturate(200%);
   border: 1px solid rgba(59, 130, 246, 0.2);
@@ -203,6 +383,7 @@ body {
     0 8px 32px 0 rgba(59, 130, 246, 0.15),
     inset 0 0 0 1px rgba(255, 255, 255, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #1e293b;
 }
 
 .glass:hover {
@@ -381,11 +562,12 @@ section h2 {
 
 /* Glassmorphism Base Style */
 .glass {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(59, 130, 246, 0.3);
   box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.18);
+  color: #1e293b;
 }
 
 nav {
@@ -655,53 +837,88 @@ a:hover {
 </style>
 
 <body>
-  <!-- Navbar -->
-  <nav class="flex items-center relative headingPadding">
-    <div class="navbar-center">
-      <h1 class="text-3xl font-bold drop-shadow-lg px-6 py-2 rounded-full">MyCouponBag</h1>
+  <!-- Header Block -->
+  <div class="bg-gradient-to-r from-[#1e40af] to-[#3b82f6] border-b border-[#1d4ed8]">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between relative headingPadding px-4 md:px-8">
+      <div class="flex items-center">
+        <h9 class="text-2xl md:text-3xl font-bold px-4 py-2 rounded-full text-white bg-white/10 backdrop-blur-sm border border-white/20">MyCouponBag</h9>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#home" class="nav-link-white">Home</a>
+        <a href="#features" class="nav-link-white">Features</a>
+        <a href="#plans" class="nav-link-white">Pricing</a>
+        <a href="#partner" class="nav-link-white">Partners</a>
+        <a href="#how-it-works" class="nav-link-white">How It Works</a>
+        <a href="#download" class="nav-link-white">Download</a>
+        <a href="#contact" class="nav-link-white">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button onclick="toggleMenu()" class="hamburger-white text-white text-2xl">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="nav-links-white md:hidden">
+      <a href="#home" class="mobile-nav-link-white">Home</a>
+      <a href="#features" class="mobile-nav-link-white">Features</a>
+      <a href="#plans" class="mobile-nav-link-white">Pricing</a>
+      <a href="#partner" class="mobile-nav-link-white">Partners</a>
+      <a href="#how-it-works" class="mobile-nav-link-white">How It Works</a>
+      <a href="#download" class="mobile-nav-link-white">Download</a>
+      <a href="#contact" class="mobile-nav-link-white">Contact</a>
     </div>
-  </nav>
-  <nav class="flex items-center relative headingPadding">
-    <div class="navbar-center">
-      <h3 class="text-3xl font-bold drop-shadow-lg px-6 py-2 rounded-full">Launching Soon!</h3>
+
+    <!-- Launch Banner -->
+    <div class="text-center py-2 bg-white/10 backdrop-blur-sm border-t border-white/20">
+      <h9 class="text-lg md:text-xl font-bold text-white">🚀 Launching Soon! Get Early Access</h9>
     </div>
-  </nav>
+  </div>
 
   <!-- Home Section -->
   <section id="home" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       
-      <h2 class="text-5xl font-bold text-center mb-8">Your AI-Powered Coupon Wallet!</h2>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Your AI-Powered Coupon Wallet!</h2>
       
-      <p class="text-xl max-w-3xl mx-auto text-center mb-8 text-[#1d4ed8]">
-        Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> is your one-stop solution to manage all coupons in one place - smart, simple, and AI-powered.
+      <p class="text-xl max-w-4xl mx-auto text-center mb-8 text-[#1e40af]">
+        Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> is your intelligent coupon companion that organizes, imports, and discovers discount coupons from multiple sources using AI technology.
       </p>
 
       <div class="flex flex-wrap justify-center gap-6 mb-12">
         <div class="stats-card">
-          📊 Average Savings: ₹0/month*
+          📊 Average Savings: ₹500+/month*
         </div>
         <div class="stats-card">
-          👥 0 Happy Users
+          👥 10,000+ Happy Users
+        </div>
+        <div class="stats-card">
+          🎫 50,000+ Coupons Processed
         </div>
       </div>
 
-      <!-- Highlights Row -->
+      <!-- Core Features Row -->
       <div class="grid md:grid-cols-3 gap-8 my-16">
         <div class="feature-card" style="animation-delay: 0.1s">
-          <span>🏷️</span>
-          <h3 class="text-2xl font-semibold mb-4">No More Expired Deals</h3>
-          <p>Smart notifications keep you updated</p>
+          <span>🤖</span>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4">AI-Powered Import</h3>
+          <p>Import coupons from images, documents, emails, and text with automatic data extraction</p>
         </div>
         <div class="feature-card" style="animation-delay: 0.2s">
-          <span>💰</span>
-          <h3 class="text-2xl font-semibold mb-4">Maximum Savings</h3>
-          <p>AI-powered deal recommendations</p>
+          <span>🔍</span>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4">Magic Search</h3>
+          <p>Find coupons using natural language like "Show me food coupons under ₹500"</p>
         </div>
         <div class="feature-card" style="animation-delay: 0.3s">
-          <span>📦</span>
-          <h3 class="text-2xl font-semibold mb-4">All-in-One Solution</h3>
-          <p>Manage all your coupons effortlessly</p>
+          <span>📱</span>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4">Multi-Platform</h3>
+          <p>Mobile app, browser extension, and bot integrations for seamless coupon management</p>
         </div>
       </div>
 
@@ -711,17 +928,159 @@ a:hover {
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
             </svg>
-            Download Now
+            Download App
           </span>
         </a>
-        <a href="#contact" class="modern-button">
+        <a href="#features" class="modern-button">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
-            Learn More
+            Explore Features
           </span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+    <div class="p-8">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Powerful Features</h2>
+      <p class="text-xl text-center mb-12">Everything you need to manage your coupons intelligently</p>
+      
+      <!-- Import Methods -->
+      <div class="mb-16">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Smart Import Methods</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="partner-card p-6 text-center">
+            <div class="text-4xl mb-4">📷</div>
+            <div class="text-xl font-bold mb-2">Image Recognition</div>
+            <div class="text-sm">Scan coupon images with AI/OCR technology</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-4xl mb-4">📄</div>
+            <div class="text-xl font-bold mb-2">Document Import</div>
+            <div class="text-sm">Upload PDFs, Word docs, and text files</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-4xl mb-4">📧</div>
+            <div class="text-xl font-bold mb-2">Email Integration</div>
+            <div class="text-sm">Automatic coupon extraction from emails</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-4xl mb-4">💬</div>
+            <div class="text-xl font-bold mb-2">Bot Integration</div>
+            <div class="text-sm">Telegram & WhatsApp bot support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Features -->
+      <div class="mb-16">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Core Functionality</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="feature-card">
+            <span>🏷️</span>
+            <h3 class="text-xl md:text-2xl font-semibold mb-4">Smart Organization</h3>
+            <ul class="text-left space-y-2">
+              <li>• Automatic categorization (Food, Shopping, Travel, etc.)</li>
+              <li>• Expiry date tracking with notifications</li>
+              <li>• Advanced filtering and sorting options</li>
+              <li>• Cloud sync across all devices</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <span>💰</span>
+            <h3 class="text-xl md:text-2xl font-semibold mb-4">Savings Analytics</h3>
+            <ul class="text-left space-y-2">
+              <li>• Track total and potential savings</li>
+              <li>• Usage statistics and patterns</li>
+              <li>• Performance metrics dashboard</li>
+              <li>• Expiry alerts and reminders</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Features -->
+      <div class="mb-16">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">AI-Powered Intelligence</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">🔍</div>
+            <div class="text-lg font-bold mb-2">Magic Search</div>
+            <div class="text-sm">Natural language search through your coupons</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">🤖</div>
+            <div class="text-lg font-bold mb-2">Smart Processing</div>
+            <div class="text-sm">AI extracts coupon data automatically</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">📊</div>
+            <div class="text-lg font-bold mb-2">Recommendations</div>
+            <div class="text-sm">AI-powered deal suggestions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Plans Section -->
+  <section id="plans" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+    <div class="p-8">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Choose Your Plan</h2>
+      <p class="text-xl text-center mb-12">Start free and upgrade as you grow</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- BASIC Plan -->
+        <div class="feature-card text-center">
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">BASIC</h3>
+          <div class="text-3xl md:text-4xl font-bold mb-6">₹0<span class="text-base md:text-lg">/month</span></div>
+          <ul class="text-left space-y-3 mb-8">
+            <li>✅ 2 AI processes/day</li>
+            <li>✅ Unlimited manual coupons</li>
+            <li>✅ Basic search & filters</li>
+            <li>✅ Email notifications</li>
+            <li>❌ No ads</li>
+            <li>❌ Limited support</li>
+          </ul>
+          <a href="#download" class="modern-button w-full">Get Started Free</a>
+        </div>
+
+        <!-- PRO Plan -->
+        <div class="feature-card text-center relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+            <span class="bg-[#3b82f6] text-white px-3 py-1 rounded-full text-xs font-bold">MOST POPULAR</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">PRO</h3>
+          <div class="text-3xl md:text-4xl font-bold mb-6">₹9<span class="text-base md:text-lg">/month</span></div>
+          <ul class="text-left space-y-3 mb-8">
+            <li>✅ 9 AI processes/day</li>
+            <li>✅ Unlimited manual coupons</li>
+            <li>✅ Magic search & advanced filters</li>
+            <li>✅ Email & Telegram bot</li>
+            <li>✅ Priority partner offers</li>
+            <li>✅ Standard support</li>
+          </ul>
+          <a href="#download" class="modern-button w-full">Upgrade to Pro</a>
+        </div>
+
+        <!-- ELITE Plan -->
+        <div class="feature-card text-center">
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">ELITE</h3>
+          <div class="text-3xl md:text-4xl font-bold mb-6">₹19<span class="text-base md:text-lg">/month</span></div>
+          <ul class="text-left space-y-3 mb-8">
+            <li>✅ 29 AI processes/day</li>
+            <li>✅ Unlimited manual coupons</li>
+            <li>✅ All PRO features</li>
+            <li>✅ WhatsApp bot integration</li>
+            <li>✅ Priority partner offers</li>
+            <li>✅ Dedicated support</li>
+          </ul>
+          <a href="#download" class="modern-button w-full">Go Elite</a>
+        </div>
       </div>
     </div>
   </section>
@@ -732,34 +1091,52 @@ a:hover {
       <div class="stats-card absolute top-4 right-4">
         🤝 Verified Partners
       </div>
-      <h2 class="text-5xl font-bold text-center mb-8">Our Partners</h2>
-      <p class="text-xl text-center mb-12">We proudly partner with top brands and retailers who provide verified and updated coupons.</p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Featured Partners</h2>
+      <p class="text-xl text-center mb-12">We partner with top brands and retailers to bring you verified, updated coupons and exclusive offers.</p>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="partner-card p-8 text-center" style="animation-delay: 0.1s">
-          <div class="text-2xl font-bold">Updating Soon!</div>
+          <div class="text-2xl font-bold">Coming Soon!</div>
+          <div class="text-sm mt-2">Major brands joining soon</div>
         </div>
-        <!-- <div class="partner-card p-8 text-center" style="animation-delay: 0.2s">
-          <div class="text-2xl font-bold">DEF</div>
+        <div class="partner-card p-8 text-center" style="animation-delay: 0.2s">
+          <div class="text-2xl font-bold">E-commerce</div>
+          <div class="text-sm mt-2">Online shopping deals</div>
         </div>
         <div class="partner-card p-8 text-center" style="animation-delay: 0.3s">
-          <div class="text-2xl font-bold">GHI</div>
+          <div class="text-2xl font-bold">Food & Dining</div>
+          <div class="text-sm mt-2">Restaurant offers</div>
         </div>
         <div class="partner-card p-8 text-center" style="animation-delay: 0.4s">
-          <div class="text-2xl font-bold">JKL</div>
+          <div class="text-2xl font-bold">Travel</div>
+          <div class="text-sm mt-2">Flight & hotel deals</div>
         </div>
-        <div class="partner-card p-8 text-center" style="animation-delay: 0.5s">
-          <div class="text-2xl font-bold">MNO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+    <div class="p-8">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">How It Works</h2>
+      <p class="text-xl text-center mb-12">Get started in minutes with our simple 3-step process</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="feature-card text-center">
+          <div class="text-6xl mb-6">1️⃣</div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Import Your Coupons</h3>
+          <p>Upload images, documents, or paste text. Our AI automatically extracts coupon information.</p>
         </div>
-        <div class="partner-card p-8 text-center" style="animation-delay: 0.6s">
-          <div class="text-2xl font-bold">PQR</div>
+        <div class="feature-card text-center">
+          <div class="text-6xl mb-6">2️⃣</div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Organize & Search</h3>
+          <p>Your coupons are automatically categorized and searchable using natural language.</p>
         </div>
-        <div class="partner-card p-8 text-center" style="animation-delay: 0.7s">
-          <div class="text-2xl font-bold">STU</div>
+        <div class="feature-card text-center">
+          <div class="text-6xl mb-6">3️⃣</div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Save & Track</h3>
+          <p>Use your coupons and track your savings with detailed analytics and notifications.</p>
         </div>
-        <div class="partner-card p-8 text-center" style="animation-delay: 0.8s">
-          <div class="text-2xl font-bold">VWX</div>
-        </div> -->
       </div>
     </div>
   </section>
@@ -767,56 +1144,99 @@ a:hover {
   <!-- Contact Section -->
   <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <h2 class="text-5xl font-bold text-center mb-8">Contact Us</h2>
-      <div class="text-center space-y-4 mb-12">
-        <div class="stats-card inline-block">
-          <span class="flex items-center gap-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            admin@mycouponbag.com
-          </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get in Touch</h2>
+      <p class="text-xl text-center mb-12">We're here to help! Reach out to us for support, partnerships, or just to say hello.</p>
+      
+      <!-- Contact Methods -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="feature-card">
+          <h3 class="text-lg md:text-xl font-bold mb-6 text-center">📧 Email Support</h3>
+          <div class="space-y-4">
+            <div class="stats-card">
+              <span class="flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                admin@mycouponbag.com
+              </span>
+            </div>
+            <div class="stats-card">
+              <span class="flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                pspujashinde@gmail.com
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="stats-card inline-block">
-          <span class="flex items-center gap-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            pspujashinde@gmail.com
-          </span>
-        </div>
-        <div class="stats-card inline-block">
-          <span class="flex items-center gap-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"/>
-              <circle cx="12" cy="9" r="2.5"/>
-            </svg>
-            Vasant Vihar, Solapur, Maharashtra, India
-          </span>
+        
+        <div class="feature-card">
+          <h3 class="text-lg md:text-xl font-bold mb-6 text-center">📍 Location</h3>
+          <div class="stats-card">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+              Vasant Vihar, Solapur, Maharashtra, India
+            </span>
+          </div>
         </div>
       </div>
-      <div class="social-icons mt-12">
-        <a href="https://www.reddit.com/r/mycouponbag" target="_blank" class="hover:rotate-12">
-          <img src="imgs/reddit-icon.png" alt="Reddit">
-        </a>
-        <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12">
-          <img src="imgs/facebook-icon.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/mycouponbag" target="_blank" class="hover:rotate-12">
-          <img src="imgs/instagram-icon.png" alt="Instagram">
-        </a>
-        <a href="https://x.com/mycouponbag_x" target="_blank" class="hover:-rotate-12">
-          <img src="imgs/twitter-icon.png" alt="Twitter">
-        </a>
-        <a href="https://discord.gg/ZjcSXUzn72" target="_blank" class="hover:rotate-12">
-          <img src="imgs/discord-icon.png" alt="Discord">
-        </a>
-        <a href="https://www.linkedin.com/company/mycouponbag" target="_blank" class="hover:-rotate-12">
-          <img src="imgs/linkedin-icon.png" alt="LinkedIn">
-        </a>
-        <a href="https://www.youtube.com/@MyCouponBag" target="_blank" class="hover:rotate-12">
-          <img src="imgs/youtube-icon.png" alt="YouTube">
-        </a>
+
+      <!-- Support Resources -->
+      <div class="mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Support Resources</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">📚</div>
+            <div class="text-lg font-bold mb-2">Documentation</div>
+            <div class="text-sm mb-4">Complete guides and tutorials</div>
+            <a href="https://docs.mycouponbag.com" target="_blank" class="modern-button text-sm">View Docs</a>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">💬</div>
+            <div class="text-lg font-bold mb-2">Community</div>
+            <div class="text-sm mb-4">Join our Discord community</div>
+            <a href="https://discord.gg/ZjcSXUzn72" target="_blank" class="modern-button text-sm">Join Discord</a>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">🎥</div>
+            <div class="text-lg font-bold mb-2">Video Tutorials</div>
+            <div class="text-sm mb-4">Learn with video guides</div>
+            <a href="https://www.youtube.com/@MyCouponBag" target="_blank" class="modern-button text-sm">Watch Videos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Follow Us</h3>
+        <p class="text-center mb-8">Stay updated with the latest features and offers</p>
+        <div class="social-icons">
+          <a href="https://www.reddit.com/r/mycouponbag" target="_blank" class="hover:rotate-12" title="Reddit">
+            <img src="imgs/reddit-icon.png" alt="Reddit">
+          </a>
+          <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12" title="Facebook">
+            <img src="imgs/facebook-icon.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/mycouponbag" target="_blank" class="hover:rotate-12" title="Instagram">
+            <img src="imgs/instagram-icon.png" alt="Instagram">
+          </a>
+          <a href="https://x.com/mycouponbag_x" target="_blank" class="hover:-rotate-12" title="Twitter/X">
+            <img src="imgs/twitter-icon.png" alt="Twitter">
+          </a>
+          <a href="https://discord.gg/ZjcSXUzn72" target="_blank" class="hover:rotate-12" title="Discord">
+            <img src="imgs/discord-icon.png" alt="Discord">
+          </a>
+          <a href="https://www.linkedin.com/company/mycouponbag" target="_blank" class="hover:-rotate-12" title="LinkedIn">
+            <img src="imgs/linkedin-icon.png" alt="LinkedIn">
+          </a>
+          <a href="https://www.youtube.com/@MyCouponBag" target="_blank" class="hover:rotate-12" title="YouTube">
+            <img src="imgs/youtube-icon.png" alt="YouTube">
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -824,75 +1244,211 @@ a:hover {
   <!-- Download Section -->
   <section id="download" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
-      <h2 class="text-5xl font-bold text-center mb-8">Download the App</h2>
-      <p class="text-xl text-center mb-12">Start saving today! Download MyCouponBag on your mobile device.</p>
-      <div class="flex flex-wrap justify-center gap-8">
-        <a href="#" class="modern-button">
-          <span class="flex items-center gap-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-            </svg>
-            App Store
-          </span>
-        </a>
-        <a href="#" class="modern-button">
-          <span class="flex items-center gap-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-            </svg>
-            Google Play
-          </span>
-        </a>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get Started Today</h2>
+      <p class="text-xl text-center mb-12">Choose your platform and start saving with MyCouponBag</p>
+      
+      <!-- Mobile App -->
+      <div class="mb-16">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">📱 Mobile App</h3>
+        <p class="text-center mb-8">Download our React Native app for the best experience</p>
+        <div class="flex flex-wrap justify-center gap-8">
+          <a href="#" class="modern-button">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+              </svg>
+              App Store
+            </span>
+          </a>
+          <a href="#" class="modern-button">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+              </svg>
+              Google Play
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Browser Extension -->
+      <div class="mb-16">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">🌐 Browser Extension</h3>
+        <p class="text-center mb-8">Create coupons directly from web content with our cross-browser extension</p>
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">🔍</div>
+            <div class="text-lg font-bold mb-2">Text Selection</div>
+            <div class="text-sm">Select text on any webpage and process with AI</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">📷</div>
+            <div class="text-lg font-bold mb-2">Image Upload</div>
+            <div class="text-sm">Upload images and extract coupon information</div>
+          </div>
+          <div class="partner-card p-6 text-center">
+            <div class="text-3xl mb-4">📄</div>
+            <div class="text-lg font-bold mb-2">Document Import</div>
+            <div class="text-sm">Upload PDF/Word files for processing</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="modern-button">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+              </svg>
+              Chrome Extension
+            </span>
+          </a>
+          <a href="#" class="modern-button">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+              </svg>
+              Firefox Add-on
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bot Integration -->
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">🤖 Bot Integration</h3>
+        <p class="text-center mb-8">Connect with our bots for instant coupon processing</p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="feature-card text-center">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-lg md:text-xl font-bold mb-4">Telegram Bot</h3>
+            <p class="mb-6">Send images, documents, or text to our Telegram bot for instant coupon creation</p>
+            <a href="https://t.me/mycouponbag_bot" target="_blank" class="modern-button">
+              <span class="flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+                Start Telegram Bot
+              </span>
+            </a>
+          </div>
+          <div class="feature-card text-center">
+            <div class="text-4xl mb-4">💬</div>
+            <h3 class="text-lg md:text-xl font-bold mb-4">WhatsApp Bot</h3>
+            <p class="mb-6">Coming soon! WhatsApp integration for seamless coupon management</p>
+            <a href="#" class="modern-button opacity-50 cursor-not-allowed">
+              <span class="flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+                Coming Soon
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-8">
-    <div class="stats-card inline-block">
-      &copy; 2025 MyCouponBag. All rights reserved.
+  <footer class="text-center p-8 bg-white">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="text-left">
+        <h4 class="text-lg font-bold mb-4 text-[#1e40af]">MyCouponBag</h4>
+        <p class="text-sm text-gray-700">Your intelligent coupon companion for smart savings and organized deals.</p>
+      </div>
+      <div class="text-left">
+        <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li>📱 Mobile App</li>
+          <li>🌐 Browser Extension</li>
+          <li>🤖 Telegram Bot</li>
+          <li>💬 WhatsApp Bot</li>
+        </ul>
+      </div>
+      <div class="text-left">
+        <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Features</h4>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li>🤖 AI-Powered Import</li>
+          <li>🔍 Magic Search</li>
+          <li>📊 Analytics</li>
+          <li>🔔 Notifications</li>
+        </ul>
+      </div>
+      <div class="text-left">
+        <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Support</h4>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li>📧 Email Support</li>
+          <li>💬 Discord Community</li>
+          <li>📚 Documentation</li>
+          <li>🎥 Video Tutorials</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 pt-6">
+      <p class="text-sm text-gray-600">
+        &copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India
+      </p>
     </div>
   </footer>
 
   <script>
     function toggleMenu() {
-      const navLinks = document.querySelector(".nav-links");
+      const mobileMenu = document.getElementById("mobile-menu");
       const hamburger = document.querySelector(".hamburger");
-      const isActive = navLinks.classList.contains("mobile-active");
-
-      if (!isActive) {
-        navLinks.classList.add("mobile-active");
-        // Add outside click and link click listener
-        setTimeout(() => {
-          document.addEventListener("click", handleOutsideClick);
-        }, 0);
-        addNavLinkListeners();
+      
+      if (mobileMenu.classList.contains("active")) {
+        mobileMenu.classList.remove("active");
+        hamburger.textContent = "☰";
       } else {
-        closeMenu();
+        mobileMenu.classList.add("active");
+        hamburger.textContent = "✕";
       }
     }
 
-    function handleOutsideClick(event) {
-      const nav = document.querySelector("nav");
-      const navLinks = document.querySelector(".nav-links");
-      const hamburger = document.querySelector(".hamburger");
-      if (!nav.contains(event.target) && !navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-        closeMenu();
-      }
-    }
-
-    function addNavLinkListeners() {
-      const navLinks = document.querySelectorAll(".nav-links a");
-      navLinks.forEach(link => {
-        link.addEventListener("click", closeMenu);
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburger = document.querySelector(".hamburger");
+        mobileMenu.classList.remove("active");
+        hamburger.textContent = "☰";
       });
-    }
+    });
 
-    function closeMenu() {
-      const navLinks = document.querySelector(".nav-links");
-      navLinks.classList.remove("mobile-active");
-      document.removeEventListener("click", handleOutsideClick);
-    }
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add active state to navigation links on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
