@@ -32,6 +32,36 @@
       color: white;
       border-radius: 8px;
     }
+    
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+      .mobile-nav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      .mobile-nav.open {
+        transform: translateX(0);
+      }
+      .mobile-overlay {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    /* Hide mobile nav toggle on desktop */
+    @media (min-width: 769px) {
+      .mobile-nav-toggle {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 font-['Poppins']">
@@ -39,10 +69,19 @@
     <!-- Header -->
     <header class="bg-white shadow-sm border-b sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-6">
+        <div class="flex justify-between items-center py-4 sm:py-6">
           <div class="flex items-center">
-            <a href="/" class="text-2xl font-bold text-blue-600">MyCouponBag</a>
+            <a href="/" class="text-xl sm:text-2xl font-bold text-blue-600">MyCouponBag</a>
           </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="mobile-nav-toggle md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" onclick="toggleMobileNav()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          
+          <!-- Desktop Navigation -->
           <nav class="hidden md:flex space-x-8">
             <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
             <a href="/help" class="text-blue-600 font-medium">Help</a>
@@ -51,10 +90,42 @@
       </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid lg:grid-cols-4 gap-8">
-        <!-- Sidebar Navigation -->
-        <div class="lg:col-span-1">
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onclick="toggleMobileNav()"></div>
+
+    <!-- Mobile Navigation Sidebar -->
+    <div id="mobileNav" class="mobile-nav fixed left-0 top-0 h-full w-80 bg-white shadow-lg z-50 md:hidden overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-lg font-semibold text-gray-900">Navigation</h2>
+          <button onclick="toggleMobileNav()" class="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="space-y-2">
+          <a href="#overview" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📱 App Overview</a>
+          <a href="#mybag" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👜 MyBag Tab</a>
+          <a href="#review" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📋 Review Tab</a>
+          <a href="#discover" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🔍 Discover Tab</a>
+          <a href="#me" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👤 Me Tab</a>
+          <a href="#manual-entry" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✏️ Manual Entry</a>
+          <a href="#ai-submission" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🤖 AI Submission</a>
+          <a href="#magic-search" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✨ Magic Search</a>
+          <a href="#edit-coupon" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✏️ Edit Coupon</a>
+          <a href="#edit-profile" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👤 Edit Profile</a>
+          <a href="#subscription" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">💳 Manage Subscription</a>
+          <a href="#history" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📊 Coupon History</a>
+          <a href="#support" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📞 Support</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+      <div class="grid lg:grid-cols-4 gap-4 sm:gap-8">
+        <!-- Sidebar Navigation - Hidden on mobile -->
+        <div class="hidden lg:block lg:col-span-1">
           <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Navigation</h2>
             <nav class="space-y-2">
@@ -78,35 +149,35 @@
         <!-- Main Content -->
         <div class="lg:col-span-3">
           <!-- Hero Section -->
-          <div class="gradient-bg text-white rounded-2xl p-8 mb-8">
-            <h1 class="text-4xl font-bold mb-4">Help Center</h1>
-            <p class="text-xl opacity-90">Everything you need to know about MyCouponBag - Your AI-Powered Coupon Wallet!</p>
+          <div class="gradient-bg text-white rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
+            <h1 class="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">Help Center</h1>
+            <p class="text-lg sm:text-xl opacity-90">Everything you need to know about MyCouponBag - Your AI-Powered Coupon Wallet!</p>
           </div>
 
           <!-- App Overview -->
-          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">📱</div>
-              <h2 class="text-2xl font-bold text-gray-900">App Overview</h2>
+          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📱</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">App Overview</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-6">
+              <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
                 <strong>MyCouponBag</strong> is your intelligent coupon management solution that helps you capture, organize, and use every coupon you come across before it expires!
               </p>
               
-              <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div class="bg-blue-50 p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3">🎯 What We Do</h3>
-                  <ul class="text-blue-800 space-y-2">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
+                  <h3 class="font-semibold text-blue-900 mb-2 sm:mb-3 text-sm sm:text-base">🎯 What We Do</h3>
+                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• AI-powered coupon import from images, documents, and text</li>
                     <li>• Smart organization and categorization</li>
                     <li>• Magic Search for finding relevant coupons</li>
                     <li>• Multi-platform access (mobile app, browser extension, bots)</li>
                   </ul>
                 </div>
-                <div class="bg-green-50 p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3">💡 Key Benefits</h3>
-                  <ul class="text-green-800 space-y-2">
+                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                  <h3 class="font-semibold text-green-900 mb-2 sm:mb-3 text-sm sm:text-base">💡 Key Benefits</h3>
+                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• Never lose a coupon again</li>
                     <li>• Save time with automated processing</li>
                     <li>• Track your savings and usage</li>
@@ -118,19 +189,19 @@
           </section>
 
           <!-- MyBag Tab -->
-          <section id="mybag" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">👜</div>
-              <h2 class="text-2xl font-bold text-gray-900">MyBag Tab</h2>
+          <section id="mybag" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👜</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">MyBag Tab</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 This is your personal coupon collection! Here you can view, manage, and use all the coupons you've added to your account.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• View all your saved coupons in one place</li>
                   <li>• Filter coupons by category (Food, Shopping, Travel, etc.)</li>
                   <li>• Search for specific coupons using keywords</li>
@@ -140,9 +211,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Swipe through your coupons or use the search bar to find specific ones</li>
                   <li>• Tap on any coupon to see full details and copy the coupon code</li>
                   <li>• Use the category filters at the top to organize your coupons</li>
@@ -153,19 +224,19 @@
           </section>
 
           <!-- Review Tab -->
-          <section id="review" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">📋</div>
-              <h2 class="text-2xl font-bold text-gray-900">Review Tab</h2>
+          <section id="review" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📋</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Review Tab</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 This tab shows you coupons that have been automatically imported from your connected accounts (email, WhatsApp, Telegram) and need your review before being added to your collection.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Review automatically imported coupons from your connected accounts</li>
                   <li>• Filter by source (Email, WhatsApp, Telegram)</li>
                   <li>• Approve or reject imported coupons</li>
@@ -174,9 +245,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Check this tab regularly for new imported coupons</li>
                   <li>• Review each coupon's details and accuracy</li>
                   <li>• Tap "Approve" to add it to your collection or "Reject" to remove it</li>
@@ -187,19 +258,19 @@
           </section>
 
           <!-- Discover Tab -->
-          <section id="discover" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">🔍</div>
-              <h2 class="text-2xl font-bold text-gray-900">Discover Tab</h2>
+          <section id="discover" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🔍</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Discover Tab</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Discover exclusive coupons and offers from our partner brands and featured deals that you might not find elsewhere.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Browse partner-branded coupons and offers</li>
                   <li>• View featured deals and special promotions</li>
                   <li>• Access exclusive discounts from trusted partners</li>
@@ -208,9 +279,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Browse through partner offers and featured deals</li>
                   <li>• Tap on any offer to see full details</li>
                   <li>• Add interesting coupons to your collection</li>
@@ -221,19 +292,19 @@
           </section>
 
           <!-- Me Tab -->
-          <section id="me" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">👤</div>
-              <h2 class="text-2xl font-bold text-gray-900">Me Tab</h2>
+          <section id="me" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👤</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Me Tab</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 This is your personal settings and account management hub where you can customize your experience and manage your account.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Manage your profile information (name, email, location)</li>
                   <li>• Connect external accounts (email, WhatsApp, Telegram) for automatic coupon import</li>
                   <li>• Control notification settings</li>
@@ -243,9 +314,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Update your personal information and preferences</li>
                   <li>• Connect your accounts for automatic coupon import</li>
                   <li>• Manage your subscription plan and billing</li>
@@ -256,19 +327,19 @@
           </section>
 
           <!-- Manual Entry -->
-          <section id="manual-entry" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">✏️</div>
-              <h2 class="text-2xl font-bold text-gray-900">Manual Entry Coupons</h2>
+          <section id="manual-entry" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✏️</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Manual Entry Coupons</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Add coupons to your collection by manually entering all the details yourself.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Enter coupon details manually (brand, code, discount, expiry date, etc.)</li>
                   <li>• Choose from predefined categories</li>
                   <li>• Set minimum payment requirements</li>
@@ -277,9 +348,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Fill in all required fields (brand name, coupon code, reward amount, expiry date)</li>
                   <li>• Select the appropriate category for easy organization</li>
                   <li>• Add optional details like minimum payment and description</li>
@@ -291,19 +362,19 @@
           </section>
 
           <!-- AI Submission -->
-          <section id="ai-submission" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">🤖</div>
-              <h2 class="text-2xl font-bold text-gray-900">AI Submission Coupons</h2>
+          <section id="ai-submission" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤖</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">AI Submission Coupons</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Let our AI help you add coupons quickly by processing text, images, or documents containing coupon information.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• <strong>Text Paste:</strong> Copy and paste coupon text from anywhere, and AI will extract all details</li>
                   <li>• <strong>Image Upload:</strong> Take a photo or upload an image of a coupon, and AI will read and extract information</li>
                   <li>• <strong>Document Upload:</strong> Upload PDF or document files containing coupon information</li>
@@ -312,9 +383,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• <strong>For Text:</strong> Copy coupon text from emails, websites, or messages, paste it in the clipboard section, and tap "Process"</li>
                   <li>• <strong>For Images:</strong> Tap the camera icon, take a photo or select from gallery, then tap "Process"</li>
                   <li>• <strong>For Documents:</strong> Tap the document icon, select your file, then tap "Process"</li>
@@ -326,19 +397,19 @@
           </section>
 
           <!-- Magic Search -->
-          <section id="magic-search" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">✨</div>
-              <h2 class="text-2xl font-bold text-gray-900">Magic Search</h2>
+          <section id="magic-search" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✨</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Magic Search</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 An intelligent search feature that helps you find relevant coupons based on what you're looking for, even if you don't know the exact brand or coupon name.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Search by product type, service, or general category</li>
                   <li>• Find coupons even without knowing specific brand names</li>
                   <li>• Get personalized coupon recommendations</li>
@@ -346,9 +417,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Tap the Magic Search button</li>
                   <li>• Enter what you're looking for (e.g., "pizza delivery," "clothing store," "travel booking")</li>
                   <li>• Browse through relevant coupons and offers</li>
@@ -359,19 +430,19 @@
           </section>
 
           <!-- Edit Coupon -->
-          <section id="edit-coupon" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">✏️</div>
-              <h2 class="text-2xl font-bold text-gray-900">Edit Coupon</h2>
+          <section id="edit-coupon" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✏️</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Edit Coupon</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Modify the details of any coupon in your collection, including updating information, changing categories, or correcting errors.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Edit all coupon details (brand, code, discount, expiry date, etc.)</li>
                   <li>• Change category classification</li>
                   <li>• Update descriptions and notes</li>
@@ -380,9 +451,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Navigate to the coupon you want to edit</li>
                   <li>• Tap the edit button</li>
                   <li>• Modify any fields that need updating</li>
@@ -394,19 +465,19 @@
           </section>
 
           <!-- Edit Profile -->
-          <section id="edit-profile" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">👤</div>
-              <h2 class="text-2xl font-bold text-gray-900">Edit Profile</h2>
+          <section id="edit-profile" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👤</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Edit Profile</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Update your personal information, contact details, and location preferences to personalize your coupon experience.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Update your name and email address</li>
                   <li>• Add or modify your phone number</li>
                   <li>• Set your location (state, city, pincode) for location-based offers</li>
@@ -414,9 +485,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Fill in your personal information</li>
                   <li>• Select your state and city from the dropdown menus</li>
                   <li>• Enter your pincode for location-specific offers</li>
@@ -427,19 +498,19 @@
           </section>
 
           <!-- Manage Subscription -->
-          <section id="subscription" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">💳</div>
-              <h2 class="text-2xl font-bold text-gray-900">Manage Subscription</h2>
+          <section id="subscription" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">💳</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Manage Subscription</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 View and manage your subscription plan, upgrade or downgrade your plan, and control your billing settings.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• View your current subscription plan and status</li>
                   <li>• See available subscription tiers (Basic, Pro, Premium, Elite)</li>
                   <li>• Compare features between different plans</li>
@@ -450,9 +521,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Check your current plan status and features</li>
                   <li>• Browse available plans and their benefits</li>
                   <li>• Tap "Subscribe" to upgrade to a higher tier</li>
@@ -464,19 +535,19 @@
           </section>
 
           <!-- Coupon History -->
-          <section id="history" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">📊</div>
-              <h2 class="text-2xl font-bold text-gray-900">Coupon History</h2>
+          <section id="history" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📊</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Coupon History</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-4">
+              <p class="text-base sm:text-lg text-gray-700 mb-4">
                 Track all your coupon activity, including which coupons you've used, when you used them, and their current status.
               </p>
               
-              <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                <h3 class="font-semibold text-blue-900 mb-4">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-2">
+              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
+                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• View all coupons you've ever added to your collection</li>
                   <li>• See usage history and status of each coupon</li>
                   <li>• Track which coupons are active, expired, or used</li>
@@ -485,9 +556,9 @@
                 </ul>
               </div>
 
-              <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-4">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-2">
+              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
+                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
+                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li>• Browse through your complete coupon history</li>
                   <li>• Use filters to find specific types of coupons (active, expired, used)</li>
                   <li>• Tap on any coupon to see detailed information</li>
@@ -498,23 +569,23 @@
           </section>
 
           <!-- Support Section -->
-          <section id="support" class="section-anchor bg-white rounded-lg shadow-sm p-8 mb-8 card-hover">
-            <div class="flex items-center mb-6">
-              <div class="text-3xl mr-4">📞</div>
-              <h2 class="text-2xl font-bold text-gray-900">Need More Help?</h2>
+          <section id="support" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
+            <div class="flex items-center mb-4 sm:mb-6">
+              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📞</div>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Need More Help?</h2>
             </div>
             <div class="prose max-w-none">
-              <p class="text-lg text-gray-700 mb-6">
+              <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
                 Can't find what you're looking for? Our support team is here to help you!
               </p>
               
-              <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">📧 Contact Support</h3>
-                <p class="mb-4">Email us at:</p>
-                <a href="mailto:support@mycouponbag.com" class="text-2xl font-bold underline hover:no-underline">
+              <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 sm:p-8 rounded-lg">
+                <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">📧 Contact Support</h3>
+                <p class="mb-3 sm:mb-4 text-sm sm:text-base">Email us at:</p>
+                <a href="mailto:support@mycouponbag.com" class="text-xl sm:text-2xl font-bold underline hover:no-underline break-all">
                   support@mycouponbag.com
                 </a>
-                <p class="mt-4 text-blue-100">We typically respond within 24 hours!</p>
+                <p class="mt-3 sm:mt-4 text-blue-100 text-sm sm:text-base">We typically respond within 24 hours!</p>
               </div>
             </div>
           </section>
@@ -523,9 +594,9 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t mt-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="text-center text-gray-500">
+    <footer class="bg-white border-t mt-8 sm:mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div class="text-center text-gray-500 text-sm sm:text-base">
           <p>&copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India</p>
         </div>
       </div>
@@ -533,6 +604,25 @@
   </div>
 
   <script>
+    // Mobile navigation toggle
+    function toggleMobileNav() {
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      
+      mobileNav.classList.toggle('open');
+      mobileOverlay.classList.toggle('open');
+      
+      // Prevent body scroll when mobile nav is open
+      if (mobileNav.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close mobile nav when clicking on overlay
+    document.getElementById('mobileOverlay').addEventListener('click', toggleMobileNav);
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -567,6 +657,18 @@
           link.classList.add('active');
         }
       });
+    });
+
+    // Close mobile nav on window resize (if screen becomes larger)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        mobileNav.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   </script>
 </body>
