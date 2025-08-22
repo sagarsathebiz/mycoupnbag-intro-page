@@ -893,38 +893,50 @@ a:hover {
   <section id="home" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
 
-      <div class="text-center mb-8">
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <h3 class="text-2xl md:text-3xl font-bold text-[#1e40af]">Launching Soon!</h3>
-          <div class="text-3xl animate-pulse">💥</div>
+      <!-- Hero Section with Image and Content Side by Side -->
+      <div class="grid md:grid-cols-2 gap-4 items-center mb-12">
+        <!-- Left Side: Image -->
+        <div class="flex justify-center md:justify-end">
+          <img src="imgs/mcb-happy.png" alt="Happy MyCouponBag User" class="w-80 h-80 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 object-cover">
         </div>
-        <a href="https://tally.so/r/n0RY09" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full text-sm font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-          <span>🚀</span>
-          <span>Launching Offer</span>
-        </a>
+        
+        <!-- Right Side: Content -->
+        <div class="text-center md:text-left space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-center md:justify-start gap-3">
+              <h3 class="text-2xl md:text-3xl font-bold text-[#1e40af]">Launching Soon!</h3>
+              <div class="text-3xl animate-pulse">💥</div>
+            </div>
+            <a href="https://tally.so/r/n0RY09" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full text-sm font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-md">
+              <span>🚀</span>
+              <span>Launching Offer</span>
+            </a>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">Your AI-Powered Coupon Wallet!</h2>
+          
+          <p class="text-xl text-[#1e40af] leading-relaxed">
+            Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> helps you capture and use every coupon you come across, before it expires!
+          </p>
+        </div>
       </div>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Your AI-Powered Coupon Wallet!</h2>
-      
-      <p class="text-xl max-w-4xl mx-auto text-center mb-8 text-[#1e40af]">
-        Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> helps you capture and use every coupon you come across, <br>before it expires!
-      </p>
 
       <!-- Core Features Row -->
       <div class="grid md:grid-cols-3 gap-8 my-16">
         <div class="feature-card" style="animation-delay: 0.1s">
           <span>🤖</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">AI-Powered Import</h3>
-          <p>Import coupons from images, documents, emails, and text with automatic data extraction</p>
+          <p>Import coupons from images, documents, emails, and text with automatic data extraction and processing</p>
         </div>
         <div class="feature-card" style="animation-delay: 0.2s">
           <span>🔍</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">Magic Search</h3>
-          <p>Find coupons using natural language like "Show me food coupons under ₹500"</p>
+          <p>Find coupons using natural language like "Show me food coupons under ₹500" with intelligent filtering</p>
         </div>
         <div class="feature-card" style="animation-delay: 0.3s">
           <span>📱</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">Multi-Platform</h3>
-          <p>Mobile app, browser extension, and bot integrations for seamless coupon management</p>
+          <p>Mobile app, browser extension, and bot integrations for seamless coupon management across all devices</p>
         </div>
       </div>
 
@@ -934,7 +946,7 @@ a:hover {
           <div class="text-4xl mb-4">👑</div>
           <h3 class="text-2xl md:text-3xl font-bold mb-4 text-amber-800">EliteLine Submit</h3>
           <p class="text-lg mb-4 text-amber-700">Skip the Review tab — straight into <strong>MyBag</strong></p>
-          <p class="text-base text-gray-700 mb-6">Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.</p>
+          <p class="text-base text-gray-700 mb-6">Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team verifies and adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.</p>
 
         </div>
       </div>
@@ -980,43 +992,9 @@ a:hover {
   <section id="features" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Powerful Features</h2>
-      <p class="text-xl text-center mb-12">Everything you need to manage your coupons intelligently</p>
+      <p class="text-xl text-center mb-12">Everything you need to manage your coupons intelligently with AI-powered automation</p>
       
-      <!-- Import Methods -->
-      <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Smart Import Methods</h3>
-        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          <div class="partner-card p-6 text-center">
-            <div class="text-4xl mb-4">📷</div>
-            <div class="text-xl font-bold mb-2">Image Recognition</div>
-            <div class="text-sm">Scan coupon images with AI/OCR technology</div>
-          </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-4xl mb-4">📄</div>
-            <div class="text-xl font-bold mb-2">Document Import</div>
-            <div class="text-sm">Upload PDFs, Word docs, and text files</div>
-          </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-4xl mb-4">📧</div>
-            <div class="text-xl font-bold mb-2">Email Integration</div>
-            <div class="text-sm">Automatic coupon extraction from emails</div>
-          </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-4xl mb-4">🤖</div>
-            <div class="text-xl font-bold mb-2">SmartBot Import</div>
-            <div class="text-sm">Auto-fetch coupons to Review tab</div>
-            <div class="text-xs text-blue-600 mt-2 font-semibold">Self-serve</div>
-          </div>
-          <div class="partner-card p-6 text-center border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50">
-            <div class="text-4xl mb-4">👑</div>
-            <div class="text-xl font-bold mb-2 text-amber-800">EliteLine Submit</div>
-            <div class="text-sm text-amber-700">Skip Review tab — direct to MyBag</div>
-            <div class="text-xs text-amber-600 mt-2 font-semibold">Hands-free</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Core Features -->
+      <!-- Core Functionality -->
       <div class="mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Core Functionality</h3>
         <div class="grid md:grid-cols-2 gap-8">
@@ -1025,9 +1003,10 @@ a:hover {
             <h3 class="text-xl md:text-2xl font-semibold mb-4">Smart Organization</h3>
             <ul class="text-left space-y-2">
               <li>• Automatic categorization (Food, Shopping, Travel, etc.)</li>
-              <li>• Expiry date tracking with notifications</li>
+              <li>• Expiry date tracking with smart notifications</li>
               <li>• Advanced filtering and sorting options</li>
               <li>• Cloud sync across all devices</li>
+              <li>• Usage tracking and analytics</li>
             </ul>
           </div>
           <div class="feature-card">
@@ -1035,32 +1014,78 @@ a:hover {
             <h3 class="text-xl md:text-2xl font-semibold mb-4">Savings Analytics</h3>
             <ul class="text-left space-y-2">
               <li>• Track total and potential savings</li>
-              <li>• Usage statistics and patterns</li>
+              <li>• Usage statistics and spending patterns</li>
               <li>• Performance metrics dashboard</li>
-              <li>• Expiry alerts and reminders</li>
+              <li>• Expiry alerts and smart reminders</li>
+              <li>• Savings goals and progress tracking</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- AI Features -->
+      <!-- Import Methods Row -->
       <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">AI-Powered Intelligence</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">🔍</div>
-            <div class="text-lg font-bold mb-2">Magic Search</div>
-            <div class="text-sm">Natural language search through your coupons</div>
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Import Methods</h3>
+        
+        <!-- Main Import Methods Box - All features in one line -->
+        <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border-2 border-blue-200 mb-8">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <!-- Unlimited Manual Entry -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 text-center">
+              <div class="text-2xl mb-2">✏️</div>
+              <div class="text-lg font-bold text-green-800">Unlimited Manual Entry</div>
+              <div class="text-xs text-green-600 font-semibold">Unlimited</div>
+            </div>
+            
+            <!-- Text Analysis -->
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border-2 border-blue-200 text-center">
+              <div class="text-2xl mb-2">📝</div>
+              <div class="text-lg font-bold text-blue-800">Text Analysis</div>
+              <div class="text-xs text-blue-600 font-semibold">AI-Powered</div>
+            </div>
+            
+            <!-- Image Recognition -->
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200 text-center">
+              <div class="text-2xl mb-2">📷</div>
+              <div class="text-lg font-bold text-purple-800">Image Recognition</div>
+              <div class="text-xs text-purple-600 font-semibold">AI/OCR</div>
+            </div>
+            
+            <!-- Document Import -->
+            <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-4 border-2 border-indigo-200 text-center">
+              <div class="text-2xl mb-2">📄</div>
+              <div class="text-lg font-bold text-indigo-800">Document Import</div>
+              <div class="text-xs text-indigo-600 font-semibold">Multi-Format</div>
+            </div>
           </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">🤖</div>
-            <div class="text-lg font-bold mb-2">Smart Processing</div>
-            <div class="text-sm">AI extracts coupon data automatically</div>
+        </div>
+
+        <!-- Additional Import Methods Row -->
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <!-- Third Sub-box: SmartBot Imports -->
+          <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 border-2 border-purple-200">
+            <h4 class="text-xl font-bold text-center mb-6 text-purple-800">SmartBot Imports</h4>
+            <div class="flex justify-center">
+              <div class="partner-card p-6 text-center border-2 border-purple-300 bg-white/80 max-w-sm w-full">
+                <div class="text-4xl mb-4">🤖</div>
+                <div class="text-xl font-bold mb-2 text-purple-800">SmartBot Import</div>
+                <div class="text-sm text-purple-700">Auto-fetch coupons to Review section</div>
+                <div class="text-xs text-purple-600 mt-2 font-semibold">Self-serve</div>
+              </div>
+            </div>
           </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">📊</div>
-            <div class="text-lg font-bold mb-2">Recommendations</div>
-            <div class="text-sm">AI-powered deal suggestions</div>
+
+          <!-- Fourth Sub-box: EliteLine Submit -->
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
+            <h4 class="text-xl font-bold text-center mb-6 text-amber-800">EliteLine Submit</h4>
+            <div class="flex justify-center">
+              <div class="partner-card p-6 text-center border-2 border-amber-300 bg-white/80 max-w-sm w-full">
+                <div class="text-4xl mb-4">👑</div>
+                <div class="text-xl font-bold mb-2 text-amber-800">EliteLine Submit</div>
+                <div class="text-sm text-amber-700">Skip Review section — direct to MyBag</div>
+                <div class="text-xs text-amber-600 mt-2 font-semibold">Hands-free</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1084,7 +1109,7 @@ a:hover {
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</div>
-                <div class="text-sm">Appears in Review tab</div>
+                <div class="text-sm">Appears in Review section</div>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</div>
@@ -1125,13 +1150,13 @@ a:hover {
   <section id="how-it-works" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">🛠️ How It Works</h2>
-      <p class="text-xl text-center mb-12">Your complete guide to managing coupons efficiently</p>
+      <p class="text-xl text-center mb-12">Your complete guide to managing coupons efficiently with smart automation</p>
       
       <div class="grid md:grid-cols-4 gap-6 mb-12">
         <div class="feature-card text-center">
           <div class="text-4xl mb-4">📱</div>
           <h3 class="text-lg md:text-xl font-bold mb-3">Explore MyBag</h3>
-          <p class="text-sm text-gray-600"><strong>MyBag</strong> is your central hub for all ready-to-use coupons, <br><br>Easily filtered, or found using AI-powered Magic Search, with built-in tracking for usage and savings.</p>
+          <p class="text-sm text-gray-600"><strong>MyBag</strong> is your central hub for all ready-to-use coupons, <br><br>Easily filtered, or found using AI-powered Magic Search, with built-in tracking for usage and savings analytics.</p>
         </div>
         
         <div class="feature-card text-center">
@@ -1143,7 +1168,7 @@ a:hover {
         <div class="feature-card text-center">
           <div class="text-4xl mb-4">🤖</div>
           <h3 class="text-lg md:text-xl font-bold mb-3">SmartBot Import</h3>
-          <p class="text-sm text-gray-600">Send coupons to our Telegram, WhatsApp, Email, etc. bots. <br><br>They appear in your <strong>Review tab</strong> for you to finalize and move to <strong>MyBag</strong>.</p>
+          <p class="text-sm text-gray-600">Send coupons to our Telegram, WhatsApp, Email, etc. bots. <br><br>They appear in your <strong>Review section</strong> for you to finalize and move to <strong>MyBag</strong>.</p>
         </div>
         
         <div class="feature-card text-center">
@@ -1153,12 +1178,12 @@ a:hover {
         </div>
       </div>
 
-      <!-- Advanced Workflow for ELITE Users -->
+      <!-- Advanced Workflow for All Users -->
       <div class="mt-12 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
         <div class="text-center mb-6">
           <div class="text-3xl mb-2">👑</div>
-          <h3 class="text-xl md:text-2xl font-bold text-amber-800 mb-2">Advanced Workflow for ELITE Users</h3>
-          <p class="text-amber-700">Skip the Review tab — direct to MyBag with EliteLine Submit</p>
+          <h3 class="text-xl md:text-2xl font-bold text-amber-800 mb-2">EliteLine Submit</h3>
+          <p class="text-amber-700">Skip the Review section — direct to MyBag with EliteLine Submit</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="text-center">
@@ -1186,7 +1211,7 @@ a:hover {
   <section id="plans" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Choose Your Plan</h2>
-      <p class="text-xl text-center mb-12">Head to the Profile section and select the plan that suits you best.</p>
+              <p class="text-xl text-center mb-12">Head to the Profile section in the app and select the plan that suits you best.</p>
       
       <!-- Launching Offer -->
       <div class="text-center mb-12 p-8 bg-gradient-to-r from-red-50 via-pink-50 to-orange-50 border-2 border-red-300 rounded-3xl shadow-lg">
@@ -1271,13 +1296,13 @@ a:hover {
                      <div class="absolute bottom-full left-0 md:left-1/2 md:transform md:-translate-x-1/2 mb-2 px-4 py-3 bg-black text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 shadow-xl border border-gray-700 w-80 md:w-auto md:min-w-80 max-w-xs md:max-w-sm lg:max-w-md" style="color: white !important;">
                        <div class="font-semibold mb-2 text-base" style="color: white !important;">EliteLine Submit Service</div>
                        <div class="text-sm leading-relaxed" style="color: white !important;">
-                         Send your coupon images, documents, or text via WhatsApp, Telegram, or Discord — our team verifies and adds them directly to your MyBag, ready to use. No manual steps needed.
+                         Send your coupon images, documents, or text via WhatsApp, Telegram, or Email — our team verifies and adds them directly to your MyBag, ready to use. No manual steps needed.
                        </div>
                        <div class="absolute top-full left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
                      </div>
                    </div>
                  </div>
-                 <div class="text-sm text-gray-600 mt-1">Skip Review tab — direct to <strong>MyBag</strong></div>
+                 <div class="text-sm text-gray-600 mt-1">Skip Review section — direct to <strong>MyBag</strong></div>
                </td>
                <td class="text-center p-4">
                  <span class="text-red-500 text-xl">0</span>
@@ -1366,7 +1391,7 @@ a:hover {
   <section id="partner" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Featured Partners</h2>
-      <p class="text-xl text-center mb-12">Through partnerships with leading brands and retailers, <br>We deliver <strong>Featured and Curated just for you</strong> coupons to help you save more.</p>
+              <p class="text-xl text-center mb-12">Through partnerships with leading brands and retailers, <br>We deliver <strong>Featured and Curated coupons</strong> to help you save more on your favorite products.</p>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
         <div class="partner-card p-8 text-center" style="animation-delay: 0.1s">
@@ -1390,7 +1415,7 @@ a:hover {
   <section id="download" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get Started Today</h2>
-      <p class="text-xl text-center mb-12">Choose your platform and start saving with <strong>MyCouponBag</strong></p>
+              <p class="text-xl text-center mb-12">Choose your platform and start saving with <strong>MyCouponBag</strong> - your AI-powered coupon wallet</p>
       
       <!-- Mobile App -->
       <div class="mb-16">
@@ -1421,7 +1446,7 @@ a:hover {
       <!-- EliteLine Submit -->
       <div class="mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">👑 EliteLine Submit</h3>
-        <p class="text-center mb-8">Skip the Review tab — direct to MyBag with our premium submission service</p>
+        <p class="text-center mb-8">Skip the Review section — direct to MyBag with our premium submission service</p>
         <div class="max-w-2xl mx-auto p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
           <div class="space-y-4">
             <div class="flex items-center gap-3">
@@ -1485,22 +1510,22 @@ a:hover {
       <!-- Browser Extension -->
       <div>
         <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">🌐 Browser Extension</h3>
-        <p class="text-center mb-8">Create coupons directly from web content with our cross-browser extension</p>
+        <p class="text-center mb-8">Create coupons directly from web content with our cross-browser extension for seamless coupon capture</p>
         <div class="grid md:grid-cols-3 gap-6 mb-8">
           <div class="partner-card p-6 text-center">
             <div class="text-3xl mb-4">🔍</div>
-            <div class="text-lg font-bold mb-2">Text Selection</div>
-            <div class="text-sm">Select text on any webpage and process with AI</div>
+                      <div class="text-lg font-bold mb-2">Text Selection</div>
+          <div class="text-sm">Select text on any webpage and process with AI for instant coupon creation</div>
           </div>
           <div class="partner-card p-6 text-center">
             <div class="text-3xl mb-4">📷</div>
-            <div class="text-lg font-bold mb-2">Image Upload</div>
-            <div class="text-sm">Upload images and extract coupon information</div>
+                      <div class="text-lg font-bold mb-2">Image Upload</div>
+          <div class="text-sm">Upload images and extract coupon information automatically</div>
           </div>
           <div class="partner-card p-6 text-center">
             <div class="text-3xl mb-4">📄</div>
-            <div class="text-lg font-bold mb-2">Document Import</div>
-            <div class="text-sm">Upload PDF/Word files for processing</div>
+                      <div class="text-lg font-bold mb-2">Document Import</div>
+          <div class="text-sm">Upload PDF/Word files for AI-powered processing</div>
           </div>
         </div>
         <div class="mb-16">
@@ -1539,7 +1564,7 @@ a:hover {
   <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">Get in Touch</h2>
-      <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello.</p>
+              <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello. Our team is ready to assist you.</p>
       
       <!-- Contact Methods -->
       <div class="max-w-2xl mx-auto mb-12 text-center">
@@ -1557,7 +1582,7 @@ a:hover {
       <!-- Social Media -->
       <div class="text-center">
         <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1e40af]">Follow Us</h3>
-        <p class="text-lg mb-8">Stay updated with the latest features and offers</p>
+        <p class="text-lg mb-8">Stay updated with the latest features, offers, and exclusive deals</p>
         <div class="social-icons flex justify-center items-center gap-6 flex-wrap">
           <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Facebook">
             <img src="imgs/facebook-icon.png" alt="Facebook" class="w-10 h-10">
@@ -1573,7 +1598,7 @@ a:hover {
         <!-- Help & Support Section -->
         <div class="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200">
           <h4 class="text-xl font-bold text-blue-900 mb-4">Need Help?</h4>
-          <p class="text-blue-800 mb-6">Get detailed guides and support for using MyCouponBag</p>
+          <p class="text-blue-800 mb-6">Get detailed guides, tutorials, and comprehensive support for using MyCouponBag effectively</p>
           <div class="flex flex-wrap justify-center gap-4">
             <a href="/help" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
               📖 Help Center
@@ -1592,7 +1617,7 @@ a:hover {
     <div class="grid md:grid-cols-4 gap-8 mb-8">
       <div class="text-left">
         <h4 class="text-lg font-bold mb-4 text-[#1e40af]">MyCouponBag</h4>
-        <p class="text-sm text-gray-700">Your AI-Powered Coupon Wallet!</p>
+        <p class="text-sm text-gray-700">Your AI-Powered Coupon Wallet! Never miss a deal again.</p>
       </div>
       <div class="text-left">
         <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
@@ -1609,7 +1634,7 @@ a:hover {
           <li>🤖 AI-Powered Import</li>
           <li>🔍 Magic Search</li>
           <li>📊 Analytics</li>
-          <li>🔔 Notifications</li>
+          <li>🔔 Smart Notifications</li>
         </ul>
       </div>
       <div class="text-left">
