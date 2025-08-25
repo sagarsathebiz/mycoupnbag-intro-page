@@ -272,6 +272,7 @@
                     <nav class="hidden md:flex space-x-8">
                         <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
                         <a href="/partner-help" class="text-blue-600 font-medium">Partner Help</a>
+                        <a href="#" onclick="openLiveSupport(); return false;" class="text-purple-600 font-medium hover:text-purple-700">Live Support</a>
                     </nav>
                 </div>
             </div>
@@ -728,7 +729,7 @@
                         </div>
                         <div class="prose max-w-none">
                             <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                                Ready to get started? We're here to help you through every step of the process.
+                                Ready to get started? We're here to help you through every step of the process. Live Support is available on the web and in the app.
                             </p>
 
                             <div
@@ -742,6 +743,12 @@
                                 </a>
                                 <p class="text-blue-100 text-sm sm:text-base">We'll be happy to guide you through the
                                     process!</p>
+                                <div class="mt-4">
+                                    <a href="#" onclick="openLiveSupport(); return false;" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
+                                        <span>💬</span>
+                                        <span>Live Support</span>
+                                    </a>
+                                </div>
                             </div>
 
                             <div class="grid mobile-feature-grid md:grid-cols-2 gap-4 sm:gap-6">
@@ -911,6 +918,17 @@
                 });
             }, 10);
         });
+    </script>
+    <script>
+        function openLiveSupport() {
+            try {
+                if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+                    Tawk_API.maximize();
+                    return;
+                }
+            } catch (e) {}
+            window.open('https://tawk.to/chat/68ac7420e7ad9c1921a87191/1j3gqb8m3', '_blank');
+        }
     </script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

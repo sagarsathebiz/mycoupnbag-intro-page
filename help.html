@@ -166,6 +166,12 @@
               <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
                 <strong>MyCouponBag</strong> is your intelligent coupon management solution that helps you capture, organize, and use every coupon you come across before it expires!
               </p>
+              <div class="mt-4 mb-2">
+                              <a href="#" onclick="openLiveSupport(); return false;" class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-semibold hover:bg-purple-700 transition-colors">
+                <span>💬</span>
+                <span>Live Support</span>
+              </a>
+              </div>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
@@ -801,6 +807,12 @@
                   support@mycouponbag.com
                 </a>
                 <p class="mt-3 sm:mt-4 text-blue-100 text-sm sm:text-base">We typically respond within 24 hours!</p>
+                <div class="mt-4">
+                  <a href="#" onclick="openLiveSupport(); return false;" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
+                    <span>💬</span>
+                    <span>Live Support</span>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -885,6 +897,17 @@
         document.body.style.overflow = '';
       }
     });
+  </script>
+  <script>
+    function openLiveSupport() {
+      try {
+        if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+          Tawk_API.maximize();
+          return;
+        }
+      } catch (e) {}
+      window.open('https://tawk.to/chat/68ac7420e7ad9c1921a87191/1j3gqb8m3', '_blank');
+    }
   </script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">

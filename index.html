@@ -1577,7 +1577,7 @@ a:hover {
   <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">Get in Touch</h2>
-              <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello. Our team is ready to assist you.</p>
+              <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello. Our team is ready to assist you. Live Support is available on the web and in the app.</p>
       
       <!-- Contact Methods -->
       <div class="max-w-2xl mx-auto mb-12 text-center">
@@ -1624,6 +1624,9 @@ a:hover {
             </a>
             <a href="mailto:support@mycouponbag.com" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
               📧 Contact Support
+            </a>
+            <a href="#" onclick="openLiveSupport(); return false;" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+              💬 Live Support
             </a>
           </div>
         </div>
@@ -1734,6 +1737,17 @@ a:hover {
         }
       });
     });
+  </script>
+  <script>
+    function openLiveSupport() {
+      try {
+        if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+          Tawk_API.maximize();
+          return;
+        }
+      } catch (e) {}
+      window.open('https://tawk.to/chat/68ac7420e7ad9c1921a87191/1j3gqb8m3', '_blank');
+    }
   </script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
