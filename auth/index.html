@@ -162,7 +162,7 @@
     // Handle verification link (signup/email_confirm)
     if (type === 'signup' || type === 'email_confirm') {
       if (resetForm) resetForm.style.display = 'none';
-      messageDiv.innerHTML = '<span class="success">Your account is verified and please login into mobile app.</span>';
+      messageDiv.innerHTML = '<span class="success">Your account has been. Please log in to the mobile app.</span>';
     } else if (type === 'recovery') {
       setSessionAndShowForm();
     } else {
