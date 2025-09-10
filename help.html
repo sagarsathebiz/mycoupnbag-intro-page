@@ -35,14 +35,19 @@
       border-radius: 8px;
     }
     
-    /* Mobile-specific styles */
+    /* Enhanced Mobile-specific styles */
     @media (max-width: 768px) {
       .mobile-nav-toggle {
         display: block;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 8px;
       }
       .mobile-nav {
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 85vw;
+        max-width: 320px;
       }
       .mobile-nav.open {
         transform: translateX(0);
@@ -50,11 +55,130 @@
       .mobile-overlay {
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .mobile-overlay.open {
         opacity: 1;
         visibility: visible;
+      }
+
+      /* Mobile-specific improvements */
+      .mobile-text-lg {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .mobile-text-base {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .mobile-btn {
+        min-height: 44px;
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+
+      .mobile-section {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+      }
+
+      .mobile-hero {
+        padding: 24px 20px;
+        border-radius: 16px;
+      }
+
+      .mobile-card {
+        margin-bottom: 16px;
+        border-radius: 12px;
+      }
+
+      .mobile-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .mobile-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .mobile-feature-card {
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      .mobile-nav-header {
+        padding: 20px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .mobile-nav-content {
+        padding: 16px 20px;
+      }
+
+      .mobile-contact {
+        padding: 24px 20px;
+        border-radius: 16px;
+      }
+
+      .mobile-footer {
+        padding: 20px;
+        margin-top: 32px;
+      }
+    }
+
+    /* Tablet optimizations */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .tablet-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .tablet-content {
+        padding: 24px;
+      }
+
+      .tablet-section {
+        padding: 24px;
+        margin-bottom: 24px;
+      }
+    }
+
+    /* Enhanced touch interactions */
+    @media (hover: none) and (pointer: coarse) {
+      .card-hover:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link:hover {
+        background-color: transparent;
+      }
+
+      .nav-link:active {
+        background-color: #f3f4f6;
+        border-radius: 8px;
+      }
+    }
+
+    /* Improved accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .card-hover,
+      .nav-link,
+      .mobile-nav,
+      .mobile-overlay {
+        transition: none;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .nav-link.active {
+        background-color: #000;
+        color: #fff;
       }
     }
     
@@ -77,7 +201,7 @@
           </div>
           
           <!-- Mobile Menu Button -->
-          <button class="mobile-nav-toggle md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" onclick="toggleMobileNav()">
+          <button class="mobile-nav-toggle md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 mobile-btn" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -97,30 +221,32 @@
 
     <!-- Mobile Navigation Sidebar -->
     <div id="mobileNav" class="mobile-nav fixed left-0 top-0 h-full w-80 bg-white shadow-lg z-50 md:hidden overflow-y-auto">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
+      <div class="mobile-nav-header">
+        <div class="flex justify-between items-center">
           <h2 class="text-lg font-semibold text-gray-900">Navigation</h2>
-          <button onclick="toggleMobileNav()" class="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
+          <button onclick="toggleMobileNav()" class="mobile-btn rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" aria-label="Close navigation">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
         </div>
-        <nav class="space-y-2">
-          <a href="#overview" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📱 App Overview</a>
-          <a href="#eliteline-submit" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👑 EliteLine Submit</a>
-          <a href="#smartbot-channels" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🤖 SmartBot Channels</a>
-          <a href="#mybag" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👜 MyBag Tab</a>
-          <a href="#review" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📋 Review Tab</a>
-          <a href="#discover" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🔍 Discover Tab</a>
-          <a href="#me" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👤 Me Tab</a>
-          <a href="#manual-entry" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✏️ Manual Entry</a>
-          <a href="#edit-coupon" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✏️ Edit Coupon</a>
-          <a href="#ai-submission" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🤖 AI Submission</a>
-          <a href="#magic-search" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">✨ Magic Search</a>
-          <a href="#subscription" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">💳 Manage Subscription</a>
-          <a href="#faq" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">❓ FAQ</a>
-          <a href="#support" class="nav-link block px-3 py-3 text-sm text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📞 Support</a>
+      </div>
+      <div class="mobile-nav-content">
+        <nav class="space-y-1">
+          <a href="#overview" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📱 App Overview</a>
+          <a href="#eliteline-submit" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👑 EliteLine Submit</a>
+          <a href="#smartbot-channels" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤖 SmartBot Channels</a>
+          <a href="#mybag" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👜 MyBag Tab</a>
+          <a href="#review" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📋 Review Tab</a>
+          <a href="#discover" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🔍 Discover Tab</a>
+          <a href="#me" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👤 Me Tab</a>
+          <a href="#manual-entry" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✏️ Manual Entry</a>
+          <a href="#edit-coupon" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✏️ Edit Coupon</a>
+          <a href="#ai-submission" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤖 AI Submission</a>
+          <a href="#magic-search" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✨ Magic Search</a>
+          <a href="#subscription" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">💳 Manage Subscription</a>
+          <a href="#faq" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">❓ FAQ</a>
+          <a href="#support" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📞 Support</a>
         </nav>
       </div>
     </div>
@@ -153,13 +279,13 @@
         <!-- Main Content -->
         <div class="lg:col-span-3">
           <!-- Hero Section -->
-          <div class="gradient-bg text-white rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
+          <div class="gradient-bg text-white rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 mobile-hero">
             <h1 class="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">Help Center</h1>
-            <p class="text-lg sm:text-xl opacity-90">Everything you need to know about MyCouponBag - Your AI-Powered Coupon Wallet!</p>
+            <p class="text-lg sm:text-xl opacity-90 mobile-text-lg">Everything you need to know about MyCouponBag - Your AI-Powered Coupon Wallet!</p>
           </div>
 
           <!-- App Overview -->
-          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8">
+          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 mobile-section">
             <div class="flex items-center mb-4 sm:mb-6">
               <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📱</div>
               <h2 class="text-xl sm:text-2xl font-bold text-gray-900">App Overview</h2>
@@ -998,11 +1124,81 @@
         const mobileNav = document.getElementById('mobileNav');
         const mobileOverlay = document.getElementById('mobileOverlay');
         
-        mobileNav.classList.remove('open');
-        mobileOverlay.classList.remove('open');
+        if (mobileNav) mobileNav.classList.remove('open');
+        if (mobileOverlay) mobileOverlay.classList.remove('open');
         document.body.style.overflow = '';
       }
     });
+
+    // Enhanced mobile functionality
+    function enhanceMobileExperience() {
+      // Add touch-specific event listeners for mobile
+      if ('ontouchstart' in window) {
+        // Add touch feedback to buttons
+        document.querySelectorAll('.mobile-btn').forEach(button => {
+          button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          button.addEventListener('touchend', function() {
+            this.style.transform = '';
+          });
+        });
+
+        // Add touch feedback to cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+          card.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          card.addEventListener('touchend', function() {
+            this.style.transform = '';
+          });
+        });
+      }
+
+      // Enhanced accessibility
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const mobileNav = document.getElementById('mobileNav');
+          if (mobileNav && mobileNav.classList.contains('open')) {
+            toggleMobileNav();
+          }
+        }
+      });
+
+      // Improved scroll performance
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+          // Active navigation highlighting logic
+          const sections = document.querySelectorAll('section[id]');
+          const navLinks = document.querySelectorAll('.nav-link');
+          
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        }, 10);
+      });
+    }
+
+    // Initialize mobile enhancements
+    enhanceMobileExperience();
   </script>
   <script>
     function openLiveSupport() {

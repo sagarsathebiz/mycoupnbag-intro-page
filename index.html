@@ -639,7 +639,7 @@ nav ul li a:hover::after {
   gap: 15px;
 }
 
-/* Mobile Responsiveness */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
   .hamburger {
     display: block !important;
@@ -647,14 +647,19 @@ nav ul li a:hover::after {
     color: #c2410c;
     z-index: 1100;
     position: relative;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px;
   }
   
   section {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    margin: 2rem 0;
   }
   
   .glass {
-    margin: 2rem 0;
+    margin: 1rem 0;
+    border-radius: 16px;
   }
   
   .nav-links {
@@ -687,6 +692,201 @@ nav ul li a:hover::after {
 
   nav .navbar-center {
     justify-content: center;
+  }
+
+  /* Mobile-specific improvements */
+  .mobile-text-lg {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .mobile-text-base {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .mobile-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .mobile-section {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  .mobile-hero {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .mobile-card {
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .mobile-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mobile-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mobile-feature-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .mobile-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mobile-pricing-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .mobile-launch-offer {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .mobile-footer {
+    padding: 20px;
+    margin-top: 32px;
+  }
+
+  /* Mobile navigation improvements */
+  .mobile-nav-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .mobile-nav-content {
+    padding: 16px 20px;
+  }
+
+  /* Mobile contact section */
+  .mobile-contact {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  /* Mobile table responsiveness */
+  .mobile-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-table table {
+    min-width: 600px;
+  }
+
+  /* Mobile FAQ carousel improvements */
+  .mobile-faq-container {
+    padding: 16px;
+  }
+
+  .mobile-faq-slide {
+    height: auto;
+    min-height: 300px;
+  }
+
+  /* Mobile social icons */
+  .mobile-social-icons {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mobile-social-icons a {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .tablet-content {
+    padding: 24px;
+  }
+
+  .tablet-section {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Enhanced touch interactions */
+@media (hover: none) and (pointer: coarse) {
+  .feature-card:hover,
+  .partner-card:hover,
+  .stats-card:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link:hover,
+  .nav-link-white:hover {
+    background-color: transparent;
+  }
+
+  .nav-link:active,
+  .nav-link-white:active {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+  }
+
+  .modern-button:hover {
+    transform: none;
+  }
+
+  .modern-button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Improved accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .partner-card,
+  .stats-card,
+  .nav-link,
+  .nav-link-white,
+  .modern-button,
+  .glass {
+    transition: none;
+  }
+
+  .feature-card span {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-link.active,
+  .nav-link-white.active {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .glass {
+    border: 2px solid #000;
   }
 }
 
@@ -889,7 +1089,7 @@ a:hover {
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button onclick="toggleMenu()" class="hamburger-white text-white text-2xl">
+        <button onclick="toggleMenu()" class="hamburger-white text-white text-2xl mobile-btn" aria-label="Toggle navigation menu">
           ☰
         </button>
       </div>
@@ -897,20 +1097,20 @@ a:hover {
 
     <!-- Mobile Navigation -->
     <div id="mobile-menu" class="nav-links-white md:hidden">
-      <a href="#home" class="mobile-nav-link-white">Home</a>
-      <a href="#features" class="mobile-nav-link-white">Features</a>
-      <a href="#how-it-works" class="mobile-nav-link-white">How It Works</a>
-      <a href="#plans" class="mobile-nav-link-white">Pricing</a>
-      <a href="#partner" class="mobile-nav-link-white">Partners</a>
-      <a href="#download" class="mobile-nav-link-white">Download</a>
-      <a href="#contact" class="mobile-nav-link-white">Contact</a>
-      <a href="/help" class="mobile-nav-link-white">Help</a>
+      <a href="#home" class="mobile-nav-link-white mobile-btn">Home</a>
+      <a href="#features" class="mobile-nav-link-white mobile-btn">Features</a>
+      <a href="#how-it-works" class="mobile-nav-link-white mobile-btn">How It Works</a>
+      <a href="#plans" class="mobile-nav-link-white mobile-btn">Pricing</a>
+      <a href="#partner" class="mobile-nav-link-white mobile-btn">Partners</a>
+      <a href="#download" class="mobile-nav-link-white mobile-btn">Download</a>
+      <a href="#contact" class="mobile-nav-link-white mobile-btn">Contact</a>
+      <a href="/help" class="mobile-nav-link-white mobile-btn">Help</a>
     </div>
   </div>
 
   <!-- Home Section -->
   <section id="home" class="glass rounded-3xl my-8">
-    <div class="p-8">
+    <div class="p-8 mobile-section">
 
       <!-- Hero Section and FAQ Side by Side -->
       <div class="grid lg:grid-cols-2 gap-8 items-start mb-12">
@@ -968,13 +1168,13 @@ a:hover {
           <p class="text-center mb-6 text-gray-600 text-sm">Get quick answers to common questions about MyCouponBag</p>
         
           <!-- FAQ Carousel Container -->
-          <div class="relative px-4">
+          <div class="relative px-4 mobile-faq-container">
           <!-- Carousel Wrapper -->
           <div class="overflow-hidden rounded-2xl">
             <div id="faq-carousel" class="flex transition-transform duration-500 ease-in-out">
               <!-- FAQ Slide 1 -->
               <div class="w-full flex-shrink-0">
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 h-96 flex flex-col">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 h-96 flex flex-col mobile-faq-slide">
                   <h4 class="text-xl font-bold text-blue-900 mb-4">1. How can I manually add a coupon?</h4>
                   <div class="flex-grow overflow-y-auto">
                     <p class="text-blue-800 mb-4">You can add a coupon yourself by:</p>
@@ -1113,37 +1313,37 @@ a:hover {
       </div>
 
       <!-- Core Features Row -->
-      <div class="grid md:grid-cols-3 gap-8 my-16">
-        <div class="feature-card" style="animation-delay: 0.1s">
+      <div class="grid md:grid-cols-3 gap-8 my-16 mobile-feature-grid">
+        <div class="feature-card mobile-feature-card" style="animation-delay: 0.1s">
           <span>🤖</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">AI-Powered Import</h3>
-          <p>Import coupons from images, documents, emails, and text with automatic data extraction and processing</p>
+          <p class="mobile-text-base">Import coupons from images, documents, emails, and text with automatic data extraction and processing</p>
         </div>
-        <div class="feature-card" style="animation-delay: 0.2s">
+        <div class="feature-card mobile-feature-card" style="animation-delay: 0.2s">
           <span>🔍</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">Magic Search</h3>
-          <p>Find coupons using natural language like "Show me food coupons under ₹500" with intelligent filtering</p>
+          <p class="mobile-text-base">Find coupons using natural language like "Show me food coupons under ₹500" with intelligent filtering</p>
         </div>
-        <div class="feature-card" style="animation-delay: 0.3s">
+        <div class="feature-card mobile-feature-card" style="animation-delay: 0.3s">
           <span>📱</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">Multi-Platform</h3>
-          <p>Mobile app, browser extension, and bot integrations for seamless coupon management across all devices</p>
+          <p class="mobile-text-base">Mobile app, browser extension, and bot integrations for seamless coupon management across all devices</p>
         </div>
       </div>
 
       <!-- Premium Feature Highlight -->
-      <div class="my-16 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
+      <div class="my-16 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl mobile-card">
         <div class="text-center">
           <div class="text-4xl mb-4">👑</div>
           <h3 class="text-2xl md:text-3xl font-bold mb-4 text-amber-800">EliteLine Submit</h3>
-          <p class="text-lg mb-4 text-amber-700">Skip the Review tab — straight into <strong>MyBag</strong></p>
-          <p class="text-base text-gray-700 mb-6">Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team verifies and adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.</p>
+          <p class="text-lg mb-4 text-amber-700 mobile-text-lg">Skip the Review tab — straight into <strong>MyBag</strong></p>
+          <p class="text-base text-gray-700 mb-6 mobile-text-base">Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team verifies and adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.</p>
 
         </div>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-6 mb-10">
-        <a href="#download" class="modern-button">
+      <div class="flex flex-wrap justify-center gap-6 mb-10 mobile-grid">
+        <a href="#download" class="modern-button mobile-btn">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
@@ -1151,7 +1351,7 @@ a:hover {
             Download App
           </span>
         </a>
-        <a href="#features" class="modern-button">
+        <a href="#features" class="modern-button mobile-btn">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
@@ -1159,7 +1359,7 @@ a:hover {
             Explore Features
           </span>
         </a>
-        <a href="/help" class="modern-button bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
+        <a href="/help" class="modern-button mobile-btn bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
@@ -1167,7 +1367,7 @@ a:hover {
             📖 Help Center
           </span>
         </a>
-        <a href="https://tally.so/r/n0RY09" target="_blank" class="modern-button bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600">
+        <a href="https://tally.so/r/n0RY09" target="_blank" class="modern-button mobile-btn bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
@@ -1426,7 +1626,7 @@ a:hover {
         </div>
       </div>
       
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto mobile-table">
         <table class="w-full border-collapse">
           <thead>
             <tr class="border-b-2 border-gray-200">
@@ -1784,7 +1984,7 @@ a:hover {
       <div class="text-center">
         <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1e40af]">Follow Us</h3>
         <p class="text-lg mb-8">Stay updated with the latest features, offers, and exclusive deals</p>
-        <div class="social-icons flex justify-center items-center gap-6 flex-wrap">
+        <div class="social-icons flex justify-center items-center gap-6 flex-wrap mobile-social-icons">
           <a href="https://whatsapp.com/channel/0029VbB9ULNLo4hYXAI4g23f" target="_blank" class="hover:rotate-12 transition-transform duration-300" title="WhatsApp">
             <img src="imgs/whatsapp-icon.png" alt="WhatsApp" class="w-10 h-10">
           </a>
@@ -1881,12 +2081,16 @@ a:hover {
     }
 
     // Close mobile menu when clicking on a link
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    document.querySelectorAll('.mobile-nav-link, .mobile-nav-link-white').forEach(link => {
       link.addEventListener('click', () => {
         const mobileMenu = document.getElementById("mobile-menu");
-        const hamburger = document.querySelector(".hamburger");
-        mobileMenu.classList.remove("active");
-        hamburger.textContent = "☰";
+        const hamburger = document.querySelector(".hamburger, .hamburger-white");
+        if (mobileMenu) {
+          mobileMenu.classList.remove("active");
+        }
+        if (hamburger) {
+          hamburger.textContent = "☰";
+        }
       });
     });
 
@@ -2074,18 +2278,104 @@ a:hover {
     startAutoPlay();
 
     // Pause auto-play when user hovers over carousel
-    const carouselContainer = document.querySelector('.relative.max-w-4xl.mx-auto');
-    carouselContainer.addEventListener('mouseenter', () => {
-      if (isAutoPlaying) {
-        stopAutoPlay();
-      }
-    });
+    const carouselContainer = document.querySelector('.mobile-faq-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => {
+        if (isAutoPlaying) {
+          stopAutoPlay();
+        }
+      });
 
-    carouselContainer.addEventListener('mouseleave', () => {
-      if (isAutoPlaying) {
-        startAutoPlay();
+      carouselContainer.addEventListener('mouseleave', () => {
+        if (isAutoPlaying) {
+          startAutoPlay();
+        }
+      });
+    }
+
+    // Enhanced mobile functionality
+    function enhanceMobileExperience() {
+      // Add touch-specific event listeners for mobile
+      if ('ontouchstart' in window) {
+        // Add touch feedback to buttons
+        document.querySelectorAll('.modern-button, .mobile-btn').forEach(button => {
+          button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          button.addEventListener('touchend', function() {
+            this.style.transform = '';
+          });
+        });
+
+        // Add touch feedback to cards
+        document.querySelectorAll('.feature-card, .partner-card').forEach(card => {
+          card.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          card.addEventListener('touchend', function() {
+            this.style.transform = '';
+          });
+        });
       }
-    });
+
+      // Enhanced accessibility
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            toggleMenu();
+          }
+        }
+      });
+
+      // Close mobile nav on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+          const mobileMenu = document.getElementById('mobile-menu');
+          const hamburger = document.querySelector('.hamburger, .hamburger-white');
+          if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+          }
+          if (hamburger) {
+            hamburger.textContent = '☰';
+          }
+        }
+      });
+
+      // Improved scroll performance
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+          // Active navigation highlighting logic
+          const sections = document.querySelectorAll('section[id]');
+          const navLinks = document.querySelectorAll('.nav-link, .nav-link-white');
+          
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        }, 10);
+      });
+    }
+
+    // Initialize mobile enhancements
+    enhanceMobileExperience();
   </script>
   <script>
     function openLiveSupport() {
