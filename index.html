@@ -195,7 +195,7 @@ nav {
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 1rem;
-  margin: 0 1rem;
+  margin: 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
   flex-direction: column;
   gap: 0.5rem;
@@ -513,9 +513,12 @@ nav .navbar-center h1 {
 /* Section Enhancements */
 section {
   margin: 4rem 0;
-  padding: 4rem 1.5rem;
+  padding: 4rem 0;
   opacity: 0;
   animation: slideIn 0.6s ease forwards;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 section h2 {
@@ -573,6 +576,9 @@ section h2 {
   border: 1px solid rgba(59, 130, 246, 0.3);
   box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.18);
   color: #1e293b;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 nav {
@@ -643,6 +649,14 @@ nav ul li a:hover::after {
     position: relative;
   }
   
+  section {
+    padding: 2rem 1rem;
+  }
+  
+  .glass {
+    margin: 2rem 0;
+  }
+  
   .nav-links {
     display: none;
     flex-direction: column;
@@ -660,7 +674,7 @@ nav ul li a:hover::after {
     z-index: 1000;
     text-align: center;
     border: 1px solid #dbeafe;
-    margin: 0 20px;
+    margin: 0;
   }
   
   .nav-links.mobile-active {
@@ -895,42 +909,207 @@ a:hover {
   </div>
 
   <!-- Home Section -->
-  <section id="home" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="home" class="glass rounded-3xl my-8">
     <div class="p-8">
 
-      <!-- Hero Section with Image and Content Side by Side -->
-      <div class="grid md:grid-cols-2 gap-4 items-center mb-12">
-        <!-- Left Side: Image -->
-        <div class="flex justify-center md:justify-end">
-          <img src="imgs/mcb-happy.png" alt="Happy MyCouponBag User" class="w-80 h-80 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 object-cover">
-        </div>
-        
-        <!-- Right Side: Content -->
-        <div class="text-center md:text-left space-y-6">
-          <div class="space-y-4">
-            <div class="flex items-center justify-center md:justify-start gap-3">
-              <h3 class="text-2xl md:text-3xl font-bold text-[#1e40af]">Launching Soon!</h3>
-              <div class="text-3xl animate-pulse">💥</div>
+      <!-- Hero Section and FAQ Side by Side -->
+      <div class="grid lg:grid-cols-2 gap-8 items-start mb-12">
+        <!-- Left Side: Hero Section -->
+        <div class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-4 items-center">
+            <!-- Image -->
+            <div class="flex justify-center md:justify-end">
+              <img src="imgs/mcb-happy.png" alt="Happy MyCouponBag User" class="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 object-cover">
             </div>
-            <a href="https://tally.so/r/n0RY09" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full text-sm font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-              <span>🚀</span>
-              <span>Launching Offer</span>
-            </a>
+            
+            <!-- Content -->
+            <div class="text-center md:text-left space-y-6">
+              <div class="space-y-4">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                  <h3 class="text-2xl md:text-3xl font-bold text-[#1e40af]">Launching Soon!</h3>
+                  <div class="text-3xl animate-pulse">💥</div>
+                </div>
+                <a href="https://tally.so/r/n0RY09" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full text-sm font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-md">
+                  <span>🚀</span>
+                  <span>Launching Offer</span>
+                </a>
+              </div>
+              
+              <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Your AI-Powered Coupon Wallet!</h2>
+              
+              <p class="text-lg text-[#1e40af] leading-relaxed">
+                Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> helps you capture and use every coupon you come across, before it expires!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: FAQ Carousel Section -->
+        <div>
+          <!-- FAQ Heading with Navigation Controls -->
+          <div class="flex items-center justify-between mb-6">
+            <button id="prev-btn" class="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            
+            <div class="text-center">
+              <h3 class="text-xl md:text-2xl font-bold text-[#1e40af]">❓ Frequently Asked Questions</h3>
+            </div>
+            
+            <button id="next-btn" class="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
           </div>
           
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">Your AI-Powered Coupon Wallet!</h2>
+          <p class="text-center mb-6 text-gray-600 text-sm">Get quick answers to common questions about MyCouponBag</p>
+        
+          <!-- FAQ Carousel Container -->
+          <div class="relative px-4">
+          <!-- Carousel Wrapper -->
+          <div class="overflow-hidden rounded-2xl">
+            <div id="faq-carousel" class="flex transition-transform duration-500 ease-in-out">
+              <!-- FAQ Slide 1 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-blue-900 mb-4">1. How can I manually add a coupon?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <p class="text-blue-800 mb-4">You can add a coupon yourself by:</p>
+                    <ul class="text-blue-800 space-y-2 ml-4">
+                      <li>• Going to the <strong>MyBag tab</strong></li>
+                      <li>• Tapping the <strong>➕ button</strong> (bottom-right)</li>
+                      <li>• Entering details like <strong>Brand, Title, Coupon Code, Expiry Date</strong></li>
+                      <li>• Saving the coupon</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 2 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-green-900 mb-4">2. Can I create coupons using images or documents?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <p class="text-green-800 mb-4">Yes! You can use our <strong>AI Submissions</strong> feature:</p>
+                    <ul class="text-green-800 space-y-2 ml-4">
+                      <li>• Tap the <strong>➕ button</strong> on the MyBag page</li>
+                      <li>• Choose the source (<strong>Image, Document, or Text</strong>)</li>
+                      <li>• Tap <strong>Process</strong> → AI extracts the coupon automatically</li>
+                      <li>• Review and save the coupon</li>
+                    </ul>
+                    <p class="text-green-800 mt-4">👉 You can also do this through our <strong>browser extensions</strong>.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 3 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-2xl border-2 border-purple-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-purple-900 mb-4">3. Can I share coupons from other apps?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <p class="text-purple-800 mb-4">Yes. Just share any <strong>coupon image, document, or text</strong> from other apps directly to <strong>MyCouponBag</strong>.</p>
+                    <ul class="text-purple-800 space-y-2 ml-4">
+                      <li>• It opens in the <strong>New Coupon page</strong></li>
+                      <li>• Tap <strong>Process</strong> → Edit if required → Save</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 4 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl border-2 border-amber-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-amber-900 mb-4">4. What is "EliteLine Submissions"?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <p class="text-amber-800 mb-4"><strong>EliteLine = Hands-Free Service</strong></p>
+                    <ul class="text-amber-800 space-y-2 ml-4">
+                      <li>• You send coupon content (image, document, text) to our EliteLine channels</li>
+                      <li>• Our team verifies and securely processes your submission</li>
+                      <li>• Coupons are <strong>directly added to your MyBag (ready-to-use instantly)</strong></li>
+                    </ul>
+                    <p class="text-amber-800 mt-4 mb-2">📩 EliteLine Channels:</p>
+                    <ul class="text-amber-800 space-y-1 ml-4">
+                      <li>• Telegram → <a href="http://t.me/eliteline_mycouponbag_bot" target="_blank" class="text-blue-600 hover:underline">EliteLine-Telegram</a></li>
+                      <li>• Email → <a href="mailto:eliteline@mycouponbag.com" class="text-blue-600 hover:underline">eliteline@mycouponbag.com</a></li>
+                      <li>• WhatsApp → <em>Coming soon</em></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 5 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl border-2 border-indigo-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-indigo-900 mb-4">5. What is "SmartBot Submissions"?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <p class="text-indigo-800 mb-4"><strong>SmartBot = Self-Service with AI</strong></p>
+                    <ul class="text-indigo-800 space-y-2 ml-4">
+                      <li>• You send coupon content (image, document, text) to SmartBot channels</li>
+                      <li>• AI processes it and adds the draft to your <strong>Review Tab</strong></li>
+                      <li>• You can edit/approve it → then move to <strong>MyBag</strong></li>
+                    </ul>
+                    <p class="text-indigo-800 mt-4 mb-2">📩 SmartBot Channels:</p>
+                    <ul class="text-indigo-800 space-y-1 ml-4">
+                      <li>• Telegram → <a href="http://t.me/mycouponbag_bot" target="_blank" class="text-blue-600 hover:underline">SmartBot-Telegram</a></li>
+                      <li>• Email → <a href="mailto:smartbot@mycouponbag.com" class="text-blue-600 hover:underline">smartbot@mycouponbag.com</a></li>
+                      <li>• WhatsApp → <em>Coming soon</em></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 6 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 p-8 rounded-2xl border-2 border-pink-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-pink-900 mb-4">6. What's the difference between MyBag and Review tabs?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <ul class="text-pink-800 space-y-2 ml-4">
+                      <li>• <strong>MyBag Tab</strong> → Shows your <strong>ready-to-use coupons</strong></li>
+                      <li>• <strong>Review Tab</strong> → Shows <strong>AI-processed or draft coupons</strong> that you can edit and finalize before moving to MyBag</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Slide 7 -->
+              <div class="w-full flex-shrink-0">
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 rounded-2xl border-2 border-teal-200 h-96 flex flex-col">
+                  <h4 class="text-xl font-bold text-teal-900 mb-4">7. Which option should I choose?</h4>
+                  <div class="flex-grow overflow-y-auto">
+                    <ul class="text-teal-800 space-y-2 ml-4">
+                      <li>• <strong>Manual Entry</strong> → Best for quick, small edits</li>
+                      <li>• <strong>AI Submissions</strong> → Fastest way to create from images or documents</li>
+                      <li>• <strong>SmartBot</strong> → Great for self-service users who like to review before saving</li>
+                      <li>• <strong>EliteLine</strong> → Perfect for hands-free users who want our team to do everything</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
-          <p class="text-xl text-[#1e40af] leading-relaxed">
-            Tired of losing coupons in texts, emails, or apps? <br><strong>MyCouponBag</strong> helps you capture and use every coupon you come across, before it expires!
-          </p>
+          <!-- Dots Indicator -->
+          <div class="flex justify-center items-center mt-6 space-x-2">
+            <span class="w-3 h-3 bg-blue-600 rounded-full cursor-pointer transition-all duration-300" data-slide="0"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="1"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="2"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="3"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="4"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="5"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-300" data-slide="6"></span>
+          </div>
+          
+            <!-- Auto-play Controls -->
+            <div class="flex justify-center mt-4">
+              <button id="play-pause-btn" class="px-4 py-2 bg-gray-600 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">
+                <span id="play-pause-text">Pause Auto-play</span>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <!-- Additional Description Section -->
-      <div class="text-center mb-12">
-        <p class="text-base text-gray-700 leading-relaxed max-w-4xl mx-auto">
-          MyCouponBag makes it easy to save and manage all your coupons in one place. You can add coupons directly in the app by entering details or uploading text, images, or documents, and also get sponsored, curated, and featured deals that go straight to your MyBag. Outside the app, you can capture coupons through our browser extension, share them with SmartBot (review before adding), use EliteLine (processed by our team), or share from any app to auto-extract details. All ready-to-use coupons live in MyBag, where you can filter, favorite, and mark them as used—so you never lose a deal again.
-        </p>
       </div>
 
       <!-- Core Features Row -->
@@ -1001,7 +1180,7 @@ a:hover {
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="features" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Powerful Features</h2>
       <p class="text-xl text-center mb-12">Everything you need to manage your coupons intelligently with AI-powered automation</p>
@@ -1159,7 +1338,7 @@ a:hover {
   </section>
 
   <!-- How It Works Section -->
-  <section id="how-it-works" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="how-it-works" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">🛠️ How It Works</h2>
       <p class="text-xl text-center mb-12">Your complete guide to managing coupons efficiently with smart automation</p>
@@ -1214,13 +1393,12 @@ a:hover {
             <p class="text-sm text-gray-700">Coupons are automatically added to your <strong>MyBag</strong> — ready to use immediately</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Subscription Plans Section -->
-  <section id="plans" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="plans" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Choose Your Plan</h2>
               <p class="text-xl text-center mb-12">Head to the Profile section in the app and select the plan that suits you best.</p>
@@ -1400,7 +1578,7 @@ a:hover {
   </section>
 
   <!-- Partner Section -->
-  <section id="partner" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="partner" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Featured Partners</h2>
               <p class="text-xl text-center mb-12">Through partnerships with leading brands and retailers, <br>We deliver <strong>Featured and Curated coupons</strong> to help you save more on your favorite products.</p>
@@ -1424,7 +1602,7 @@ a:hover {
   </section>
 
   <!-- Download Section -->
-  <section id="download" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="download" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get Started Today</h2>
               <p class="text-xl text-center mb-12">Choose your platform and start saving with <strong>MyCouponBag</strong> - your AI-powered coupon wallet</p>
@@ -1459,7 +1637,7 @@ a:hover {
       <div class="mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">👑 EliteLine Submit</h3>
         <p class="text-center mb-8">Skip the Review section — direct to MyBag with our premium submission service</p>
-        <div class="max-w-2xl mx-auto p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
+        <div class="max-w-2xl mx-auto p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl mx-4">
           <div class="space-y-4">
             <div class="flex items-center gap-3">
               <div class="text-2xl">📱</div>
@@ -1584,13 +1762,13 @@ a:hover {
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="glass mx-4 md:mx-auto max-w-6xl rounded-3xl my-8">
+  <section id="contact" class="glass rounded-3xl my-8">
     <div class="p-8">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">Get in Touch</h2>
               <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello. Our team is ready to assist you. Live Support is available on the web and in the app.</p>
       
       <!-- Contact Methods -->
-      <div class="max-w-2xl mx-auto mb-12 text-center">
+      <div class="max-w-2xl mx-auto mb-12 text-center px-4">
         <h3 class="text-xl md:text-2xl font-bold mb-4">📧 Email Support</h3>
         <div class="flex items-center justify-center gap-3 mb-4">
           <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -1746,6 +1924,167 @@ a:hover {
           link.classList.add('active');
         }
       });
+    });
+
+    // FAQ Carousel Functionality
+    let currentSlide = 0;
+    const totalSlides = 7;
+    let autoPlayInterval;
+    let isAutoPlaying = true;
+
+    const carousel = document.getElementById('faq-carousel');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playPauseText = document.getElementById('play-pause-text');
+    const dots = document.querySelectorAll('[data-slide]');
+
+    function updateCarousel() {
+      const translateX = -currentSlide * 100;
+      carousel.style.transform = `translateX(${translateX}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.remove('bg-gray-300');
+          dot.classList.add('bg-blue-600');
+        } else {
+          dot.classList.remove('bg-blue-600');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
+    }
+
+    function toggleAutoPlay() {
+      if (isAutoPlaying) {
+        stopAutoPlay();
+        playPauseText.textContent = 'Start Auto-play';
+        isAutoPlaying = false;
+      } else {
+        startAutoPlay();
+        playPauseText.textContent = 'Pause Auto-play';
+        isAutoPlaying = true;
+      }
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      if (isAutoPlaying) {
+        stopAutoPlay();
+        startAutoPlay(); // Reset the timer
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      if (isAutoPlaying) {
+        stopAutoPlay();
+        startAutoPlay(); // Reset the timer
+      }
+    });
+
+    playPauseBtn.addEventListener('click', toggleAutoPlay);
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        if (isAutoPlaying) {
+          stopAutoPlay();
+          startAutoPlay(); // Reset the timer
+        }
+      });
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next slide
+          nextSlide();
+        } else {
+          // Swipe right - previous slide
+          prevSlide();
+        }
+        if (isAutoPlaying) {
+          stopAutoPlay();
+          startAutoPlay(); // Reset the timer
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+        if (isAutoPlaying) {
+          stopAutoPlay();
+          startAutoPlay();
+        }
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+        if (isAutoPlaying) {
+          stopAutoPlay();
+          startAutoPlay();
+        }
+      }
+    });
+
+    // Initialize carousel
+    updateCarousel();
+    startAutoPlay();
+
+    // Pause auto-play when user hovers over carousel
+    const carouselContainer = document.querySelector('.relative.max-w-4xl.mx-auto');
+    carouselContainer.addEventListener('mouseenter', () => {
+      if (isAutoPlaying) {
+        stopAutoPlay();
+      }
+    });
+
+    carouselContainer.addEventListener('mouseleave', () => {
+      if (isAutoPlaying) {
+        startAutoPlay();
+      }
     });
   </script>
   <script>
