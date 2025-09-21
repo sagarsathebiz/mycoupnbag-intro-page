@@ -112,9 +112,19 @@
     const access_token = params.get('access_token');
     const refresh_token = params.get('refresh_token');
     const type = params.get('type');
+    const error = params.get('error');
+    const error_code = params.get('error_code');
+    const error_description = params.get('error_description');
     const resetForm = document.getElementById('resetForm');
     const messageDiv = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
+
+    // Check for error parameters first
+    if (error) {
+      messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+      messageDiv.className = 'message error';
+      return;
+    }
 
     async function setSessionAndShowForm() {
       if (!access_token || !refresh_token || type !== 'recovery') {
