@@ -125,14 +125,14 @@
       try {
         const { data, error } = await supabase.auth.setSession({ access_token, refresh_token });
         if (error) {
-          messageDiv.textContent = 'Session error: ' + error.message;
+          messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
           messageDiv.className = 'message error';
           return;
         }
         // Show the form
         resetForm.style.display = 'block';
       } catch (err) {
-        messageDiv.textContent = 'Unexpected error: ' + err.message;
+        messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
         messageDiv.className = 'message error';
       }
     }
@@ -145,7 +145,7 @@
       try {
         const { data, error } = await supabase.auth.updateUser({ password: newPassword });
         if (error) {
-          messageDiv.textContent = error.message;
+          messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
           messageDiv.className = 'message error';
         } else {
           messageDiv.textContent = 'Password updated successfully! You can now log in with your new password.';
@@ -153,7 +153,7 @@
           resetForm.style.display = 'none';
         }
       } catch (err) {
-        messageDiv.textContent = 'Unexpected error: ' + err.message;
+        messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
         messageDiv.className = 'message error';
       }
       submitBtn.disabled = false;
@@ -162,7 +162,24 @@
     // Handle verification link (signup/email_confirm)
     if (type === 'signup' || type === 'email_confirm') {
       if (resetForm) resetForm.style.display = 'none';
-      messageDiv.innerHTML = '<span class="success">Your account has been. Please log in to the mobile app.</span>';
+      try {
+        // Attempt to verify the email
+        const { data, error } = await supabase.auth.verifyOtp({
+          token_hash: access_token,
+          type: type
+        });
+        
+        if (error) {
+          messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+          messageDiv.className = 'message error';
+        } else {
+          messageDiv.innerHTML = '<span class="success">Your account has been verified. Please log in to the mobile app.</span>';
+          messageDiv.className = 'message success';
+        }
+      } catch (err) {
+        messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+        messageDiv.className = 'message error';
+      }
     } else if (type === 'recovery') {
       setSessionAndShowForm();
     } else {
