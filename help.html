@@ -210,7 +210,7 @@
           <!-- Desktop Navigation -->
           <nav class="hidden md:flex space-x-8">
             <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
-            <a href="#" onclick="openLiveSupport(); return false;" class="text-purple-600 font-medium hover:text-purple-700">Official HelpDesk</a>
+            <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors">Official HelpDesk</a>
           </nav>
         </div>
       </div>
@@ -233,11 +233,18 @@
       </div>
       <div class="mobile-nav-content">
         <nav class="space-y-1">
-          <a href="#" onclick="openLiveSupport(); toggleMobileNav(); return false;" class="nav-link block text-purple-600 font-medium hover:text-purple-700 rounded-lg mobile-btn">🆘 Official HelpDesk</a>
+          <a href="/" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">Home</a>
+          <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">Official HelpDesk</a>
           <div class="border-t border-gray-200 my-2"></div>
           <a href="#overview" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📱 App Overview</a>
-          <a href="#eliteline-submit" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👑 EliteLine Submit</a>
-          <a href="#smartbot-channels" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤖 SmartBot Channels</a>
+          <a href="#eliteline-submit" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">
+            <div>👑 EliteLine Submit</div>
+            <div class="text-xs text-gray-500">(Hands-Free)</div>
+          </a>
+          <a href="#smartbot-channels" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">
+            <div>🤖 SmartBot Channels</div>
+            <div class="text-xs text-gray-500">(Self-Service)</div>
+          </a>
           <a href="#mybag" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👜 MyBag Tab</a>
           <a href="#review" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📋 Review Tab</a>
           <a href="#partner-deals" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤝 Partner Deals Tab</a>
@@ -262,8 +269,14 @@
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Navigation</h2>
                     <nav class="space-y-2">
           <a href="#overview" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📱 App Overview</a>
-          <a href="#eliteline-submit" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">👑 EliteLine Submit</a>
-          <a href="#smartbot-channels" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🤖 SmartBot Channels</a>
+          <a href="#eliteline-submit" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">
+            <div>👑 EliteLine Submit</div>
+            <div class="text-xs text-gray-500">(Hands-Free)</div>
+          </a>
+          <a href="#smartbot-channels" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">
+            <div>🤖 SmartBot Channels</div>
+            <div class="text-xs text-gray-500">(Self-Service)</div>
+          </a>
           <a href="#mybag" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">👜 MyBag Tab</a>
           <a href="#review" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📋 Review Tab</a>
           <a href="#partner-deals" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🤝 Partner Deals Tab</a>
@@ -336,7 +349,7 @@
           <section id="eliteline-submit" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
             <div class="flex items-center mb-4 sm:mb-6">
               <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👑</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">EliteLine Submit</h2>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">EliteLine Submit (Hands-Free)</h2>
             </div>
             <div class="prose max-w-none">
               <p class="text-base sm:text-lg text-gray-700 mb-4">
@@ -425,7 +438,7 @@
           <section id="smartbot-channels" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
             <div class="flex items-center mb-4 sm:mb-6">
               <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤖</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">SmartBot Channels</h2>
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">SmartBot Channels (Self-Service)</h2>
             </div>
             <div class="prose max-w-none">
               <p class="text-base sm:text-lg text-gray-700 mb-4">
@@ -819,7 +832,7 @@
                   <li>• <strong>Document Upload:</strong> Upload PDF or document files containing coupons</li>
                   <li>• <strong>SmartBot Channels:</strong> Send via Telegram, WhatsApp, or Email bots</li>
                   <li>• <strong>Batch Processing:</strong> Process multiple images or documents at once</li>
-                                     <li>• <strong>EliteLine Submit:</strong> Premium service for Subscription Users (direct to MyBag)</li>
+                                     <li>• <strong>EliteLine Submit (Hands-Free):</strong> Premium service for Subscription Users (direct to MyBag)</li>
                 </ul>
               </div>
 
@@ -839,7 +852,7 @@
                 <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🤖 SmartBot vs EliteLine</h3>
                 <div class="grid md:grid-cols-2 gap-4">
                   <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-purple-800 mb-2">SmartBot Import (All Users)</h4>
+                    <h4 class="font-semibold text-purple-800 mb-2">SmartBot Import (Self-Service) (All Users)</h4>
                     <ul class="text-purple-700 space-y-1 text-sm">
                       <li>• Send to Telegram/WhatsApp/Email bots</li>
                       <li>• AI processes and adds to Review tab</li>
@@ -849,7 +862,7 @@
                     </ul>
                   </div>
                   <div class="bg-white p-4 rounded-lg">
-                                         <h4 class="font-semibold text-purple-800 mb-2">EliteLine Submit (Subscription Users)</h4>
+                                         <h4 class="font-semibold text-purple-800 mb-2">EliteLine Submit (Hands-Free) (Subscription Users)</h4>
                     <ul class="text-purple-700 space-y-1 text-sm">
                       <li>• Send to EliteLine channels</li>
                       <li>• Our team manually reviews</li>
@@ -867,7 +880,7 @@
                   <li>• Ensure good lighting when taking photos of coupons</li>
                   <li>• Include the full coupon text when pasting for better AI accuracy</li>
                   <li>• Use SmartBot for quick processing with manual review</li>
-                                     <li>• Use EliteLine Submit to skip the review process</li>
+                                     <li>• Use EliteLine Submit (Hands-Free) to skip the review process</li>
                   <li>• Batch process multiple coupons at once to save time</li>
                   <li>• Always verify AI-extracted details before adding to your collection</li>
                 </ul>
@@ -1034,7 +1047,7 @@
 
                 <!-- FAQ 4 -->
                 <div class="bg-amber-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-amber-900 mb-3 sm:mb-4 text-sm sm:text-base">4. What is "EliteLine Submissions"?</h3>
+                  <h3 class="font-semibold text-amber-900 mb-3 sm:mb-4 text-sm sm:text-base">4. What is "EliteLine Submissions (Hands-Free)"?</h3>
                   <p class="text-amber-800 text-sm sm:text-base mb-3"><strong>EliteLine = Hands-Free Service</strong></p>
                   <ul class="text-amber-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
                     <li>• You send coupon content (image, document, text) to our EliteLine channels</li>
@@ -1051,7 +1064,7 @@
 
                 <!-- FAQ 5 -->
                 <div class="bg-indigo-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-indigo-900 mb-3 sm:mb-4 text-sm sm:text-base">5. What is "SmartBot Submissions"?</h3>
+                  <h3 class="font-semibold text-indigo-900 mb-3 sm:mb-4 text-sm sm:text-base">5. What is "SmartBot Submissions (Self-Service)"?</h3>
                   <p class="text-indigo-800 text-sm sm:text-base mb-3"><strong>SmartBot = Self-Service with AI</strong></p>
                   <ul class="text-indigo-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
                     <li>• You send coupon content (image, document, text) to SmartBot channels</li>
@@ -1081,8 +1094,8 @@
                   <ul class="text-teal-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
                     <li>• <strong>Manual Entry</strong> → Best for quick, small edits</li>
                     <li>• <strong>AI Submissions</strong> → Fastest way to create from images or documents</li>
-                    <li>• <strong>SmartBot</strong> → Great for self-service users who like to review before saving</li>
-                    <li>• <strong>EliteLine</strong> → Perfect for hands-free users who want our team to do everything</li>
+                    <li>• <strong>SmartBot (Self-Service)</strong> → Great for self-service users who like to review before saving</li>
+                    <li>• <strong>EliteLine (Hands-Free)</strong> → Perfect for hands-free users who want our team to do everything</li>
                   </ul>
                 </div>
               </div>
@@ -1125,10 +1138,45 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t mt-8 sm:mt-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        <div class="text-center text-gray-500 text-sm sm:text-base">
-          <p>&copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India</p>
+    <footer class="text-center p-8 bg-white">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="text-left">
+          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">MyCouponBag</h4>
+          <p class="text-sm text-gray-700">Your AI-Powered Coupon Wallet! Never miss a deal again.</p>
+        </div>
+        <div class="text-left">
+          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
+          <ul class="text-sm space-y-2 text-gray-700">
+            <li>📱 Mobile App</li>
+            <li>🌐 Browser Extensions</li>
+            <li>👑 EliteLine Submit (Hands-Free)</li>
+            <li>🤖 SmartBot Integration (Self-Service)</li>
+          </ul>
+        </div>
+        <div class="text-left">
+          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Features</h4>
+          <ul class="text-sm space-y-2 text-gray-700">
+            <li>🤖 AI-Powered Import</li>
+            <li>🔍 Magic Search</li>
+            <li>📱 Multi-Platform</li>
+          </ul>
+        </div>
+        <div class="text-left">
+          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Support</h4>
+          <ul class="text-sm space-y-2 text-gray-700">
+            <li><a href="mailto:support@mycouponbag.com" class="hover:text-blue-600 transition-colors">📧 Contact Support</a></li>
+            <li><a href="/help" class="hover:text-blue-600 transition-colors">📖 Help Center</a></li>
+            <li><a href="#" onclick="openLiveSupport(); return false;" class="hover:text-blue-600 transition-colors">💬 Live Support</a></li>
+            <li><a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="hover:text-blue-600 transition-colors">🆘 Official HelpDesk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 pt-6">
+        <p class="text-sm text-gray-600">
+          &copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India
+        </p>
+        <div class="mt-4 flex justify-center space-x-4">
+          <a href="/privacy-policy" class="text-blue-600 hover:text-blue-800 text-sm">Privacy Policy and Terms & Conditions</a>
         </div>
       </div>
     </footer>

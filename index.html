@@ -150,11 +150,11 @@ nav {
   color: white;
   font-weight: 600;
   text-decoration: none;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   letter-spacing: 0.025em;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -223,13 +223,14 @@ nav {
   color: white;
   font-weight: 600;
   text-decoration: none;
-  padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
 }
 
 .mobile-nav-link-white:hover {
@@ -960,20 +961,20 @@ nav ul li a:hover::after {
 /* Large screen navigation improvements */
 @media (min-width: 1024px) {
   .nav-link-white {
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
   
   /* Better spacing for desktop navigation */
-  .hidden.md\\:flex.items-center.space-x-2 {
-    gap: 0.5rem;
+  .hidden.md\\:flex.items-center.space-x-1 {
+    gap: 0.25rem;
   }
 }
 
 /* Extra large screen optimizations */
 @media (min-width: 1280px) {
   .nav-link-white {
-    padding: 1rem 1.75rem;
+    padding: 0.7rem 1.2rem;
   }
 }
 
@@ -1135,17 +1136,16 @@ a:hover {
       </div>
       
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-2">
+      <div class="hidden md:flex items-center space-x-1">
         <a href="#home" class="nav-link-white">Home</a>
         <a href="#features" class="nav-link-white">Features</a>
         <a href="#how-it-works" class="nav-link-white">How It Works</a>
         <a href="#plans" class="nav-link-white">Pricing</a>
-        <a href="#partner" class="nav-link-white">Partners</a>
         <a href="#download" class="nav-link-white">Download</a>
-        <a href="#contact" class="nav-link-white">Contact</a>
+        <a href="#partner" class="nav-link-white">Partners</a>
         <a href="/help" class="nav-link-white">Help</a>
-        <a href="/partner-help" class="nav-link-white">Partner Help</a>
-        <a href="#" onclick="openLiveSupport(); return false;" class="text-purple-600 font-medium hover:text-purple-700 transition-colors">Official HelpDesk</a>
+        <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="nav-link-white">Official HelpDesk</a>
+        <a href="#contact" class="nav-link-white">Contact</a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -1162,12 +1162,11 @@ a:hover {
       <a href="#features" class="mobile-nav-link-white mobile-btn">Features</a>
       <a href="#how-it-works" class="mobile-nav-link-white mobile-btn">How It Works</a>
       <a href="#plans" class="mobile-nav-link-white mobile-btn">Pricing</a>
-      <a href="#partner" class="mobile-nav-link-white mobile-btn">Partners</a>
       <a href="#download" class="mobile-nav-link-white mobile-btn">Download</a>
-      <a href="#contact" class="mobile-nav-link-white mobile-btn">Contact</a>
+      <a href="#partner" class="mobile-nav-link-white mobile-btn">Partners</a>
       <a href="/help" class="mobile-nav-link-white mobile-btn">Help</a>
-      <a href="/partner-help" class="mobile-nav-link-white mobile-btn">Partner Help</a>
-      <a href="#" onclick="openLiveSupport(); return false;" class="text-purple-600 font-medium hover:text-purple-700 transition-colors mobile-btn">Official HelpDesk</a>
+      <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="mobile-nav-link-white mobile-btn">Official HelpDesk</a>
+      <a href="#contact" class="mobile-nav-link-white mobile-btn">Contact</a>
     </div>
   </div>
 
@@ -1285,7 +1284,7 @@ a:hover {
               <!-- FAQ Slide 4 -->
               <div class="w-full flex-shrink-0">
                 <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-4 sm:p-6 md:p-8 rounded-2xl border-2 border-amber-200 h-80 sm:h-96 flex flex-col">
-                  <h4 class="text-lg sm:text-xl font-bold text-amber-900 mb-3 sm:mb-4">4. What is "EliteLine Submissions"?</h4>
+                  <h4 class="text-lg sm:text-xl font-bold text-amber-900 mb-3 sm:mb-4">4. What is "EliteLine Submissions (Hands-Free)"?</h4>
                   <div class="flex-grow overflow-y-auto">
                     <p class="text-amber-800 mb-3 sm:mb-4 text-sm sm:text-base"><strong>EliteLine = Hands-Free Service</strong></p>
                     <ul class="text-amber-800 space-y-1 sm:space-y-2 ml-4 text-sm sm:text-base">
@@ -1306,7 +1305,7 @@ a:hover {
               <!-- FAQ Slide 5 -->
               <div class="w-full flex-shrink-0">
                 <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-4 sm:p-6 md:p-8 rounded-2xl border-2 border-indigo-200 h-80 sm:h-96 flex flex-col">
-                  <h4 class="text-lg sm:text-xl font-bold text-indigo-900 mb-3 sm:mb-4">5. What is "SmartBot Submissions"?</h4>
+                  <h4 class="text-lg sm:text-xl font-bold text-indigo-900 mb-3 sm:mb-4">5. What is "SmartBot Submissions (Self-Service)"?</h4>
                   <div class="flex-grow overflow-y-auto">
                     <p class="text-indigo-800 mb-3 sm:mb-4 text-sm sm:text-base"><strong>SmartBot = Self-Service with AI</strong></p>
                     <ul class="text-indigo-800 space-y-1 sm:space-y-2 ml-4 text-sm sm:text-base">
@@ -1345,8 +1344,8 @@ a:hover {
                     <ul class="text-teal-800 space-y-1 sm:space-y-2 ml-4 text-sm sm:text-base">
                       <li>• <strong>Manual Entry</strong> → Best for quick, small edits</li>
                       <li>• <strong>AI Submissions</strong> → Fastest way to create from images or documents</li>
-                      <li>• <strong>SmartBot</strong> → Great for self-service users who like to review before saving</li>
-                      <li>• <strong>EliteLine</strong> → Perfect for hands-free users who want our team to do everything</li>
+                      <li>• <strong>SmartBot (Self-Service)</strong> → Great for self-service users who like to review before saving</li>
+                      <li>• <strong>EliteLine (Hands-Free)</strong> → Perfect for hands-free users who want our team to do everything</li>
                     </ul>
                   </div>
                 </div>
@@ -1376,7 +1375,7 @@ a:hover {
       </div>
 
       <!-- Core Features Row -->
-      <div class="grid md:grid-cols-3 gap-8 my-16 mobile-feature-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-16 mobile-feature-grid">
         <div class="feature-card mobile-feature-card" style="animation-delay: 0.1s">
           <span>🤖</span>
           <h3 class="text-xl md:text-2xl font-semibold mb-4">AI-Powered Import</h3>
@@ -1392,16 +1391,10 @@ a:hover {
           <h3 class="text-xl md:text-2xl font-semibold mb-4">Multi-Platform</h3>
           <p class="mobile-text-base">Mobile app, browser extension, and bot integrations for seamless coupon management across all devices</p>
         </div>
-      </div>
-
-      <!-- Premium Feature Highlight -->
-      <div class="my-16 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl mobile-card">
-        <div class="text-center">
-          <div class="text-4xl mb-4">👑</div>
-          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-amber-800">EliteLine Submit</h3>
-          <p class="text-lg mb-4 text-amber-700 mobile-text-lg">Skip the Review tab — straight into <strong>MyBag</strong></p>
-          <p class="text-base text-gray-700 mb-6 mobile-text-base">Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team verifies and adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.</p>
-
+        <div class="feature-card mobile-feature-card bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200" style="animation-delay: 0.4s">
+          <span>👑</span>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-amber-800">EliteLine Submit (Hands-Free)</h3>
+          <p class="mobile-text-base text-amber-700">Skip the Review tab — straight into <strong>MyBag</strong>. Send coupons via EliteLine channels and our team adds them directly to your MyBag, ready to use.</p>
         </div>
       </div>
 
@@ -1456,38 +1449,9 @@ a:hover {
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Powerful Features</h2>
       <p class="text-xl text-center mb-12">Everything you need to manage your coupons intelligently with AI-powered automation</p>
       
-      <!-- Core Functionality -->
+      <!-- Ways to Add Coupons -->
       <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Core Functionality</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="feature-card">
-            <span>🏷️</span>
-            <h3 class="text-xl md:text-2xl font-semibold mb-4">Smart Organization</h3>
-            <ul class="text-left space-y-2">
-              <li>• Automatic categorization (Food, Shopping, Travel, etc.)</li>
-              <li>• Expiry date tracking with smart notifications</li>
-              <li>• Advanced filtering and sorting options</li>
-              <li>• Cloud sync across all devices</li>
-              <li>• Usage tracking and analytics</li>
-            </ul>
-          </div>
-          <div class="feature-card">
-            <span>💰</span>
-            <h3 class="text-xl md:text-2xl font-semibold mb-4">Savings Analytics</h3>
-            <ul class="text-left space-y-2">
-              <li>• Track total and potential savings</li>
-              <li>• Usage statistics and spending patterns</li>
-              <li>• Performance metrics dashboard</li>
-              <li>• Expiry alerts and smart reminders</li>
-              <li>• Savings goals and progress tracking</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Import Methods Row -->
-      <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Import Methods</h3>
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">Ways to Add Coupons</h3>
         
         <!-- Main Import Methods Box - All features in one line -->
         <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border-2 border-blue-200 mb-8">
@@ -1530,7 +1494,7 @@ a:hover {
             <div class="flex justify-center">
               <div class="partner-card p-6 text-center border-2 border-purple-300 bg-white/80 max-w-sm w-full">
                 <div class="text-4xl mb-4">🤖</div>
-                <div class="text-xl font-bold mb-2 text-purple-800">SmartBot Import</div>
+                <div class="text-xl font-bold mb-2 text-purple-800">SmartBot Import (Self-Service)</div>
                 <div class="text-sm text-purple-700">Auto-fetch coupons to Review section</div>
                 <div class="text-xs text-purple-600 mt-2 font-semibold">Self-serve</div>
               </div>
@@ -1543,7 +1507,7 @@ a:hover {
             <div class="flex justify-center">
               <div class="partner-card p-6 text-center border-2 border-amber-300 bg-white/80 max-w-sm w-full">
                 <div class="text-4xl mb-4">👑</div>
-                <div class="text-xl font-bold mb-2 text-amber-800">EliteLine Submit</div>
+                <div class="text-xl font-bold mb-2 text-amber-800">EliteLine Submit (Hands-Free)</div>
                 <div class="text-sm text-amber-700">Skip Review section — direct to MyBag</div>
                 <div class="text-xs text-amber-600 mt-2 font-semibold">Hands-free</div>
               </div>
@@ -1559,7 +1523,7 @@ a:hover {
           <div class="feature-card border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
             <div class="text-center mb-4">
               <div class="text-3xl mb-2">🤖</div>
-              <h4 class="text-xl font-bold text-blue-800 mb-2">SmartBot Import</h4>
+              <h4 class="text-xl font-bold text-blue-800 mb-2">SmartBot Import (Self-Service)</h4>
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
                 ⚙️ Self-serve
               </div>
@@ -1583,7 +1547,7 @@ a:hover {
           <div class="feature-card border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50">
             <div class="text-center mb-4">
               <div class="text-3xl mb-2">👑</div>
-              <h4 class="text-xl font-bold text-amber-800 mb-2">EliteLine Submit</h4>
+              <h4 class="text-xl font-bold text-amber-800 mb-2">EliteLine Submit (Hands-Free)</h4>
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-semibold">
                 🧘 Hands-free
               </div>
@@ -1644,7 +1608,7 @@ a:hover {
       <div class="mt-12 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
         <div class="text-center mb-6">
           <div class="text-3xl mb-2">👑</div>
-          <h3 class="text-xl md:text-2xl font-bold text-amber-800 mb-2">EliteLine Submit</h3>
+          <h3 class="text-xl md:text-2xl font-bold text-amber-800 mb-2">EliteLine Submit (Hands-Free)</h3>
           <p class="text-amber-700">Skip the Review section — direct to MyBag with EliteLine Submit</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -1749,7 +1713,7 @@ a:hover {
              <tr class="border-b border-gray-100 hover:bg-gray-50">
                <td class="p-4 font-medium">
                  <div class="flex items-center gap-2">
-                   <div class="font-bold text-amber-800">EliteLine Submissions / Day</div>
+                   <div class="font-bold text-amber-800">EliteLine Submissions (Hands-Free) / Day</div>
                    <div class="relative group">
                      <svg class="w-4 h-4 text-amber-600 cursor-help" fill="currentColor" viewBox="0 0 24 24">
                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
@@ -1763,7 +1727,7 @@ a:hover {
                      </div>
                    </div>
                  </div>
-                 <div class="text-sm text-gray-600 mt-1">Skip Review section — direct to <strong>MyBag</strong></div>
+                 <div class="text-sm text-gray-600 mt-1">Skip Review section — direct to <strong>MyBag</strong> (Hands-Free)</div>
                </td>
                <td class="text-center p-4">
                  <span class="text-red-500 text-xl">0</span>
@@ -1779,7 +1743,7 @@ a:hover {
                </td>
              </tr>
              <tr class="border-b border-gray-100 hover:bg-gray-50">
-               <td class="p-4 font-medium">AI Submissions / Day</td>
+               <td class="p-4 font-medium">AI Submissions (Self-Service) / Day</td>
                <td class="text-center p-4">
                  <span class="text-green-600 text-xl font-bold">2</span>
                </td>
@@ -1842,8 +1806,101 @@ a:hover {
                  <span class="text-green-600 text-2xl">✓</span>
                </td>
              </tr>
+             <tr class="border-b border-gray-100 hover:bg-gray-50">
+               <td class="p-4 font-medium">Priority Support</td>
+               <td class="text-center p-4">
+                 <span class="text-green-600 text-xl">✓</span>
+               </td>
+               <td class="text-center p-4 bg-blue-50 border-l-2 border-r-2 border-blue-200">
+                 <span class="text-green-600 text-2xl">✓</span>
+               </td>
+               <td class="text-center p-4 bg-gradient-to-b from-purple-100 to-purple-200 border-l-2 border-r-2 border-purple-300 shadow-lg">
+                 <span class="text-green-600 text-2xl">✓</span>
+               </td>
+               <td class="text-center p-4 bg-amber-50 border-l-2 border-r-2 border-amber-200">
+                 <span class="text-green-600 text-2xl">✓</span>
+               </td>
+             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="glass rounded-3xl my-8">
+    <div class="p-8">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get Started Today</h2>
+              <p class="text-xl text-center mb-12">Choose your platform and start saving with <strong>MyCouponBag</strong> - your AI-powered coupon wallet</p>
+      
+      <!-- 2x2 Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Row 1, Column 1: Mobile App -->
+        <div class="feature-card p-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-[#1e40af]">📱 Mobile App</h3>
+          <p class="text-center mb-6 text-sm">Download our mobile app for seamless coupon management on the go</p>
+          <div class="flex flex-col gap-3 items-center">
+            <a href="https://play.google.com/store/apps/details?id=com.mycouponbag.app" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block" style="color: white !important;">
+              Google Play Store
+            </a>
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              App Store (Coming Soon)
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 1, Column 2: Browser Extensions -->
+        <div class="feature-card p-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-[#1e40af]">🌐 Browser Extensions</h3>
+          <p class="text-center mb-6 text-sm">Create coupons directly from web content</p>
+          <div class="flex flex-col gap-3 items-center">
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              Chrome Extension (Coming Soon)
+            </a>
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              Firefox Extension (Coming Soon)
+            </a>
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              Safari Extension (Coming Soon)
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 2, Column 1: EliteLine Submit -->
+        <div class="feature-card p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-4 text-amber-800">👑 EliteLine Submit (Hands-Free)</h3>
+          <p class="text-center mb-6 text-amber-700 text-sm">Skip Review section — direct to MyBag</p>
+          <div class="flex flex-col gap-3 items-center">
+            <a href="http://t.me/eliteline_mycouponbag_bot" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block" style="color: white !important;">
+              EliteLine-Telegram
+            </a>
+            <a href="mailto:eliteline@mycouponbag.com" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition-colors inline-block">
+              EliteLine-Mail
+            </a>
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              WhatsApp (Coming Soon)
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 2, Column 2: SmartBot Integration -->
+        <div class="feature-card p-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-[#1e40af]">🤖 SmartBot Integration (Self-Service)</h3>
+          <p class="text-center mb-6 text-sm">Connect with our bots for instant coupon processing</p>
+          <div class="flex flex-col gap-3 items-center">
+            <a href="http://t.me/mycouponbag_bot" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block">
+              SmartBot-Telegram
+            </a>
+            <a href="mailto:smartbot@mycouponbag.com" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition-colors inline-block">
+              SmartBot-Mail
+            </a>
+            <a href="#" class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-500 transition-colors cursor-not-allowed inline-block">
+              WhatsApp Bot (Coming Soon)
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1872,165 +1929,6 @@ a:hover {
     </div>
   </section>
 
-  <!-- Download Section -->
-  <section id="download" class="glass rounded-3xl my-8">
-    <div class="p-8">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Get Started Today</h2>
-              <p class="text-xl text-center mb-12">Choose your platform and start saving with <strong>MyCouponBag</strong> - your AI-powered coupon wallet</p>
-      
-      <!-- Mobile App -->
-      <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">📱 Mobile App</h3>
-        <div class="flex flex-wrap justify-center gap-8">
-          <a href="https://play.google.com/store/apps/details?id=com.mycouponbag.app" target="_blank" class="modern-button">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-              </svg>
-              Google Play Store
-            </span>
-          </a>
-          <a href="#" class="modern-button opacity-50 cursor-not-allowed">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-              </svg>
-              App Store (Coming Soon)
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t-2 border-gray-200 my-12"></div>
-
-      <!-- EliteLine Submit -->
-      <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">👑 EliteLine Submit</h3>
-        <p class="text-center mb-8">Skip the Review section — direct to MyBag with our premium submission service</p>
-        <div class="max-w-2xl mx-auto p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl mx-4">
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="text-2xl">📱</div>
-              <div>
-                <div class="font-semibold text-amber-800">Telegram</div>
-                <a href="http://t.me/eliteline_mycouponbag_bot" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                  <span>📱</span>
-                  <span>EliteLine-Telegram</span>
-                </a>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="text-2xl">📧</div>
-              <div>
-                <div class="font-semibold text-amber-800">Email</div>
-                <a href="mailto:eliteline@mycouponbag.com" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full text-sm font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                  <span>📧</span>
-                  <span>EliteLine-Mail</span>
-                </a>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="text-2xl">💬</div>
-              <div>
-                <div class="font-semibold text-amber-800">WhatsApp</div>
-                <div class="text-sm text-amber-700">Coming soon</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t-2 border-gray-200 my-12"></div>
-
-      <!-- Bot Integration -->
-      <div class="mb-16">
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">🤖 Bot Integration</h3>
-        <p class="text-center mb-8">Connect with our bots for instant coupon processing</p>
-        <div class="flex flex-wrap justify-center gap-8">
-          <a href="http://t.me/mycouponbag_bot" target="_blank" class="modern-button">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              SmartBot-Telegram
-            </span>
-          </a>
-          <a href="mailto:smartbot@mycouponbag.com" class="modern-button">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              SmartBot-Mail
-            </span>
-          </a>
-          <a href="#" class="modern-button opacity-50 cursor-not-allowed">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              WhatsApp Bot (Coming Soon)
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t-2 border-gray-200 my-12"></div>
-
-      <!-- Browser Extension -->
-      <div>
-        <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-[#1e40af]">🌐 Browser Extension</h3>
-        <p class="text-center mb-8">Create coupons directly from web content with our cross-browser extension for seamless coupon capture</p>
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">🔍</div>
-                      <div class="text-lg font-bold mb-2">Text Selection</div>
-          <div class="text-sm">Select text on any webpage and process with AI for instant coupon creation</div>
-          </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">📷</div>
-                      <div class="text-lg font-bold mb-2">Image Upload</div>
-          <div class="text-sm">Upload images and extract coupon information automatically</div>
-          </div>
-          <div class="partner-card p-6 text-center">
-            <div class="text-3xl mb-4">📄</div>
-                      <div class="text-lg font-bold mb-2">Document Import</div>
-          <div class="text-sm">Upload PDF/Word files for AI-powered processing</div>
-          </div>
-        </div>
-        <div class="mb-16">
-        <div class="flex flex-wrap justify-center gap-8">
-          <a href="#" class="modern-button opacity-50 cursor-not-allowed">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              Chrome Extension (Coming Soon)
-            </span>
-          </a>
-          <a href="#" class="modern-button opacity-50 cursor-not-allowed">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              Firefox Extension (Coming Soon)
-            </span>
-          </a>
-          <a href="#" class="modern-button opacity-50 cursor-not-allowed">
-            <span class="flex items-center gap-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-              </svg>
-              Safari Extension (Coming Soon)
-            </span>
-          </a>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="glass rounded-3xl my-8">
@@ -2038,60 +1936,68 @@ a:hover {
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">Get in Touch</h2>
               <p class="text-xl text-center mb-10">We're here to help! Reach out to us for support, partnerships, or just to say hello. Our team is ready to assist you. Live Support is available on the web and in the app.</p>
       
-      <!-- Contact Methods -->
-      <div class="max-w-2xl mx-auto mb-12 text-center px-4">
-        <h3 class="text-xl md:text-2xl font-bold mb-4">📧 Email Support</h3>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-          <div class="text-base md:text-lg font-medium">
-            support@mycouponbag.com<br>connect.poojabiz@gmail.com
-          </div>
-        </div>
-      </div>
-      
-      <!-- Social Media -->
-      <div class="text-center">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#1e40af]">Follow Us</h3>
-        <p class="text-lg mb-8">Stay updated with the latest features, offers, and exclusive deals</p>
-        <div class="social-icons flex justify-center items-center gap-6 flex-wrap mobile-social-icons">
-          <a href="https://whatsapp.com/channel/0029VbB9ULNLo4hYXAI4g23f" target="_blank" class="hover:rotate-12 transition-transform duration-300" title="WhatsApp">
-            <img src="imgs/whatsapp-icon.png" alt="WhatsApp" class="w-10 h-10">
-          </a>
-          <a href="https://t.me/mycouponbag" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Telegram">
-            <img src="imgs/telegram-icon.png" alt="Telegram" class="w-10 h-10">
-          </a>
-          <a href="https://x.com/mycouponbag_x" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Twitter/X">
-            <img src="imgs/twitter-icon.png" alt="Twitter" class="w-10 h-10">
-          </a>
-          <a href="https://www.instagram.com/mycouponbag" target="_blank" class="hover:rotate-12 transition-transform duration-300" title="Instagram">
-            <img src="imgs/instagram-icon.png" alt="Instagram" class="w-10 h-10">
-          </a>
-          <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Facebook">
-            <img src="imgs/facebook-icon.png" alt="Facebook" class="w-10 h-10">
-          </a>
-        </div>
+      <!-- 2x2 Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <!-- Help & Support Section -->
-        <div class="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200">
-          <h4 class="text-xl font-bold text-blue-900 mb-4">Need Help?</h4>
-          <p class="text-blue-800 mb-6">Get detailed guides, tutorials, and comprehensive support for using MyCouponBag effectively</p>
-          <div class="flex flex-wrap justify-center gap-4">
-            <a href="/help" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
-              📖 Help Center
+        <!-- Row 1, Column 1: Email Support -->
+        <div class="feature-card p-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-[#1e40af]">📧 Email Support</h3>
+          <p class="text-center mb-6 text-sm">Get in touch with our support team for assistance</p>
+          <div class="flex flex-col gap-3 items-center">
+            <a href="mailto:support@mycouponbag.com" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block">
+              support@mycouponbag.com
             </a>
-            <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
-              🆘 Official HelpDesk
-            </a>
-            <a href="mailto:support@mycouponbag.com" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
-              📧 Contact Support
-            </a>
-            <a href="#" onclick="openLiveSupport(); return false;" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-colors">
-              💬 Live Support
+            <a href="mailto:connect.poojabiz@gmail.com" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition-colors inline-block">
+              connect.poojabiz@gmail.com
             </a>
           </div>
         </div>
+
+        <!-- Row 1, Column 2: Follow Us -->
+        <div class="feature-card p-6">
+          <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-[#1e40af]">Follow Us</h3>
+          <p class="text-center mb-6 text-sm">Stay updated with the latest features, offers, and exclusive deals</p>
+          <div class="social-icons flex justify-center items-center gap-4 flex-wrap">
+            <a href="https://whatsapp.com/channel/0029VbB9ULNLo4hYXAI4g23f" target="_blank" class="hover:rotate-12 transition-transform duration-300" title="WhatsApp">
+              <img src="imgs/whatsapp-icon.png" alt="WhatsApp" class="w-8 h-8">
+            </a>
+            <a href="https://t.me/mycouponbag" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Telegram">
+              <img src="imgs/telegram-icon.png" alt="Telegram" class="w-8 h-8">
+            </a>
+            <a href="https://x.com/mycouponbag_x" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Twitter/X">
+              <img src="imgs/twitter-icon.png" alt="Twitter" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com/mycouponbag" target="_blank" class="hover:rotate-12 transition-transform duration-300" title="Instagram">
+              <img src="imgs/instagram-icon.png" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://www.facebook.com/mycouponbagfb" target="_blank" class="hover:-rotate-12 transition-transform duration-300" title="Facebook">
+              <img src="imgs/facebook-icon.png" alt="Facebook" class="w-8 h-8">
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 2: Need Help? (Full Width) -->
+        <div class="md:col-span-2">
+          <div class="feature-card p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-blue-900">Need Help?</h3>
+            <p class="text-center mb-8 text-blue-800">Get detailed guides, tutorials, and comprehensive support for using MyCouponBag effectively</p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="mailto:support@mycouponbag.com" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
+                📧 Contact Support
+              </a>
+              <a href="/help" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                📖 Help Center
+              </a>
+              <a href="#" onclick="openLiveSupport(); return false;" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-colors">
+                💬 Live Support
+              </a>
+              <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+                🆘 Official HelpDesk
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2107,9 +2013,9 @@ a:hover {
         <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
         <ul class="text-sm space-y-2 text-gray-700">
           <li>📱 Mobile App</li>
-          <li>🌐 Browser Extension</li>
-          <li>🤖 Telegram Bot</li>
-          <li>💬 WhatsApp Bot</li>
+          <li>🌐 Browser Extensions</li>
+          <li>👑 EliteLine Submit (Hands-Free)</li>
+          <li>🤖 SmartBot Integration (Self-Service)</li>
         </ul>
       </div>
       <div class="text-left">
@@ -2117,17 +2023,16 @@ a:hover {
         <ul class="text-sm space-y-2 text-gray-700">
           <li>🤖 AI-Powered Import</li>
           <li>🔍 Magic Search</li>
-          <li>📊 Analytics</li>
-          <li>🔔 Smart Notifications</li>
+          <li>📱 Multi-Platform</li>
         </ul>
       </div>
       <div class="text-left">
         <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Support</h4>
         <ul class="text-sm space-y-2 text-gray-700">
+          <li><a href="mailto:support@mycouponbag.com" class="hover:text-blue-600 transition-colors">📧 Contact Support</a></li>
           <li><a href="/help" class="hover:text-blue-600 transition-colors">📖 Help Center</a></li>
+          <li><a href="#" onclick="openLiveSupport(); return false;" class="hover:text-blue-600 transition-colors">💬 Live Support</a></li>
           <li><a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="hover:text-blue-600 transition-colors">🆘 Official HelpDesk</a></li>
-          <li><a href="mailto:support@mycouponbag.com" class="hover:text-blue-600 transition-colors">📧 Email Support</a></li>
-          <li>💬 Social Media</li>
         </ul>
       </div>
     </div>

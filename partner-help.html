@@ -271,7 +271,7 @@
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8">
                         <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
-                        <a href="#" onclick="openLiveSupport(); return false;" class="text-purple-600 font-medium hover:text-purple-700">Official HelpDesk</a>
+                        <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors">Official HelpDesk</a>
                     </nav>
                 </div>
             </div>
@@ -299,7 +299,7 @@
             </div>
             <div class="mobile-nav-content">
                 <nav class="space-y-1">
-                    <a href="#" onclick="openLiveSupport(); toggleMobileNav(); return false;" class="nav-link block text-purple-600 font-medium hover:text-purple-700 rounded-lg">🆘 Official HelpDesk</a>
+                    <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">Official HelpDesk</a>
                     <div class="border-t border-gray-200 my-2"></div>
                     <a href="#welcome"
                         class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg"
@@ -360,9 +360,6 @@
                             <a href="#registration"
                                 class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📩
                                 Registration & Support</a>
-                            <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank"
-                                class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🆘
-                                Official HelpDesk</a>
                         </nav>
                     </div>
                 </div>
@@ -878,10 +875,45 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-white border-t mobile-footer mt-8 sm:mt-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-                <div class="text-center text-gray-500 text-sm sm:text-base">
-                    <p>&copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India</p>
+        <footer class="text-center p-8 bg-white">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-4 text-[#1e40af]">MyCouponBag</h4>
+                    <p class="text-sm text-gray-700">Your AI-Powered Coupon Wallet! Never miss a deal again.</p>
+                </div>
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li>📱 Mobile App</li>
+                        <li>🌐 Browser Extensions</li>
+                        <li>👑 EliteLine Submit (Hands-Free)</li>
+                        <li>🤖 SmartBot Integration (Self-Service)</li>
+                    </ul>
+                </div>
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Features</h4>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li>🤖 AI-Powered Import</li>
+                        <li>🔍 Magic Search</li>
+                        <li>📱 Multi-Platform</li>
+                    </ul>
+                </div>
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Support</h4>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li><a href="mailto:support@mycouponbag.com" class="hover:text-blue-600 transition-colors">📧 Contact Support</a></li>
+                        <li><a href="/help" class="hover:text-blue-600 transition-colors">📖 Help Center</a></li>
+                        <li><a href="#" onclick="openLiveSupport(); return false;" class="hover:text-blue-600 transition-colors">💬 Live Support</a></li>
+                        <li><a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="hover:text-blue-600 transition-colors">🆘 Official HelpDesk</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-6">
+                <p class="text-sm text-gray-600">
+                    &copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India
+                </p>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <a href="/privacy-policy" class="text-blue-600 hover:text-blue-800 text-sm">Privacy Policy and Terms & Conditions</a>
                 </div>
             </div>
         </footer>
