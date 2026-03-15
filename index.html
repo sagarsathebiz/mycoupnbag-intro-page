@@ -7,136 +7,150 @@
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Coupomated Verification -->
   <meta name="enact-verify" content="0c5f341ef51632422892ccc56540ff06">
   <style>
+    /* Neo-Brutalist Deal Hunter theme */
     :root {
-      --primary: #6750A4;
-      --primary-dark: #5a4790;
-      --secondary: #625B71;
-      --outline: #79747E;
-      --surface: #FFFBFE;
-      --surface-variant: #E7E0EC;
-      --error: #B3261E;
-      --on-surface: #1c1b1f;
-      --on-primary: #fff;
+      --yellow: #FFD700;
+      --pink: #FF007F;
+      --purple: #6A0DAD;
+      --purple-light: #8B5CF6;
+      --navy: #1a1a2e;
+      --black: #111111;
+      --offwhite: #F4F4F0;
+      --lightblue: #87CEEB;
     }
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--surface);
-      color: var(--on-surface);
+      background: var(--offwhite);
+      color: var(--black);
       min-height: 100vh;
       margin: 0;
       padding: 0;
     }
+    /* Hard block shadow (no blur) */
+    .shadow-brutal { box-shadow: 4px 4px 0 0 var(--black); }
+    .shadow-brutal-lg { box-shadow: 8px 8px 0 0 var(--black); }
+    .shadow-brutal-sm { box-shadow: 2px 2px 0 0 var(--black); }
+    .border-3 { border-width: 3px; }
+    /* Button press */
+    .btn-brutal:active { transform: scale(0.97); }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse-bright {
+      0%, 100% { filter: brightness(1); box-shadow: 6px 6px 0 0 var(--black); }
+      50% { filter: brightness(1.08); box-shadow: 8px 8px 0 0 var(--black); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+      display: inline-flex;
+      gap: 2rem;
+    }
+    .animate-pulse-cta {
+      animation: pulse-bright 2s ease-in-out infinite;
+    }
     .nav-bar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--surface-variant);
+      background: var(--offwhite);
+      border-bottom: 3px solid var(--black);
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 0 0 var(--black);
     }
     .nav-link {
-      color: var(--secondary);
-      font-weight: 500;
+      color: var(--black);
+      font-weight: 700;
       text-decoration: none;
       padding: 0.5rem 0.75rem;
-      border-radius: 0.5rem;
-      transition: color 0.2s, background 0.2s;
+      border: 2px solid transparent;
+      transition: all 0.15s;
     }
     .nav-link:hover {
-      color: var(--primary);
-      background: var(--surface-variant);
+      background: var(--purple);
+      color: white;
+      border-color: var(--black);
+      box-shadow: 3px 3px 0 0 var(--black);
     }
     .btn-primary {
-      background: var(--primary);
-      color: var(--on-primary);
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 100px;
-      border: none;
+      background: var(--purple);
+      color: white;
+      font-weight: 800;
+      padding: 1rem 2rem;
+      border: 3px solid var(--black);
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: transform 0.15s, box-shadow 0.15s;
       text-decoration: none;
       display: inline-block;
       text-align: center;
+      box-shadow: 5px 5px 0 0 var(--black);
     }
     .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 0 var(--black);
     }
+    .btn-primary:active { transform: scale(0.97); }
     .btn-outline {
       background: transparent;
-      color: var(--primary);
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 100px;
-      border: 2px solid var(--primary);
+      color: var(--black);
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border: 3px solid var(--black);
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.15s, color 0.15s;
       text-decoration: none;
       display: inline-block;
     }
     .btn-outline:hover {
-      background: var(--primary);
-      color: var(--on-primary);
+      background: var(--purple);
+      color: white;
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--surface-variant);
-      border-radius: 1rem;
+    .btn-outline:active { transform: scale(0.97); }
+    /* Perforated coupon card */
+    .card-coupon {
+      position: relative;
+      border: 3px solid var(--black);
       padding: 1.5rem;
-      transition: box-shadow 0.2s, border-color 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(103, 80, 164, 0.12);
-      border-color: rgba(103, 80, 164, 0.25);
+    .card-coupon:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 8px 0 0 var(--black);
     }
+    .card-coupon a:hover { color: var(--purple); }
+    .card-coupon .tear-line {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .card-coupon .tear-line::before,
+    .card-coupon .tear-line::after {
+      content: '';
+      flex: 1;
+      height: 0;
+      border-top: 3px dashed var(--black);
+    }
+    .card-coupon .tear-line .scissors { margin: 0 0.5rem; font-size: 1.25rem; }
     .section-heading {
       font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-weight: 900;
+      color: var(--black);
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
-    .accordion-trigger {
-      width: 100%;
-      text-align: left;
-      background: var(--surface);
-      border: 1px solid var(--surface-variant);
-      border-radius: 0.5rem;
-      padding: 0.75rem 1rem;
-      font-weight: 600;
-      color: var(--on-surface);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .accordion-trigger:hover {
-      background: var(--surface-variant);
-      border-color: var(--primary);
-    }
-    .accordion-panel {
-      padding: 1rem;
-      border: 1px solid var(--surface-variant);
-      border-top: none;
-      border-radius: 0 0 0.5rem 0.5rem;
-      background: var(--surface);
-    }
-    .mobile-menu {
-      display: none;
-    }
+    .mobile-menu { display: none; }
     .mobile-menu.active {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
       padding: 1rem;
-      background: var(--surface);
-      border-bottom: 1px solid var(--surface-variant);
+      background: var(--offwhite);
+      border-bottom: 3px solid var(--black);
     }
     @media (max-width: 768px) {
       .nav-desktop { display: none !important; }
@@ -150,10 +164,24 @@
   </style>
 </head>
 <body>
+  <!-- High-energy marquee -->
+  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <span class="px-4">🔥 CRAZY DEALS</span>
+      <span class="px-4">🚀 AI-POWERED</span>
+      <span class="px-4">💸 UNLIMITED SAVINGS</span>
+      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
+      <span class="px-4">🚀 CRAZY DEALS</span>
+      <span class="px-4">💸 AI-POWERED</span>
+      <span class="px-4">🔥 UNLIMITED SAVINGS</span>
+      <span class="px-4">🚀 NEVER LOSE A COUPON AGAIN</span>
+    </div>
+  </div>
+
   <!-- Nav -->
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <a href="/" class="text-xl font-black uppercase tracking-tight" style="color: var(--black);">MyCouponBag</a>
       <div class="nav-desktop flex items-center gap-1 flex-wrap">
         <a href="#home" class="nav-link">Home</a>
         <a href="#features" class="nav-link">Features</a>
@@ -164,7 +192,7 @@
         <a href="/help" class="nav-link">Help</a>
         <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live Chat</button>
       </div>
-      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 border-2 border-black bg-[var(--purple)] text-white font-bold shadow-brutal-sm" aria-label="Toggle menu">☰</button>
     </nav>
     <div id="mobile-menu" class="mobile-menu">
       <a href="#home" class="nav-link">Home</a>
@@ -183,12 +211,12 @@
     <section id="home" class="py-12 md:py-16">
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary);">MyCouponBag</h1>
-          <p class="text-xl md:text-2xl font-medium text-[var(--secondary)] mb-6">Your Coupons, One Bag - Never miss a discount again!</p>
-          <a href="#" class="btn-primary">Download on Google Play — Coming soon</a>
+          <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 text-black">MyCouponBag</h1>
+          <p class="text-xl md:text-2xl font-bold text-black mb-6">Your Coupons, One Bag — Never miss a discount again!</p>
+          <a href="#" class="btn-primary btn-brutal animate-pulse-cta text-lg">Download on Google Play — Coming soon</a>
         </div>
         <div class="flex-shrink-0">
-          <img src="imgs/mcb-happy.png" alt="MyCouponBag app" class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg" />
+          <img src="imgs/mcb-happy.png" alt="MyCouponBag app" class="w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-black shadow-brutal-lg" />
         </div>
       </div>
     </section>
@@ -197,53 +225,63 @@
     <section id="features" class="py-12">
       <h2 class="section-heading text-2xl md:text-3xl text-center mb-8">Powerful features</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card">
+        <div class="card-coupon bg-[#FFD700] shadow-brutal">
           <span class="text-3xl mb-2 block">🛍️</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">One place for all coupons</h3>
-          <p class="text-sm text-[var(--secondary)]">Manual entry, forward-by-email, barcode scan, and Discover — all in one app.</p>
+          <h3 class="text-xl font-black uppercase text-black mb-2">One place for all coupons</h3>
+          <p class="text-sm font-bold text-black">Manual entry, forward-by-email, barcode scan, and Discover — all in one app.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#6A0DAD] shadow-brutal relative">
+          <div class="absolute -top-2 -right-2 bg-black text-[#8B5CF6] font-black text-xs uppercase px-2 py-1 border-2 border-black shadow-brutal-sm rotate-6">AI!</div>
           <span class="text-3xl mb-2 block">📧</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Forward email to add</h3>
-          <p class="text-sm text-[var(--secondary)]">Forward any promo email to your private address — we pull out the code and add it to your bag. Only you see the code.</p>
+          <h3 class="text-xl font-black uppercase text-white mb-2">Forward email to add</h3>
+          <p class="text-sm font-bold text-white">Forward any promo email to your private address — we pull out the code and add it to your bag. Only you see the code.</p>
+          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-3xl mb-2 block">✏️</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Type it in or snap a pic</h3>
-          <p class="text-sm text-[var(--secondary)]">Got a code? Add it in seconds. Prefer a photo of the coupon? Attach it — we keep everything tidy with an optional “Shop now” link.</p>
+          <h3 class="text-xl font-black uppercase text-black mb-2">Type it in or snap a pic</h3>
+          <p class="text-sm font-bold text-black">Got a code? Add it in seconds. Prefer a photo? Attach it — we keep everything tidy with an optional “Shop now” link.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#FFD700] shadow-brutal">
           <span class="text-3xl mb-2 block">📷</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Scan to save</h3>
-          <p class="text-sm text-[var(--secondary)]">Point your camera at a barcode or QR code — we fill in the code for you. Add details and save. Done.</p>
+          <h3 class="text-xl font-black uppercase text-black mb-2">Scan to save</h3>
+          <p class="text-sm font-bold text-black">Point your camera at a barcode or QR — we fill in the code. Add details and save. Done.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#6A0DAD] shadow-brutal">
           <span class="text-3xl mb-2 block">🔍</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Discover</h3>
-          <p class="text-sm text-[var(--secondary)]">Browse handpicked and community deals. Add to your bag and the code is yours — no hunting, no hassle.</p>
+          <h3 class="text-xl font-black uppercase text-white mb-2">Discover</h3>
+          <p class="text-sm font-bold text-white">Browse handpicked and community deals. Add to your bag and the code is yours — no hunting, no hassle.</p>
+          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-3xl mb-2 block">🔔</span>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Never miss an expiry</h3>
-          <p class="text-sm text-[var(--secondary)]">We’ll nudge you in the app (and optionally on your phone) when a coupon’s about to expire or when a new one lands in your bag.</p>
+          <h3 class="text-xl font-black uppercase text-black mb-2">Never miss an expiry</h3>
+          <p class="text-sm font-bold text-black">We’ll nudge you in the app (and optionally on your phone) when a coupon’s about to expire or when a new one lands.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
       </div>
       <h3 class="section-heading text-xl md:text-2xl text-center mt-12 mb-6">How it works</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="card">
+        <div class="card-coupon bg-[#FFD700] shadow-brutal">
           <span class="text-2xl mb-2 block">✍️</span>
-          <h4 class="font-semibold text-base mb-2" style="color: var(--primary);">The Manual Glow-up</h4>
-          <p class="text-sm text-[var(--secondary)]">Type it, tag it, save it. Pop in the code and merchant details to keep your savings organized and ready to deploy. Clean & Classic.</p>
+          <h4 class="text-lg font-black uppercase text-black mb-2">The Manual Glow-up</h4>
+          <p class="text-sm font-bold text-black">Type it, tag it, save it. Pop in the code and merchant details to keep your savings organized and ready to deploy. Clean & Classic.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#6A0DAD] shadow-brutal">
           <span class="text-2xl mb-2 block">📧</span>
-          <h4 class="font-semibold text-base mb-2" style="color: var(--primary);">The AI Inbox Hack</h4>
-          <p class="text-sm text-[var(--secondary)]">Stop copy-pasting. Forward any promo email to your private address, and our AI will strip the fine print to grab the code for you. Pure Magic.</p>
+          <h4 class="text-lg font-black uppercase text-white mb-2">The AI Inbox Hack</h4>
+          <p class="text-sm font-bold text-white">Stop copy-pasting. Forward any promo email to your private address, and our AI will strip the fine print to grab the code for you. Pure Magic.</p>
+          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
-        <div class="card">
+        <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-2xl mb-2 block">🕵️‍♂️</span>
-          <h4 class="font-semibold text-base mb-2" style="color: var(--primary);">The Deal Hunter</h4>
-          <p class="text-sm text-[var(--secondary)]">Don’t have a code? Find one. Browse the Marketplace for curated listings and community-sourced steals. Shop the World.</p>
+          <h4 class="text-lg font-black uppercase text-black mb-2">The Deal Hunter</h4>
+          <p class="text-sm font-bold text-black">Don’t have a code? Find one. Browse the Marketplace for curated listings and community-sourced steals. Shop the World.</p>
+          <div class="tear-line"><span class="scissors">✂️</span></div>
         </div>
       </div>
     </section>
@@ -251,40 +289,41 @@
     <!-- Pricing -->
     <section id="plans" class="py-12">
       <h2 class="section-heading text-2xl md:text-3xl text-center mb-8">Choose your plan</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="card border-2 border-[var(--surface-variant)]">
-          <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">FREE</h3>
-          <ul class="space-y-2 text-sm text-[var(--secondary)]">
-            <li><strong class="text-[var(--on-surface)]">Total coupons per month:</strong> 50</li>
-            <li><strong class="text-[var(--on-surface)]">Email coupons per month:</strong> 15</li>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-start">
+        <div class="card-coupon bg-[#F4F4F0] shadow-brutal border-3 border-black">
+          <h3 class="text-2xl font-black uppercase text-black mb-4">FREE</h3>
+          <ul class="space-y-2 text-sm font-bold text-black">
+            <li><strong>Total coupons per month:</strong> 50</li>
+            <li><strong>Email coupons per month:</strong> 15</li>
           </ul>
         </div>
-        <div class="card border-2" style="border-color: var(--primary);">
-          <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">PRO</h3>
-          <ul class="space-y-2 text-sm text-[var(--secondary)]">
-            <li><strong class="text-[var(--on-surface)]">Total coupons per month:</strong> 999</li>
-            <li><strong class="text-[var(--on-surface)]">Email coupons per month:</strong> 150</li>
+        <div class="card-coupon bg-[#6A0DAD] shadow-brutal-lg border-3 border-black relative mt-0 md:mt-[-8px] scale-105">
+          <span class="absolute top-[-6px] right-4 bg-[#8B5CF6] text-white text-xs font-black uppercase px-2 py-1 border-2 border-black rotate-6 shadow-brutal-sm">Limited time</span>
+          <h3 class="text-3xl font-black uppercase text-white mb-4">PRO</h3>
+          <ul class="space-y-2 text-sm font-bold text-white">
+            <li><strong>Total coupons per month:</strong> 999</li>
+            <li><strong>Email coupons per month:</strong> 150</li>
           </ul>
         </div>
       </div>
-      <p class="mt-6 text-sm text-[var(--outline)] text-center max-w-2xl mx-auto"><strong class="text-[var(--primary)]">More features coming soon.</strong></p>
-      <p class="mt-4 text-sm text-[var(--outline)] text-center max-w-2xl mx-auto">Your monthly total tracks everything—manual adds, forwarded emails, and Discover saves—but your daily limit only applies to "automatic" additions (emails and Discover). Manual entries are the exception: they never count toward your daily cap, so feel free to type in as many as you like! Keep in mind that "email coupons" specifically refers to any deals created by forwarding promos to your private alias.</p>
+      <p class="mt-6 text-sm font-bold text-black text-center max-w-2xl mx-auto">More features coming soon.</p>
+      <p class="mt-4 text-sm font-bold text-black/80 text-center max-w-2xl mx-auto">Your monthly total tracks everything—manual adds, forwarded emails, and Discover saves. Manual entries never count toward your daily cap.</p>
     </section>
 
     <!-- Download -->
     <section id="download" class="py-12">
       <h2 class="section-heading text-2xl md:text-3xl text-center mb-8">Get the app</h2>
       <div class="text-center">
-        <a href="#" class="btn-primary">Download on Google Play — Coming soon</a>
+        <a href="#" class="btn-primary btn-brutal">Download on Google Play — Coming soon</a>
       </div>
     </section>
 
     <!-- Partners -->
     <section id="partners" class="py-12">
-      <div class="card max-w-3xl mx-auto text-center" style="border-color: var(--primary); background: rgba(103, 80, 164, 0.06);">
-        <h3 class="font-bold text-lg mb-2" style="color: var(--primary);">For partners</h3>
-        <p class="text-sm text-[var(--secondary)] mb-4">List your deals on our marketplace or offer curated coupons to users. Grow your reach and drive redemption.</p>
-        <a href="/partner-help.html" class="btn-outline">Partner Help</a>
+      <div class="card-coupon bg-[#6A0DAD] shadow-brutal max-w-3xl mx-auto text-center border-3 border-black">
+        <h3 class="font-black text-xl uppercase text-white mb-2">For partners</h3>
+        <p class="text-sm font-bold text-white/95 mb-4">List your deals on our marketplace or offer curated coupons to users. Grow your reach and drive redemption.</p>
+        <a href="/partner-help.html" class="btn-outline btn-brutal border-white text-white hover:bg-white hover:text-[#6A0DAD]">Partner Help</a>
       </div>
     </section>
 
@@ -292,24 +331,24 @@
     <section id="contact" class="py-12">
       <h2 class="section-heading text-2xl md:text-3xl text-center mb-8">Get in touch</h2>
       <div class="text-center max-w-2xl mx-auto">
-        <p class="text-[var(--secondary)] mb-6">Support, partnerships, or questions — we’re here to help.</p>
-        <a href="mailto:support@mycouponbag.com" class="btn-primary inline-block mb-6">support@mycouponbag.com</a>
-        <button type="button" onclick="openLiveSupport()" class="btn-outline block mx-auto mb-8">Live Chat</button>
-        <p class="text-sm text-[var(--outline)] mb-4">Follow us</p>
+        <p class="font-bold text-black mb-6">Support, partnerships, or questions — we’re here to help.</p>
+        <a href="mailto:support@mycouponbag.com" class="btn-primary btn-brutal inline-block mb-6">support@mycouponbag.com</a>
+        <button type="button" onclick="openLiveSupport()" class="btn-outline btn-brutal block mx-auto mb-8">Live Chat</button>
+        <p class="text-sm font-bold text-black mb-4">Follow us</p>
         <div class="flex justify-center gap-6 flex-wrap">
-          <a href="https://whatsapp.com/channel/0029VbB9ULNLo4hYXAI4g23f" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--surface-variant)] hover:border-[var(--primary)] hover:bg-[var(--surface-variant)] transition-all" title="WhatsApp">
+          <a href="https://whatsapp.com/channel/0029VbB9ULNLo4hYXAI4g23f" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black bg-[#F4F4F0] shadow-brutal-sm hover:bg-[#8B5CF6] active:scale-95 transition-all" title="WhatsApp">
             <img src="imgs/whatsapp-icon.png" alt="WhatsApp" class="w-6 h-6" />
           </a>
-          <a href="https://t.me/mycouponbag" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--surface-variant)] hover:border-[var(--primary)] hover:bg-[var(--surface-variant)] transition-all" title="Telegram">
+          <a href="https://t.me/mycouponbag" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black bg-[#F4F4F0] shadow-brutal-sm hover:bg-[#8B5CF6] active:scale-95 transition-all" title="Telegram">
             <img src="imgs/telegram-icon.png" alt="Telegram" class="w-6 h-6" />
           </a>
-          <a href="https://x.com/mycouponbag_x" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--surface-variant)] hover:border-[var(--primary)] hover:bg-[var(--surface-variant)] transition-all" title="X">
+          <a href="https://x.com/mycouponbag_x" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black bg-[#F4F4F0] shadow-brutal-sm hover:bg-[#8B5CF6] active:scale-95 transition-all" title="X">
             <img src="imgs/twitter-icon.png" alt="X" class="w-6 h-6" />
           </a>
-          <a href="https://www.instagram.com/mycouponbag" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--surface-variant)] hover:border-[var(--primary)] hover:bg-[var(--surface-variant)] transition-all" title="Instagram">
+          <a href="https://www.instagram.com/mycouponbag" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black bg-[#F4F4F0] shadow-brutal-sm hover:bg-[#8B5CF6] active:scale-95 transition-all" title="Instagram">
             <img src="imgs/instagram-icon.png" alt="Instagram" class="w-6 h-6" />
           </a>
-          <a href="https://www.facebook.com/mycouponbagfb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--surface-variant)] hover:border-[var(--primary)] hover:bg-[var(--surface-variant)] transition-all" title="Facebook">
+          <a href="https://www.facebook.com/mycouponbagfb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black bg-[#F4F4F0] shadow-brutal-sm hover:bg-[#8B5CF6] active:scale-95 transition-all" title="Facebook">
             <img src="imgs/facebook-icon.png" alt="Facebook" class="w-6 h-6" />
           </a>
         </div>
@@ -318,28 +357,28 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+  <footer class="border-t-[3px] border-black bg-[#F4F4F0] mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
-          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
+          <h4 class="font-black text-black mb-2">MyCouponBag</h4>
+          <p class="text-sm font-bold text-black">Your Coupons, One Bag - Never miss a discount again!</p>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
-          <ul class="text-sm space-y-1 text-[var(--secondary)]">
-            <li><a href="/privacy-policy" class="hover:text-[var(--primary)]">Privacy policy</a></li>
-            <li><a href="/help" class="hover:text-[var(--primary)]">Help</a></li>
-            <li><a href="/partner-help.html" class="hover:text-[var(--primary)]">Partner Help</a></li>
+          <h4 class="font-black text-black mb-2">Links</h4>
+          <ul class="text-sm space-y-1 font-bold text-black">
+            <li><a href="/privacy-policy" class="hover:text-[#6A0DAD]">Privacy policy</a></li>
+            <li><a href="/help" class="hover:text-[#6A0DAD]">Help</a></li>
+            <li><a href="/partner-help.html" class="hover:text-[#6A0DAD]">Partner Help</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
-          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
-          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
+          <h4 class="font-black text-black mb-2">Support</h4>
+          <p class="text-sm font-bold text-black">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[#6A0DAD]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 font-bold text-black underline hover:text-[#6A0DAD]">Live chat</button>
         </div>
       </div>
-      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+      <div class="border-t-2 border-black pt-6 text-center text-sm font-bold text-black">
         <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
     </div>

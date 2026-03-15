@@ -7,109 +7,128 @@
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* Neo-Brutalist theme (align with index) */
     :root {
-      --primary: #6750A4;
-      --primary-dark: #5a4790;
-      --secondary: #625B71;
-      --outline: #79747E;
-      --surface: #FFFBFE;
-      --surface-variant: #E7E0EC;
-      --on-surface: #1c1b1f;
-      --on-primary: #fff;
+      --purple: #6A0DAD;
+      --purple-light: #8B5CF6;
+      --black: #111111;
+      --offwhite: #F4F4F0;
     }
-    body { font-family: 'Poppins', sans-serif; background: var(--surface); color: var(--on-surface); min-height: 100vh; margin: 0; padding: 0; }
-    .nav-bar { background: var(--surface); border-bottom: 1px solid var(--surface-variant); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .nav-link { color: var(--secondary); font-weight: 500; text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 0.5rem; transition: color 0.2s, background 0.2s; }
-    .nav-link:hover { color: var(--primary); background: var(--surface-variant); }
-    .btn-outline { background: transparent; color: var(--primary); font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; border: 2px solid var(--primary); cursor: pointer; text-decoration: none; display: inline-block; font-size: 0.875rem; }
-    .btn-outline:hover { background: var(--primary); color: var(--on-primary); }
-    .card { background: var(--surface); border: 1px solid var(--surface-variant); border-radius: 1rem; padding: 1.25rem; margin-bottom: 0.75rem; }
+    body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--black); min-height: 100vh; margin: 0; padding: 0; }
+    .shadow-brutal { box-shadow: 4px 4px 0 0 var(--black); }
+    .shadow-brutal-sm { box-shadow: 2px 2px 0 0 var(--black); }
+    .border-3 { border-width: 3px; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 25s linear infinite; display: inline-flex; gap: 2rem; }
+    .nav-bar { background: var(--offwhite); border-bottom: 3px solid var(--black); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 0 var(--black); }
+    .nav-link { color: var(--black); font-weight: 700; text-decoration: none; padding: 0.5rem 0.75rem; border: 2px solid transparent; transition: all 0.15s; }
+    .nav-link:hover { background: var(--purple); color: white; border-color: var(--black); box-shadow: 3px 3px 0 0 var(--black); }
+    .btn-outline { background: transparent; color: var(--black); font-weight: 700; padding: 0.5rem 1rem; border: 3px solid var(--black); cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline:hover { background: var(--purple); color: white; }
+    .btn-outline:active { transform: scale(0.97); }
+    .card-coupon { position: relative; border: 3px solid var(--black); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; background: var(--offwhite); }
+    .card-coupon:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 0 var(--black); }
+    .section-heading { font-size: 1.75rem; font-weight: 900; color: var(--black); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.02em; }
     .mobile-menu { display: none; }
-    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--surface); border-bottom: 1px solid var(--surface-variant); }
+    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--offwhite); border-bottom: 3px solid var(--black); }
     @media (max-width: 768px) { .nav-desktop { display: none !important; } .hamburger { display: block !important; } }
     @media (min-width: 769px) { .mobile-menu { display: none !important; } .hamburger { display: none !important; } }
     html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+  <!-- Marquee -->
+  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <span class="px-4">🔥 CRAZY DEALS</span>
+      <span class="px-4">🚀 AI-POWERED</span>
+      <span class="px-4">💸 UNLIMITED SAVINGS</span>
+      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
+      <span class="px-4">🚀 CRAZY DEALS</span>
+      <span class="px-4">💸 AI-POWERED</span>
+    </div>
+  </div>
+
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <a href="/" class="text-xl font-black uppercase tracking-tight text-black">MyCouponBag</a>
       <div class="nav-desktop flex items-center gap-1 flex-wrap">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/#home" class="nav-link">Home</a>
         <a href="/#features" class="nav-link">Features</a>
         <a href="/#plans" class="nav-link">Pricing</a>
-        <a href="/#contact" class="nav-link">Contact</a>
+        <a href="/#download" class="nav-link">Download</a>
+        <a href="/#partners" class="nav-link">Partners</a>
+        <a href="/#contact" class="nav-link">Contact Us</a>
         <a href="/help" class="nav-link">Help</a>
-        <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live chat</button>
+        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live Chat</button>
       </div>
-      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 border-2 border-black bg-[var(--purple)] text-white font-bold shadow-brutal-sm" aria-label="Toggle menu">☰</button>
     </nav>
     <div id="mobile-menu" class="mobile-menu">
-      <a href="/" class="nav-link">Home</a>
+      <a href="/#home" class="nav-link">Home</a>
       <a href="/#features" class="nav-link">Features</a>
       <a href="/#plans" class="nav-link">Pricing</a>
-      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/#download" class="nav-link">Download</a>
+      <a href="/#partners" class="nav-link">Partners</a>
+      <a href="/#contact" class="nav-link">Contact Us</a>
       <a href="/help" class="nav-link">Help</a>
-      <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full text-left">Live chat</button>
+      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full">Live Chat</button>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-2xl md:text-3xl font-bold mb-6" style="color: var(--primary);">For partners</h1>
+    <h1 class="section-heading text-2xl md:text-3xl mb-6">For partners</h1>
 
-    <p class="text-sm text-[var(--secondary)] mb-6">MyCouponBag lets partners list deals on our <strong>marketplace</strong> and send <strong>curated</strong> coupons to specific users. End users see your offers in Discover and add them to their bag to reveal the code.</p>
+    <p class="text-sm font-bold text-black mb-6">MyCouponBag lets partners list deals on our <strong>marketplace</strong> and send <strong>curated</strong> coupons to specific users. End users see your offers in Discover and add them to their bag to reveal the code.</p>
 
-    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Marketplace</h2>
-    <div class="card">
-      <p class="text-sm text-[var(--secondary)]">Create coupons that appear in the Discover marketplace for all users. Users tap “Add to My Coupons” to add a copy to their bag (your code is shown only after they add). Partner accounts have access to create marketplace listings subject to plan limits (curated_per_day / curated_per_month).</p>
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Marketplace</h2>
+    <div class="card-coupon shadow-brutal mb-4">
+      <p class="text-sm font-bold text-black">Create coupons that appear in the Discover marketplace for all users. Users tap "Add to My Coupons" to add a copy to their bag (your code is shown only after they add). Partner accounts have access to create marketplace listings subject to plan limits (curated_per_day / curated_per_month).</p>
     </div>
 
-    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Curated for you</h2>
-    <div class="card">
-      <p class="text-sm text-[var(--secondary)]">Create curated coupons for a specific user (by user_id). They appear in that user’s “Curated for you” section in Discover. The user adds the coupon to see the code. Same partner quota applies as for marketplace.</p>
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Curated for you</h2>
+    <div class="card-coupon shadow-brutal mb-4">
+      <p class="text-sm font-bold text-black">Create curated coupons for a specific user (by user_id). They appear in that user's "Curated for you" section in Discover. The user adds the coupon to see the code. Same partner quota applies as for marketplace.</p>
     </div>
 
-    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Partner API</h2>
-    <p class="text-sm text-[var(--secondary)] mb-2">Partners authenticate with a profile that has role=partner. Typical endpoints:</p>
-    <ul class="list-disc pl-5 text-sm text-[var(--secondary)] space-y-1 mb-4">
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Partner API</h2>
+    <p class="text-sm font-bold text-black mb-2">Partners authenticate with a profile that has role=partner. Typical endpoints:</p>
+    <ul class="list-disc pl-5 text-sm font-bold text-black space-y-1 mb-4">
       <li><strong>List partner coupons</strong> — GET /partner/coupons (coupons you created; coupon_code omitted in response).</li>
       <li><strong>Create marketplace coupon</strong> — POST /coupons with source_type=marketplace (user_id null; available in Discover).</li>
       <li><strong>Create curated coupon</strong> — POST /coupons with source_type=curated and user_id (target user UUID).</li>
     </ul>
-    <p class="text-sm text-[var(--secondary)]">Full request/response details are in the backend API (Postman collection). Quota is enforced per partner plan.</p>
+    <p class="text-sm font-bold text-black">Full request/response details are in the backend API (Postman collection). Quota is enforced per partner plan.</p>
 
-    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Get in touch</h2>
-    <p class="text-sm text-[var(--secondary)] mb-4">For partner access, integration help, or questions:</p>
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Get in touch</h2>
+    <p class="text-sm font-bold text-black mb-4">For partner access, integration help, or questions:</p>
     <a href="mailto:support@mycouponbag.com" class="btn-outline inline-block mb-2">support@mycouponbag.com</a>
     <button type="button" onclick="openLiveSupport()" class="btn-outline block mt-2">Live chat</button>
   </main>
 
-  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+  <footer class="border-t-[3px] border-black bg-[#F4F4F0] mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
-          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
+          <h4 class="font-black text-black mb-2">MyCouponBag</h4>
+          <p class="text-sm font-bold text-black">Your Coupons, One Bag - Never miss a discount again!</p>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
-          <ul class="text-sm space-y-1 text-[var(--secondary)]">
-            <li><a href="/privacy-policy" class="hover:text-[var(--primary)]">Privacy policy</a></li>
-            <li><a href="/help" class="hover:text-[var(--primary)]">Help</a></li>
+          <h4 class="font-black text-black mb-2">Links</h4>
+          <ul class="text-sm space-y-1 font-bold text-black">
+            <li><a href="/privacy-policy" class="hover:text-[#6A0DAD]">Privacy policy</a></li>
+            <li><a href="/help" class="hover:text-[#6A0DAD]">Help</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
-          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
-          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
+          <h4 class="font-black text-black mb-2">Support</h4>
+          <p class="text-sm font-bold text-black">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[#6A0DAD]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 font-bold text-black underline hover:text-[#6A0DAD]">Live chat</button>
         </div>
       </div>
-      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+      <div class="border-t-2 border-black pt-6 text-center text-sm font-bold text-black">
         <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
     </div>

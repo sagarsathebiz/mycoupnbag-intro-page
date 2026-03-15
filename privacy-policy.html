@@ -7,118 +7,80 @@
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* Neo-Brutalist theme (align with index) */
     :root {
-      --primary: #6750A4;
-      --primary-dark: #5a4790;
-      --secondary: #625B71;
-      --outline: #79747E;
-      --surface: #FFFBFE;
-      --surface-variant: #E7E0EC;
-      --error: #B3261E;
-      --on-surface: #1c1b1f;
-      --on-primary: #fff;
+      --purple: #6A0DAD;
+      --black: #111111;
+      --offwhite: #F4F4F0;
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--surface);
-      color: var(--on-surface);
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-bar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--surface-variant);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-    .nav-link {
-      color: var(--secondary);
-      font-weight: 500;
-      text-decoration: none;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0.5rem;
-      transition: color 0.2s, background 0.2s;
-    }
-    .nav-link:hover {
-      color: var(--primary);
-      background: var(--surface-variant);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 100px;
-      border: 2px solid var(--primary);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 0.875rem;
-    }
-    .btn-outline:hover {
-      background: var(--primary);
-      color: var(--on-primary);
-    }
+    body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--black); min-height: 100vh; margin: 0; padding: 0; }
+    .shadow-brutal-sm { box-shadow: 2px 2px 0 0 var(--black); }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 25s linear infinite; display: inline-flex; gap: 2rem; }
+    .nav-bar { background: var(--offwhite); border-bottom: 3px solid var(--black); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 0 var(--black); }
+    .nav-link { color: var(--black); font-weight: 700; text-decoration: none; padding: 0.5rem 0.75rem; border: 2px solid transparent; transition: all 0.15s; }
+    .nav-link:hover { background: var(--purple); color: white; border-color: var(--black); box-shadow: 3px 3px 0 0 var(--black); }
+    .btn-outline { background: transparent; color: var(--black); font-weight: 700; padding: 0.5rem 1rem; border: 3px solid var(--black); cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline:hover { background: var(--purple); color: white; }
     .mobile-menu { display: none; }
-    .mobile-menu.active {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 1rem;
-      background: var(--surface);
-      border-bottom: 1px solid var(--surface-variant);
-    }
-    @media (max-width: 768px) {
-      .nav-desktop { display: none !important; }
-      .hamburger { display: block !important; }
-    }
-    @media (min-width: 769px) {
-      .mobile-menu { display: none !important; }
-      .hamburger { display: none !important; }
-    }
+    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--offwhite); border-bottom: 3px solid var(--black); }
+    @media (max-width: 768px) { .nav-desktop { display: none !important; } .hamburger { display: block !important; } }
+    @media (min-width: 769px) { .mobile-menu { display: none !important; } .hamburger { display: none !important; } }
     .section-anchor { scroll-margin-top: 5rem; }
     .prose-section { margin-bottom: 2rem; }
-    .prose-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem; }
-    .prose-section p, .prose-section li { color: var(--secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 0.5rem; }
+    .prose-section h2 { font-size: 1.25rem; font-weight: 800; color: var(--purple); margin-bottom: 0.75rem; }
+    .prose-section p, .prose-section li { color: var(--black); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 0.5rem; font-weight: 600; }
     .prose-section ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .prose-section a { color: var(--purple); font-weight: 700; }
+    .prose-section a:hover { text-decoration: underline; }
     html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+  <!-- Marquee -->
+  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <span class="px-4">🔥 CRAZY DEALS</span>
+      <span class="px-4">🚀 AI-POWERED</span>
+      <span class="px-4">💸 UNLIMITED SAVINGS</span>
+      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
+      <span class="px-4">🚀 CRAZY DEALS</span>
+      <span class="px-4">💸 AI-POWERED</span>
+    </div>
+  </div>
+
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <a href="/" class="text-xl font-black uppercase tracking-tight text-black">MyCouponBag</a>
       <div class="nav-desktop flex items-center gap-1 flex-wrap">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/#home" class="nav-link">Home</a>
         <a href="/#features" class="nav-link">Features</a>
         <a href="/#plans" class="nav-link">Pricing</a>
-        <a href="/#contact" class="nav-link">Contact</a>
+        <a href="/#download" class="nav-link">Download</a>
+        <a href="/#partners" class="nav-link">Partners</a>
+        <a href="/#contact" class="nav-link">Contact Us</a>
         <a href="/help" class="nav-link">Help</a>
-        <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live chat</button>
+        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live Chat</button>
       </div>
-      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 border-2 border-black bg-[var(--purple)] text-white font-bold shadow-brutal-sm" aria-label="Toggle menu">☰</button>
     </nav>
     <div id="mobile-menu" class="mobile-menu">
-      <a href="/" class="nav-link">Home</a>
+      <a href="/#home" class="nav-link">Home</a>
       <a href="/#features" class="nav-link">Features</a>
       <a href="/#plans" class="nav-link">Pricing</a>
-      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/#download" class="nav-link">Download</a>
+      <a href="/#partners" class="nav-link">Partners</a>
+      <a href="/#contact" class="nav-link">Contact Us</a>
       <a href="/help" class="nav-link">Help</a>
-      <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full text-left">Live chat</button>
+      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full">Live Chat</button>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-2xl md:text-3xl font-bold mb-2" style="color: var(--primary);">Privacy Policy</h1>
-    <p class="text-[var(--outline)] text-sm mb-8">Last updated: March 2025. Your privacy is important to us.</p>
+    <h1 class="text-2xl md:text-3xl font-black uppercase text-black mb-2">Privacy Policy</h1>
+    <p class="text-black font-bold text-sm mb-8">Last updated: March 2025. Your privacy is important to us.</p>
 
     <section id="who-we-are" class="prose-section section-anchor">
       <h2>Who we are</h2>
@@ -172,7 +134,7 @@
         <li>Request a copy of your data (data portability).</li>
         <li>Object to or restrict certain processing.</li>
       </ul>
-      <p>To exercise these rights, contact us at <a href="mailto:support@mycouponbag.com" style="color: var(--primary);">support@mycouponbag.com</a>.</p>
+      <p>To exercise these rights, contact us at <a href="mailto:support@mycouponbag.com">support@mycouponbag.com</a>.</p>
     </section>
 
     <section id="cookies" class="prose-section section-anchor">
@@ -184,8 +146,8 @@
       <h2>Third-party services</h2>
       <p>We use the following third-party services that have their own privacy policies:</p>
       <ul>
-        <li><strong>Supabase</strong> — <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Supabase Privacy Policy</a>.</li>
-        <li><strong>Tawk.to Live Chat</strong> — We use Tawk.to to offer live chat support on our website and in the app. Tawk.to may collect chat content, device/browser details, IP address, and information you share in chat. It is used only to assist you and improve support. See <a href="https://www.tawk.to/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Tawk.to Privacy Policy</a>.</li>
+        <li><strong>Supabase</strong> — <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase Privacy Policy</a>.</li>
+        <li><strong>Tawk.to Live Chat</strong> — We use Tawk.to to offer live chat support on our website and in the app. Tawk.to may collect chat content, device/browser details, IP address, and information you share in chat. It is used only to assist you and improve support. See <a href="https://www.tawk.to/privacy-policy/" target="_blank" rel="noopener noreferrer">Tawk.to Privacy Policy</a>.</li>
       </ul>
     </section>
 
@@ -197,7 +159,7 @@
 
     <section id="children" class="prose-section section-anchor">
       <h2>Children’s privacy</h2>
-      <p>Our service is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such data, please contact us at <a href="mailto:support@mycouponbag.com" style="color: var(--primary);">support@mycouponbag.com</a> and we will delete it.</p>
+      <p>Our service is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such data, please contact us at <a href="mailto:support@mycouponbag.com">support@mycouponbag.com</a> and we will delete it.</p>
     </section>
 
     <section id="changes" class="prose-section section-anchor">
@@ -208,32 +170,32 @@
     <section id="contact" class="prose-section section-anchor">
       <h2>Contact us</h2>
       <p>For any questions about this Privacy Policy or your data:</p>
-      <p>Email: <a href="mailto:support@mycouponbag.com" style="color: var(--primary); font-weight: 600;">support@mycouponbag.com</a></p>
-      <p>Website: <a href="https://mycouponbag.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">https://mycouponbag.com</a></p>
+      <p>Email: <a href="mailto:support@mycouponbag.com">support@mycouponbag.com</a></p>
+      <p>Website: <a href="https://mycouponbag.com" target="_blank" rel="noopener noreferrer">https://mycouponbag.com</a></p>
     </section>
   </main>
 
-  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+  <footer class="border-t-[3px] border-black bg-[#F4F4F0] mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
-          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
+          <h4 class="font-black text-black mb-2">MyCouponBag</h4>
+          <p class="text-sm font-bold text-black">Your Coupons, One Bag - Never miss a discount again!</p>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
-          <ul class="text-sm space-y-1 text-[var(--secondary)]">
-            <li><a href="/help" class="hover:text-[var(--primary)]">Help</a></li>
-            <li><a href="/partner-help.html" class="hover:text-[var(--primary)]">Partner Help</a></li>
+          <h4 class="font-black text-black mb-2">Links</h4>
+          <ul class="text-sm space-y-1 font-bold text-black">
+            <li><a href="/help" class="hover:text-[#6A0DAD]">Help</a></li>
+            <li><a href="/partner-help.html" class="hover:text-[#6A0DAD]">Partner Help</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
-          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
-          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
+          <h4 class="font-black text-black mb-2">Support</h4>
+          <p class="text-sm font-bold text-black">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[#6A0DAD]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 font-bold text-black underline hover:text-[#6A0DAD]">Live chat</button>
         </div>
       </div>
-      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+      <div class="border-t-2 border-black pt-6 text-center text-sm font-bold text-black">
         <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
     </div>

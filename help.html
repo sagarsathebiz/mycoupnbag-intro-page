@@ -7,41 +7,56 @@
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* Neo-Brutalist theme (align with index) */
     :root {
-      --primary: #6750A4;
-      --primary-dark: #5a4790;
-      --secondary: #625B71;
-      --outline: #79747E;
-      --surface: #FFFBFE;
-      --surface-variant: #E7E0EC;
-      --on-surface: #1c1b1f;
-      --on-primary: #fff;
+      --purple: #6A0DAD;
+      --purple-light: #8B5CF6;
+      --black: #111111;
+      --offwhite: #F4F4F0;
     }
-    body { font-family: 'Poppins', sans-serif; background: var(--surface); color: var(--on-surface); min-height: 100vh; margin: 0; padding: 0; }
-    .nav-bar { background: var(--surface); border-bottom: 1px solid var(--surface-variant); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .nav-link { color: var(--secondary); font-weight: 500; text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 0.5rem; transition: color 0.2s, background 0.2s; }
-    .nav-link:hover { color: var(--primary); background: var(--surface-variant); }
-    .btn-outline { background: transparent; color: var(--primary); font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; border: 2px solid var(--primary); cursor: pointer; text-decoration: none; display: inline-block; font-size: 0.875rem; }
-    .btn-outline:hover { background: var(--primary); color: var(--on-primary); }
-    .card { background: var(--surface); border: 1px solid var(--surface-variant); border-radius: 1rem; padding: 1.25rem; margin-bottom: 0.75rem; }
-    .accordion-trigger { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--surface-variant); border-radius: 0.5rem; padding: 0.75rem 1rem; font-weight: 600; color: var(--on-surface); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s, border-color 0.2s; }
-    .accordion-trigger:hover { background: var(--surface-variant); border-color: var(--primary); }
-    .accordion-panel { padding: 1rem; border: 1px solid var(--surface-variant); border-top: none; border-radius: 0 0 0.5rem 0.5rem; background: var(--surface); }
+    body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--black); min-height: 100vh; margin: 0; padding: 0; }
+    .shadow-brutal { box-shadow: 4px 4px 0 0 var(--black); }
+    .shadow-brutal-sm { box-shadow: 2px 2px 0 0 var(--black); }
+    .border-3 { border-width: 3px; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 25s linear infinite; display: inline-flex; gap: 2rem; }
+    .nav-bar { background: var(--offwhite); border-bottom: 3px solid var(--black); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 0 var(--black); }
+    .nav-link { color: var(--black); font-weight: 700; text-decoration: none; padding: 0.5rem 0.75rem; border: 2px solid transparent; transition: all 0.15s; }
+    .nav-link:hover { background: var(--purple); color: white; border-color: var(--black); box-shadow: 3px 3px 0 0 var(--black); }
+    .btn-outline { background: transparent; color: var(--black); font-weight: 700; padding: 0.5rem 1rem; border: 3px solid var(--black); cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline:hover { background: var(--purple); color: white; }
+    .btn-outline:active { transform: scale(0.97); }
+    .accordion-trigger { width: 100%; text-align: left; background: var(--offwhite); border: 3px solid var(--black); padding: 0.75rem 1rem; font-weight: 700; color: var(--black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s, color 0.15s; box-shadow: 2px 2px 0 0 var(--black); }
+    .accordion-trigger:hover { background: var(--purple); color: white; }
+    .accordion-panel { padding: 1rem; border: 3px solid var(--black); border-top: none; background: var(--offwhite); }
+    .section-heading { font-size: 1.75rem; font-weight: 900; color: var(--black); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.02em; }
     .mobile-menu { display: none; }
-    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--surface); border-bottom: 1px solid var(--surface-variant); }
+    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--offwhite); border-bottom: 3px solid var(--black); }
     @media (max-width: 768px) { .nav-desktop { display: none !important; } .hamburger { display: block !important; } }
     @media (min-width: 769px) { .mobile-menu { display: none !important; } .hamburger { display: none !important; } }
     html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+  <!-- Marquee -->
+  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <span class="px-4">🔥 CRAZY DEALS</span>
+      <span class="px-4">🚀 AI-POWERED</span>
+      <span class="px-4">💸 UNLIMITED SAVINGS</span>
+      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
+      <span class="px-4">🚀 CRAZY DEALS</span>
+      <span class="px-4">💸 AI-POWERED</span>
+    </div>
+  </div>
+
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <a href="/" class="text-xl font-black uppercase tracking-tight text-black">MyCouponBag</a>
       <div class="nav-desktop flex items-center gap-1 flex-wrap">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/#home" class="nav-link">Home</a>
         <a href="/#features" class="nav-link">Features</a>
         <a href="/#plans" class="nav-link">Pricing</a>
         <a href="/#download" class="nav-link">Download</a>
@@ -50,79 +65,79 @@
         <a href="/help" class="nav-link">Help</a>
         <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live Chat</button>
       </div>
-      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 border-2 border-black bg-[var(--purple)] text-white font-bold shadow-brutal-sm" aria-label="Toggle menu">☰</button>
     </nav>
     <div id="mobile-menu" class="mobile-menu">
-      <a href="/" class="nav-link">Home</a>
+      <a href="/#home" class="nav-link">Home</a>
       <a href="/#features" class="nav-link">Features</a>
       <a href="/#plans" class="nav-link">Pricing</a>
       <a href="/#download" class="nav-link">Download</a>
       <a href="/#partners" class="nav-link">Partners</a>
       <a href="/#contact" class="nav-link">Contact Us</a>
       <a href="/help" class="nav-link">Help</a>
-      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full text-left">Live Chat</button>
+      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full">Live Chat</button>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-2xl md:text-3xl font-bold mb-6" style="color: var(--primary);">Help & FAQ</h1>
+    <h1 class="section-heading text-2xl md:text-3xl mb-6">Help & FAQ</h1>
 
-    <h2 class="text-xl font-bold mt-10 mb-6" style="color: var(--primary);">Frequently asked questions</h2>
+    <h2 class="text-xl font-black uppercase text-black mt-10 mb-6">Frequently asked questions</h2>
     <div class="space-y-2 mb-10">
       <div class="accordion-item">
-        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-1" id="acc-1" onclick="toggleAccordion('faq-1','acc-1')">Why wasn’t my email added?</button>
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-1" id="acc-1" onclick="toggleAccordion('faq-1','acc-1')">Why wasn't my email added?</button>
         <div id="faq-1" class="accordion-panel hidden" role="region" aria-labelledby="acc-1">
-          <ul class="text-sm text-[var(--secondary)] space-y-2 list-disc pl-4">
-            <li><strong>no_sender:</strong> We couldn’t identify the sender. Use your verified email to forward coupons.</li>
-            <li><strong>unverified_sender:</strong> Email was from an address that isn’t verified for your alias. Only you can add coupons from your email.</li>
-            <li><strong>no_content:</strong> We couldn’t find any coupon content in the email you forwarded.</li>
-            <li><strong>no_coupon_code:</strong> We couldn’t find a coupon code in the email. Make sure the email contains a clear code.</li>
+          <ul class="text-sm font-bold text-black space-y-2 list-disc pl-4">
+            <li><strong>no_sender:</strong> We couldn't identify the sender. Use your verified email to forward coupons.</li>
+            <li><strong>unverified_sender:</strong> Email was from an address that isn't verified for your alias. Only you can add coupons from your email.</li>
+            <li><strong>no_content:</strong> We couldn't find any coupon content in the email you forwarded.</li>
+            <li><strong>no_coupon_code:</strong> We couldn't find a coupon code in the email. Make sure the email contains a clear code.</li>
             <li><strong>quota_exceeded:</strong> Your daily or monthly coupon limit was reached. / Email coupon limit reached for this month.</li>
             <li><strong>failed:</strong> Coupon from email could not be added. Try again or add it manually.</li>
           </ul>
         </div>
       </div>
       <div class="accordion-item">
-        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-2" id="acc-2" onclick="toggleAccordion('faq-2','acc-2')">Why can’t I add more coupons?</button>
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-2" id="acc-2" onclick="toggleAccordion('faq-2','acc-2')">Why can't I add more coupons?</button>
         <div id="faq-2" class="accordion-panel hidden" role="region" aria-labelledby="acc-2">
-          <p class="text-sm text-[var(--secondary)]">When a limit is hit you may see: “Coupon limit reached for this month”, “Daily coupon limit reached”, or “Email coupon limit reached for this month.” Check your quota in the app (monthly total, daily non-manual, and email/month).</p>
+          <p class="text-sm font-bold text-black">When a limit is hit you may see: "Coupon limit reached for this month", "Daily coupon limit reached", or "Email coupon limit reached for this month." Check your quota in the app (monthly total, daily non-manual, and email/month).</p>
         </div>
       </div>
       <div class="accordion-item">
         <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-3" id="acc-3" onclick="toggleAccordion('faq-3','acc-3')">How does Discover work?</button>
         <div id="faq-3" class="accordion-panel hidden" role="region" aria-labelledby="acc-3">
-          <p class="text-sm text-[var(--secondary)]">Browse marketplace deals and curated-for-you listings. Tap “Add to My Coupons” to add a deal to your bag; the coupon code is revealed only after you add it.</p>
+          <p class="text-sm font-bold text-black">Browse marketplace deals and curated-for-you listings. Tap "Add to My Coupons" to add a deal to your bag; the coupon code is revealed only after you add it.</p>
         </div>
       </div>
     </div>
 
-    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Need more help?</h2>
-    <p class="text-sm text-[var(--secondary)] mb-4">Contact us:</p>
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Need more help?</h2>
+    <p class="text-sm font-bold text-black mb-4">Contact us:</p>
     <a href="mailto:support@mycouponbag.com" class="btn-outline inline-block mb-2">support@mycouponbag.com</a>
     <button type="button" onclick="openLiveSupport()" class="btn-outline block mt-2">Live chat</button>
   </main>
 
-  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+  <footer class="border-t-[3px] border-black bg-[#F4F4F0] mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
-          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
+          <h4 class="font-black text-black mb-2">MyCouponBag</h4>
+          <p class="text-sm font-bold text-black">Your Coupons, One Bag - Never miss a discount again!</p>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
-          <ul class="text-sm space-y-1 text-[var(--secondary)]">
-            <li><a href="/privacy-policy" class="hover:text-[var(--primary)]">Privacy policy</a></li>
-            <li><a href="/partner-help.html" class="hover:text-[var(--primary)]">Partner Help</a></li>
+          <h4 class="font-black text-black mb-2">Links</h4>
+          <ul class="text-sm space-y-1 font-bold text-black">
+            <li><a href="/privacy-policy" class="hover:text-[#6A0DAD]">Privacy policy</a></li>
+            <li><a href="/partner-help.html" class="hover:text-[#6A0DAD]">Partner Help</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
-          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
-          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
+          <h4 class="font-black text-black mb-2">Support</h4>
+          <p class="text-sm font-bold text-black">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[#6A0DAD]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 font-bold text-black underline hover:text-[#6A0DAD]">Live chat</button>
         </div>
       </div>
-      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+      <div class="border-t-2 border-black pt-6 text-center text-sm font-bold text-black">
         <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
     </div>
