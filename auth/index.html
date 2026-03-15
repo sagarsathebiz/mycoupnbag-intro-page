@@ -92,7 +92,7 @@
 </head>
 <body>
   <div class="glass">
-    <h2>MyCouponBag v1.0.10</h2>
+    <h2>MyCouponBag v1.0.1</h2>
     <form id="resetForm" style="display:none;">
       <label for="newPassword">New Password</label>
       <input type="password" id="newPassword" name="newPassword" required minlength="6" placeholder="Enter new password" />
@@ -129,9 +129,11 @@
       }
     }
 
-    // === CONFIGURE YOUR SUPABASE PROJECT ===
-    var SUPABASE_URL = 'https://wmebscxxizvfktkjvylp.supabase.co';
-    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM';
+    // === SUPABASE: use the project that sends auth emails (signup + password reset) ===
+    // Your links point to irpgohwdtkvjyuohybyu – URL and anon key must match that project.
+    // Get anon key: Supabase Dashboard → project irpgohwdtkvjyuohybyu → Settings → API → anon public.
+    var SUPABASE_URL = 'https://irpgohwdtkvjyuohybyu.supabase.co';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlycGdvaHdkdGt2anl1b2h5Ynl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExOTAwODEsImV4cCI6MjA2Njc2NjA4MX0.ODjKyLH1Gu0GIlBN5aT2cL2LHW3jGyhsgDZ5GWvkG3E';
     var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
     async function setSessionAndShowForm() {
