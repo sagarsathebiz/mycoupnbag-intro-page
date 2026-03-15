@@ -62,6 +62,9 @@
       margin-top: 1.5rem;
       text-align: center;
       font-weight: 500;
+      font-size: 1rem;
+      min-height: 1.5em;
+      line-height: 1.5;
     }
     .success {
       color: #16a34a;
@@ -89,7 +92,7 @@
 </head>
 <body>
   <div class="glass">
-    <h2>MyCouponBag</h2>
+    <h2>MyCouponBag v1.0.9</h2>
     <form id="resetForm" style="display:none;">
       <label for="newPassword">New Password</label>
       <input type="password" id="newPassword" name="newPassword" required minlength="6" placeholder="Enter new password" />
@@ -171,46 +174,49 @@
       submitBtn.disabled = false;
     });
 
-    // Handle verification link (signup / email confirm). Supabase may use type=signup or type=email.
-    const isEmailConfirm = type === 'signup' || type === 'email_confirm' || type === 'email';
-    if (isEmailConfirm) {
-      if (resetForm) resetForm.style.display = 'none';
-      try {
-        // After redirect from Supabase /auth/v1/verify we get access_token + refresh_token in URL (already verified).
-        // Use setSession and show success. Do NOT call verifyOtp with access_token (that's a JWT, not token_hash).
-        if (access_token && refresh_token) {
-          const { data: sessionData, error: sessionError } = await supabase.auth.setSession({ access_token, refresh_token });
-          if (sessionError) {
-            messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
-            messageDiv.className = 'message error';
+    // Run async auth flow inside an async IIFE. Top-level await is invalid in classic scripts,
+    // so the script would throw and never set the message without this wrapper.
+    (async function runAuthFlow() {
+      // Handle verification link (signup / email confirm). Supabase may use type=signup or type=email.
+      const isEmailConfirm = type === 'signup' || type === 'email_confirm' || type === 'email';
+      if (isEmailConfirm) {
+        if (resetForm) resetForm.style.display = 'none';
+        try {
+          // After redirect from Supabase /auth/v1/verify we get access_token + refresh_token in URL (already verified).
+          // Use setSession and show success. Do NOT call verifyOtp with access_token (that's a JWT, not token_hash).
+          if (access_token && refresh_token) {
+            const { error: sessionError } = await supabase.auth.setSession({ access_token, refresh_token });
+            if (sessionError) {
+              messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+              messageDiv.className = 'message error';
+            } else {
+              messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
+              messageDiv.className = 'message success';
+            }
+          } else if (token_hash) {
+            // Custom flow: token_hash in query (e.g. server-side redirect)
+            const { error: verifyError } = await supabase.auth.verifyOtp({ token_hash, type: type });
+            if (verifyError) {
+              messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+              messageDiv.className = 'message error';
+            } else {
+              messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
+              messageDiv.className = 'message success';
+            }
           } else {
+            // No tokens in URL (e.g. hash stripped by host or wrong redirect). Still show success if type indicates confirm.
             messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
             messageDiv.className = 'message success';
           }
-        } else if (token_hash) {
-          // Custom flow: token_hash in query (e.g. server-side redirect)
-          const { data, error } = await supabase.auth.verifyOtp({ token_hash, type: type });
-          if (error) {
-            messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
-            messageDiv.className = 'message error';
-          } else {
-            messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
-            messageDiv.className = 'message success';
-          }
-        } else {
-          // No tokens in URL (e.g. hash stripped by host or wrong redirect). Still show success if type indicates confirm.
-          messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
-          messageDiv.className = 'message success';
+        } catch (err) {
+          messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+          messageDiv.className = 'message error';
         }
-      } catch (err) {
-        messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
-        messageDiv.className = 'message error';
+      } else if (type === 'recovery') {
+        await setSessionAndShowForm();
       }
-    } else if (type === 'recovery') {
-      setSessionAndShowForm();
-    } else {
-      // Optionally handle other types or show nothing
-    }
+      // else: no type or other type – show nothing (e.g. user opened /auth directly)
+    })();
   </script>
 </body>
 </html> 
