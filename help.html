@@ -3,1322 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help Center - MyCouponBag</title>
+  <title>Help & FAQ - MyCouponBag</title>
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    :root {
+      --primary: #6750A4;
+      --primary-dark: #5a4790;
+      --secondary: #625B71;
+      --outline: #79747E;
+      --surface: #FFFBFE;
+      --surface-variant: #E7E0EC;
+      --on-surface: #1c1b1f;
+      --on-primary: #fff;
     }
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .section-anchor {
-      scroll-margin-top: 100px;
-    }
-    .nav-link {
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover {
-      background-color: #f3f4f6;
-      border-radius: 8px;
-    }
-    .nav-link.active {
-      background-color: #3b82f6;
-      color: white;
-      border-radius: 8px;
-    }
-    
-    /* Enhanced Mobile-specific styles */
-    @media (max-width: 768px) {
-      .mobile-nav-toggle {
-        display: block;
-        min-height: 44px;
-        min-width: 44px;
-        padding: 8px;
-      }
-      .mobile-nav {
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        width: 85vw;
-        max-width: 320px;
-      }
-      .mobile-nav.open {
-        transform: translateX(0);
-      }
-      .mobile-overlay {
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .mobile-overlay.open {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Mobile-specific improvements */
-      .mobile-text-lg {
-        font-size: 18px;
-        line-height: 1.6;
-      }
-
-      .mobile-text-base {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-
-      .mobile-btn {
-        min-height: 44px;
-        padding: 12px 20px;
-        font-size: 16px;
-      }
-
-      .mobile-section {
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 12px;
-      }
-
-      .mobile-hero {
-        padding: 24px 20px;
-        border-radius: 16px;
-      }
-
-      .mobile-card {
-        margin-bottom: 16px;
-        border-radius: 12px;
-      }
-
-      .mobile-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .mobile-feature-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .mobile-feature-card {
-        padding: 20px;
-        border-radius: 12px;
-      }
-
-      .mobile-nav-header {
-        padding: 20px;
-        border-bottom: 1px solid #e5e7eb;
-      }
-
-      .mobile-nav-content {
-        padding: 16px 20px;
-      }
-
-      .mobile-contact {
-        padding: 24px 20px;
-        border-radius: 16px;
-      }
-
-      .mobile-footer {
-        padding: 20px;
-        margin-top: 32px;
-      }
-    }
-
-    /* Tablet optimizations */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .tablet-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-
-      .tablet-content {
-        padding: 24px;
-      }
-
-      .tablet-section {
-        padding: 24px;
-        margin-bottom: 24px;
-      }
-    }
-
-    /* Enhanced touch interactions */
-    @media (hover: none) and (pointer: coarse) {
-      .card-hover:hover {
-        transform: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-link:hover {
-        background-color: transparent;
-      }
-
-      .nav-link:active {
-        background-color: #f3f4f6;
-        border-radius: 8px;
-      }
-    }
-
-    /* Improved accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      .card-hover,
-      .nav-link,
-      .mobile-nav,
-      .mobile-overlay {
-        transition: none;
-      }
-    }
-
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-      .nav-link.active {
-        background-color: #000;
-        color: #fff;
-      }
-    }
-    
-    /* Hide mobile nav toggle on desktop */
-    @media (min-width: 769px) {
-      .mobile-nav-toggle {
-        display: none;
-      }
-    }
+    body { font-family: 'Poppins', sans-serif; background: var(--surface); color: var(--on-surface); min-height: 100vh; margin: 0; padding: 0; }
+    .nav-bar { background: var(--surface); border-bottom: 1px solid var(--surface-variant); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .nav-link { color: var(--secondary); font-weight: 500; text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 0.5rem; transition: color 0.2s, background 0.2s; }
+    .nav-link:hover { color: var(--primary); background: var(--surface-variant); }
+    .btn-outline { background: transparent; color: var(--primary); font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; border: 2px solid var(--primary); cursor: pointer; text-decoration: none; display: inline-block; font-size: 0.875rem; }
+    .btn-outline:hover { background: var(--primary); color: var(--on-primary); }
+    .card { background: var(--surface); border: 1px solid var(--surface-variant); border-radius: 1rem; padding: 1.25rem; margin-bottom: 0.75rem; }
+    .accordion-trigger { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--surface-variant); border-radius: 0.5rem; padding: 0.75rem 1rem; font-weight: 600; color: var(--on-surface); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s, border-color 0.2s; }
+    .accordion-trigger:hover { background: var(--surface-variant); border-color: var(--primary); }
+    .accordion-panel { padding: 1rem; border: 1px solid var(--surface-variant); border-top: none; border-radius: 0 0 0.5rem 0.5rem; background: var(--surface); }
+    .mobile-menu { display: none; }
+    .mobile-menu.active { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; background: var(--surface); border-bottom: 1px solid var(--surface-variant); }
+    @media (max-width: 768px) { .nav-desktop { display: none !important; } .hamburger { display: block !important; } }
+    @media (min-width: 769px) { .mobile-menu { display: none !important; } .hamburger { display: none !important; } }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-gray-50 font-['Poppins']">
-  <div class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4 sm:py-6">
-          <div class="flex items-center">
-            <a href="/" class="text-xl sm:text-2xl font-bold text-blue-600">MyCouponBag</a>
-          </div>
-          
-          <!-- Mobile Menu Button -->
-          <button class="mobile-nav-toggle md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 mobile-btn" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-          
-          <!-- Desktop Navigation -->
-          <nav class="hidden md:flex space-x-8">
-            <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
-            <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors">Official HelpDesk</a>
-          </nav>
-        </div>
+<body>
+  <header class="nav-bar">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <div class="nav-desktop flex items-center gap-1 flex-wrap">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#features" class="nav-link">Features</a>
+        <a href="/#plans" class="nav-link">Pricing</a>
+        <a href="/#download" class="nav-link">Download</a>
+        <a href="/#partners" class="nav-link">Partners</a>
+        <a href="/#contact" class="nav-link">Contact Us</a>
+        <a href="/help" class="nav-link">Help</a>
+        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live Chat</button>
       </div>
-    </header>
-
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onclick="toggleMobileNav()"></div>
-
-    <!-- Mobile Navigation Sidebar -->
-    <div id="mobileNav" class="mobile-nav fixed left-0 top-0 h-full w-80 bg-white shadow-lg z-50 md:hidden overflow-y-auto">
-      <div class="mobile-nav-header">
-        <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold text-gray-900">Navigation</h2>
-          <button onclick="toggleMobileNav()" class="mobile-btn rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" aria-label="Close navigation">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="mobile-nav-content">
-        <nav class="space-y-1">
-          <a href="/" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">Home</a>
-          <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">Official HelpDesk</a>
-          <div class="border-t border-gray-200 my-2"></div>
-          <a href="#overview" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📱 App Overview</a>
-          <a href="#eliteline-submit" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">
-            <div>👑 EliteLine Submit</div>
-            <div class="text-xs text-gray-500">(Hands-Free)</div>
-          </a>
-          <a href="#smartbot-channels" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">
-            <div>🤖 SmartBot Channels</div>
-            <div class="text-xs text-gray-500">(Self-Service)</div>
-          </a>
-          <a href="#mybag" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👜 MyBag Tab</a>
-          <a href="#review" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📋 Review Tab</a>
-          <a href="#partner-deals" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤝 Partner Deals Tab</a>
-          <a href="#discover" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🔍 Discover Tab</a>
-          <a href="#me" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">👤 Me Tab</a>
-          <a href="#manual-entry" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✏️ Manual Entry</a>
-          <a href="#edit-coupon" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✏️ Edit Coupon</a>
-          <a href="#ai-submission" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">🤖 AI Submission</a>
-          <a href="#magic-search" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">✨ Magic Search</a>
-          <a href="#subscription" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">💳 Manage Subscription</a>
-          <a href="#faq" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">❓ FAQ</a>
-          <a href="#support" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg mobile-btn" onclick="toggleMobileNav()">📞 Support</a>
-        </nav>
-      </div>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#features" class="nav-link">Features</a>
+      <a href="/#plans" class="nav-link">Pricing</a>
+      <a href="/#download" class="nav-link">Download</a>
+      <a href="/#partners" class="nav-link">Partners</a>
+      <a href="/#contact" class="nav-link">Contact Us</a>
+      <a href="/help" class="nav-link">Help</a>
+      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full text-left">Live Chat</button>
     </div>
+  </header>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-      <div class="grid lg:grid-cols-4 gap-4 sm:gap-8">
-        <!-- Sidebar Navigation - Hidden on mobile -->
-        <div class="hidden lg:block lg:col-span-1">
-          <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Navigation</h2>
-                    <nav class="space-y-2">
-          <a href="#overview" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📱 App Overview</a>
-          <a href="#eliteline-submit" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">
-            <div>👑 EliteLine Submit</div>
-            <div class="text-xs text-gray-500">(Hands-Free)</div>
-          </a>
-          <a href="#smartbot-channels" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">
-            <div>🤖 SmartBot Channels</div>
-            <div class="text-xs text-gray-500">(Self-Service)</div>
-          </a>
-          <a href="#mybag" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">👜 MyBag Tab</a>
-          <a href="#review" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📋 Review Tab</a>
-          <a href="#partner-deals" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🤝 Partner Deals Tab</a>
-          <a href="#discover" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🔍 Discover Tab</a>
-          <a href="#me" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">👤 Me Tab</a>
-          <a href="#manual-entry" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">✏️ Manual Entry</a>
-          <a href="#edit-coupon" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">✏️ Edit Coupon</a>
-          <a href="#ai-submission" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🤖 AI Submission</a>
-          <a href="#magic-search" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">✨ Magic Search</a>
-          <a href="#subscription" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">💳 Manage Subscription</a>
-          <a href="#faq" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">❓ FAQ</a>
-          <a href="#support" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📞 Support</a>
-        </nav>
-          </div>
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-bold mb-6" style="color: var(--primary);">Help & FAQ</h1>
+
+    <h2 class="text-xl font-bold mt-10 mb-6" style="color: var(--primary);">Frequently asked questions</h2>
+    <div class="space-y-2 mb-10">
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-1" id="acc-1" onclick="toggleAccordion('faq-1','acc-1')">Why wasn’t my email added?</button>
+        <div id="faq-1" class="accordion-panel hidden" role="region" aria-labelledby="acc-1">
+          <ul class="text-sm text-[var(--secondary)] space-y-2 list-disc pl-4">
+            <li><strong>no_sender:</strong> We couldn’t identify the sender. Use your verified email to forward coupons.</li>
+            <li><strong>unverified_sender:</strong> Email was from an address that isn’t verified for your alias. Only you can add coupons from your email.</li>
+            <li><strong>no_content:</strong> We couldn’t find any coupon content in the email you forwarded.</li>
+            <li><strong>no_coupon_code:</strong> We couldn’t find a coupon code in the email. Make sure the email contains a clear code.</li>
+            <li><strong>quota_exceeded:</strong> Your daily or monthly coupon limit was reached. / Email coupon limit reached for this month.</li>
+            <li><strong>failed:</strong> Coupon from email could not be added. Try again or add it manually.</li>
+          </ul>
         </div>
-
-        <!-- Main Content -->
-        <div class="lg:col-span-3">
-          <!-- Hero Section -->
-          <div class="gradient-bg text-white rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 mobile-hero">
-            <h1 class="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">Help Center</h1>
-            <p class="text-lg sm:text-xl opacity-90 mobile-text-lg">Everything you need to know about MyCouponBag - Your AI-Powered Coupon Wallet!</p>
-          </div>
-
-          <!-- App Overview -->
-          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 mobile-section">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📱</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">App Overview</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                <strong>MyCouponBag</strong> is your intelligent coupon management solution that helps you capture, organize, and use every coupon you come across before it expires!
-              </p>
-              <div class="mt-4 mb-2 flex flex-wrap gap-3">
-                              <a href="#" onclick="openLiveSupport(); return false;" class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-semibold hover:bg-purple-700 transition-colors">
-                <span>💬</span>
-                <span>Live Support</span>
-              </a>
-              <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-semibold hover:bg-indigo-700 transition-colors">
-                <span>🆘</span>
-                <span>Official HelpDesk</span>
-              </a>
-              </div>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-2 sm:mb-3 text-sm sm:text-base">🎯 What We Do</h3>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• AI-powered coupon import from images, documents, and text</li>
-                    <li>• Smart organization and categorization</li>
-                    <li>• Magic Search for finding relevant coupons</li>
-                    <li>• Multi-platform access (mobile app, browser extension, bots)</li>
-                  </ul>
-                </div>
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-2 sm:mb-3 text-sm sm:text-base">💡 Key Benefits</h3>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Never lose a coupon again</li>
-                    <li>• Save time with automated processing</li>
-                    <li>• Track your savings and usage</li>
-                    <li>• Access exclusive partner offers</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- EliteLine Submit -->
-          <section id="eliteline-submit" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👑</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">EliteLine Submit (Hands-Free)</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                <strong>EliteLine Submit</strong> is our premium service that allows users to skip the Review tab entirely! Send your coupon images, documents, or text via EliteLine Submit channels, and our team will verify and add them directly to your <strong>MyBag</strong>, ready to use immediately.
-              </p>
-              
-              <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
-                <h3 class="font-semibold text-amber-900 mb-3 sm:mb-4 text-sm sm:text-base">👑 Premium Service</h3>
-                <p class="text-amber-800 text-sm sm:text-base mb-3">
-                  Skip the Review process — straight into <strong>MyBag</strong>
-                </p>
-                <p class="text-gray-700 text-sm sm:text-base">
-                  Send your coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc) — our team verifies and adds them directly to your <strong>MyBag</strong>, ready to use. No manual steps needed.
-                </p>
-              </div>
-
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ How EliteLine Submit Works</h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                  <div class="bg-white p-4 rounded-lg">
-                    <div class="text-2xl mb-2">📤</div>
-                    <h4 class="font-semibold text-blue-800 mb-2">1. Send to EliteLine</h4>
-                    <p class="text-sm text-blue-700">Send coupon images, documents, or text via EliteLine Submit channels (Telegram/WhatsApp/Email etc)</p>
-                  </div>
-                  <div class="bg-white p-4 rounded-lg">
-                    <div class="text-2xl mb-2">👥</div>
-                    <h4 class="font-semibold text-blue-800 mb-2">2. Team Review</h4>
-                    <p class="text-sm text-blue-700">Our team manually reviews and processes your submissions securely</p>
-                  </div>
-                  <div class="bg-white p-4 rounded-lg">
-                    <div class="text-2xl mb-2">✅</div>
-                    <h4 class="font-semibold text-blue-800 mb-2">3. Direct to MyBag</h4>
-                    <p class="text-sm text-blue-700">Coupons are automatically added to your <strong>MyBag</strong> — ready to use immediately</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 Available Channels</h3>
-                <div class="space-y-3">
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">📱</div>
-                    <div>
-                      <div class="font-semibold text-green-800">Telegram</div>
-                      <a href="http://t.me/eliteline_mycouponbag_bot" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                        <span>📱</span>
-                        <span>EliteLine-Telegram</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">📧</div>
-                    <div>
-                      <div class="font-semibold text-green-800">Email</div>
-                      <a href="mailto:eliteline@mycouponbag.com" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full text-sm font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                        <span>📧</span>
-                        <span>EliteLine-Mail</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">💬</div>
-                    <div>
-                      <div class="font-semibold text-green-800">WhatsApp</div>
-                      <div class="text-sm text-green-700">Coming soon</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 Key Benefits</h3>
-                <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Skip Review Process:</strong> No need to manually approve coupons</li>
-                  <li>• <strong>Human Verification:</strong> Our team ensures accuracy and quality</li>
-                  <li>• <strong>Direct to MyBag:</strong> Coupons appear ready-to-use immediately</li>
-                                     <li>• <strong>Premium Service:</strong> Available to Subscription Users</li>
-                  <li>• <strong>Multiple Channels:</strong> Submit via Telegram, WhatsApp, Email, and more</li>
-                  <li>• <strong>Secure Processing:</strong> Your data is handled with utmost privacy</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- SmartBot Channels -->
-          <section id="smartbot-channels" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤖</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">SmartBot Channels (Self-Service)</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                <strong>SmartBot</strong> is our AI-powered service that automatically processes your coupon submissions and adds them to your Review tab for manual approval before moving to MyBag.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 Available Channels</h3>
-                <div class="space-y-3">
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">📱</div>
-                    <div>
-                      <div class="font-semibold text-blue-800">Telegram</div>
-                      <a href="http://t.me/mycouponbag_bot" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                        <span>📱</span>
-                        <span>SmartBot-Telegram</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">📧</div>
-                    <div>
-                      <div class="font-semibold text-blue-800">Email</div>
-                      <a href="mailto:smartbot@mycouponbag.com" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full text-sm font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-md">
-                        <span>📧</span>
-                        <span>SmartBot-Mail</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="text-2xl">💬</div>
-                    <div>
-                      <div class="font-semibold text-blue-800">WhatsApp</div>
-                      <div class="text-sm text-blue-700">Coming soon</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 How SmartBot Works</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Send Coupons:</strong> Send coupon images, documents, or text to any SmartBot channel</li>
-                  <li>• <strong>AI Processing:</strong> Our AI automatically extracts coupon details</li>
-                  <li>• <strong>Review Tab:</strong> Processed coupons appear in your Review tab</li>
-                  <li>• <strong>Manual Approval:</strong> You review and approve/reject each coupon</li>
-                  <li>• <strong>MyBag Transfer:</strong> Approved coupons move to MyBag for use</li>
-                  <li>• <strong>Available to All:</strong> Free service for all users</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- MyBag Tab -->
-          <section id="mybag" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👜</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">MyBag Tab</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                <strong>MyBag</strong> is your central coupon collection - think of it as your digital wallet where all your ready-to-use coupons live! This is where you'll find coupons that have been approved, processed, and are ready for immediate use.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ What You'll Find Here</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Approved Coupons:</strong> All coupons you've manually approved from the Review tab</li>
-                  <li>• <strong>Direct Additions:</strong> Coupons you've added manually or via AI submission</li>
-                                     <li>• <strong>EliteLine Submissions:</strong> Premium coupons processed directly by our team</li>
-                  <li>• <strong>Imported Offers:</strong> Coupons from the Discover tab that you've added to your collection</li>
-                  <li>• <strong>Organized Categories:</strong> Food, Shopping, Travel, Entertainment, and more</li>
-                  <li>• <strong>Usage Tracking:</strong> See which coupons you've used and your total savings</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use MyBag</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Browse:</strong> Swipe through your coupons or use the search bar for specific ones</li>
-                  <li>• <strong>Filter:</strong> Use category filters (Food, Shopping, etc.) to find relevant coupons</li>
-                  <li>• <strong>Magic Search:</strong> Try natural language search like "Show me food coupons under ₹500"</li>
-                  <li>• <strong>Use Coupons:</strong> Tap any coupon to see full details and copy the code</li>
-                  <li>• <strong>Favorites:</strong> Mark frequently used coupons as favorites for quick access</li>
-                  <li>• <strong>Track Usage:</strong> Monitor which coupons you've used and your savings</li>
-                </ul>
-              </div>
-
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 Pro Tips</h3>
-                <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Check expiry dates regularly - expired coupons are automatically moved to a separate section</li>
-                  <li>• Use Magic Search for complex queries like "coupons for pizza delivery near me"</li>
-                  <li>• Favorite your most-used coupons for instant access</li>
-                  <li>• Review your savings analytics to see how much you've saved over time</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Review Tab -->
-          <section id="review" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📋</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Review Tab</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                The <strong>Review tab</strong> is your quality control center! Here you'll find coupons that have been automatically imported from your connected accounts (Email, Telegram, WhatsApp, etc.) and need your approval before they're added to your MyBag collection.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ What Happens Here</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>SmartBot Imports:</strong> Coupons sent via Telegram, WhatsApp, Email bots appear here</li>
-                  <li>• <strong>AI Processing:</strong> Our AI extracts coupon details from your messages and images</li>
-                  <li>• <strong>Manual Review:</strong> You verify the extracted information is accurate</li>
-                  <li>• <strong>Source Tracking:</strong> See exactly where each coupon came from (Email, Telegram, etc.)</li>
-                  <li>• <strong>Batch Actions:</strong> Approve or reject multiple coupons at once</li>
-                  <li>• <strong>Edit Before Approval:</strong> Fix any incorrect details before adding to MyBag</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 Review Process</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Check Regularly:</strong> Review tab gets new coupons as you send them to bots</li>
-                  <li>• <strong>Verify Details:</strong> Confirm brand name, coupon code, discount amount, expiry date</li>
-                  <li>• <strong>Edit if Needed:</strong> Tap to edit any incorrect information</li>
-                  <li>• <strong>Approve:</strong> Tap "Approve" to move coupon to MyBag</li>
-                  <li>• <strong>Reject:</strong> Tap "Reject" to remove unwanted coupons</li>
-                  <li>• <strong>Bulk Actions:</strong> Select multiple coupons for batch approval/rejection</li>
-                </ul>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🤖 SmartBot Workflow</h3>
-                <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Send coupon images/text to our Telegram, WhatsApp, or Email bots</li>
-                  <li>• AI automatically extracts coupon details and adds to Review tab</li>
-                  <li>• You review and approve/reject each coupon</li>
-                  <li>• Approved coupons move to MyBag for immediate use</li>
-                  <li>• This ensures quality control while maintaining automation</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Partner Deals Tab -->
-          <section id="partner-deals" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤝</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Partner Deals Tab</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                The <strong>Partner Deals tab</strong> is your personalized coupon collection from your favorite brands and stores! From local stores to big brands, all coupons you love will be right here.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ How Partner Deals Works</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Follow Your Favorites:</strong> Select and follow your favorite brands and stores</li>
-                  <li>• <strong>Personalized Feed:</strong> All coupons from your followed partners appear here</li>
-                  <li>• <strong>Local & Global:</strong> Mix of local stores and big brand partnerships</li>
-                  <li>• <strong>Real-time Updates:</strong> New coupons from your partners appear instantly</li>
-                  <li>• <strong>Easy Access:</strong> One-tap import to your MyBag collection</li>
-                  <li>• <strong>Smart Notifications:</strong> Get alerted when your favorite brands have new offers</li>
-                </ul>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🎯 Partner Types</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-purple-800 mb-2">🏪 Local Stores</h4>
-                    <ul class="text-purple-700 space-y-1 text-sm">
-                      <li>• Neighborhood restaurants</li>
-                      <li>• Local retail shops</li>
-                      <li>• Regional service providers</li>
-                      <li>• Community businesses</li>
-                    </ul>
-                  </div>
-                  <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-purple-800 mb-2">🏢 Big Brands</h4>
-                    <ul class="text-purple-700 space-y-1 text-sm">
-                      <li>• National retail chains</li>
-                      <li>• Popular restaurant brands</li>
-                      <li>• E-commerce platforms</li>
-                      <li>• Service providers</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 Pro Tips</h3>
-                <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Follow a mix of local and national brands for diverse offers</li>
-                  <li>• Check the Partner Deals tab before making any purchase</li>
-                  <li>• Enable notifications to never miss deals from your favorite brands</li>
-                  <li>• Regularly review and update your followed brands list</li>
-                  <li>• Partner Deals tab is coming soon - stay tuned for updates!</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Discover Tab -->
-          <section id="discover" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🔍</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Discover Tab</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                The <strong>Discover tab</strong> is your treasure trove of exclusive deals! Here you'll find carefully curated coupons from our partner brands and featured deals that you might not discover elsewhere. Think of it as your personal coupon marketplace.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ What You'll Discover</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Partner Offers:</strong> Exclusive deals from trusted brand partners</li>
-                  <li>• <strong>Featured Deals:</strong> Hand-picked coupons with the best value</li>
-                  <li>• <strong>Limited Time Offers:</strong> Time-sensitive deals you won't want to miss</li>
-                  <li>• <strong>Category Collections:</strong> Themed coupon collections (Food, Fashion, Travel, etc.)</li>
-                  <li>• <strong>Premium Deals:</strong> Special offers for Elite subscription users</li>
-                  <li>• <strong>New Arrivals:</strong> Fresh coupons added regularly</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Explore</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Browse Categories:</strong> Filter by Food, Shopping, Travel, Entertainment, etc.</li>
-                  <li>• <strong>Search Deals:</strong> Use keywords to find specific types of offers</li>
-                  <li>• <strong>View Details:</strong> Tap any offer to see full terms and conditions</li>
-                  <li>• <strong>Add to MyBag:</strong> One-tap import to your personal collection</li>
-                  <li>• <strong>Check Back Often:</strong> New deals are added regularly</li>
-                  <li>• <strong>Share Favorites:</strong> Share great deals with friends and family</li>
-                </ul>
-              </div>
-
-              <div class="bg-orange-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-orange-900 mb-3 sm:mb-4 text-sm sm:text-base">🎯 Pro Tips</h3>
-                <ul class="text-orange-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Check the Discover tab before making any major purchase</li>
-                  <li>• Look for "Limited Time" badges on time-sensitive offers</li>
-                  <li>• Partner offers often have better terms than general coupons</li>
-                                     <li>• Subscription Users get access to exclusive premium deals</li>
-                  <li>• Use the category filters to quickly find relevant offers</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Me Tab -->
-          <section id="me" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👤</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Me Tab</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                The <strong>Me tab</strong> is your personal command center! Here you can manage your account, customize your experience, and access all the settings that make MyCouponBag work perfectly for you.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Account Management</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Profile Settings:</strong> Update your name, email, and preferences</li>
-                  <li>• <strong>Account Connections:</strong> Connect Email, Telegram, WhatsApp for automatic imports</li>
-                  <li>• <strong>Subscription Management:</strong> View and manage your plan (Basic, Pro, Premium, Elite)</li>
-                  <li>• <strong>Billing Information:</strong> Update payment methods and view transaction history</li>
-                  <li>• <strong>Usage Statistics:</strong> Track your coupon usage and savings over time</li>
-                  <li>• <strong>Data Export:</strong> Download your coupon data if needed</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 Customization Options</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Notification Settings:</strong> Control when and how you receive alerts</li>
-                  <li>• <strong>Category Preferences:</strong> Set your favorite coupon categories</li>
-                  <li>• <strong>Auto-Import Rules:</strong> Configure automatic import preferences</li>
-                  <li>• <strong>Privacy Settings:</strong> Manage data sharing and privacy options</li>
-                  <li>• <strong>Theme & Display:</strong> Customize app appearance and layout</li>
-                  <li>• <strong>Language Settings:</strong> Choose your preferred language</li>
-                </ul>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">📊 Analytics & Insights</h3>
-                <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Savings Tracker:</strong> See how much money you've saved with coupons</li>
-                  <li>• <strong>Usage Analytics:</strong> Track which categories you use most</li>
-                  <li>• <strong>Expiry Alerts:</strong> Get notified about coupons expiring soon</li>
-                  <li>• <strong>Import Statistics:</strong> See how many coupons you've imported</li>
-                  <li>• <strong>Performance Insights:</strong> Understand your coupon usage patterns</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Manual Entry -->
-          <section id="manual-entry" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✏️</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Manual Entry Coupons</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                Add coupons to your collection by manually entering all the details yourself.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Enter coupon details manually (brand, code, discount, expiry date, etc.)</li>
-                  <li>• Choose from predefined categories</li>
-                  <li>• Set minimum payment requirements</li>
-                  <li>• Add descriptions and notes</li>
-                  <li>• Upload coupon images for reference</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Fill in all required fields (brand name, coupon code, reward amount, expiry date)</li>
-                  <li>• Select the appropriate category for easy organization</li>
-                  <li>• Add optional details like minimum payment and description</li>
-                  <li>• Upload an image of the coupon if available</li>
-                  <li>• Tap "Add Coupon" to save it to your collection</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Edit Coupon -->
-          <section id="edit-coupon" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✏️</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Edit Coupon</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                Modify the details of any coupon in your collection, including updating information, changing categories, or correcting errors.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Edit all coupon details (brand, code, discount, expiry date, etc.)</li>
-                  <li>• Change category classification</li>
-                  <li>• Update descriptions and notes</li>
-                  <li>• Modify minimum payment requirements</li>
-                  <li>• Re-process coupon information if needed</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Navigate to the coupon you want to edit</li>
-                  <li>• Tap the edit button</li>
-                  <li>• Modify any fields that need updating</li>
-                  <li>• Save your changes</li>
-                  <li>• The updated coupon will be reflected in your collection</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- AI Submission -->
-          <section id="ai-submission" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤖</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">AI Submission Coupons</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                Let our AI do the heavy lifting! AI Submission allows you to quickly add coupons by processing text, images, or documents containing coupon information. Our intelligent system extracts all the details automatically, saving you time and effort.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Submission Methods</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Text Paste:</strong> Copy and paste coupon text from emails, websites, or messages</li>
-                  <li>• <strong>Image Upload:</strong> Take a photo or upload an image of a coupon</li>
-                  <li>• <strong>Document Upload:</strong> Upload PDF or document files containing coupons</li>
-                  <li>• <strong>SmartBot Channels:</strong> Send via Telegram, WhatsApp, or Email bots</li>
-                  <li>• <strong>Batch Processing:</strong> Process multiple images or documents at once</li>
-                                     <li>• <strong>EliteLine Submit (Hands-Free):</strong> Premium service for Subscription Users (direct to MyBag)</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How AI Submission Works</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>For Text:</strong> Copy coupon text, paste in the app, tap "Process"</li>
-                  <li>• <strong>For Images:</strong> Take photo or select from gallery, tap "Process"</li>
-                  <li>• <strong>For Documents:</strong> Select file, tap "Process"</li>
-                  <li>• <strong>AI Extraction:</strong> Our AI identifies brand, code, discount, expiry date</li>
-                  <li>• <strong>Review & Edit:</strong> Verify extracted information and make corrections</li>
-                  <li>• <strong>Add to Collection:</strong> Tap "Add Coupon" to save to MyBag</li>
-                </ul>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🤖 SmartBot vs EliteLine</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-purple-800 mb-2">SmartBot Import (Self-Service) (All Users)</h4>
-                    <ul class="text-purple-700 space-y-1 text-sm">
-                      <li>• Send to Telegram/WhatsApp/Email bots</li>
-                      <li>• AI processes and adds to Review tab</li>
-                      <li>• You manually approve/reject each coupon</li>
-                      <li>• Approved coupons move to MyBag</li>
-                      <li>• Self-service with quality control</li>
-                    </ul>
-                  </div>
-                  <div class="bg-white p-4 rounded-lg">
-                                         <h4 class="font-semibold text-purple-800 mb-2">EliteLine Submit (Hands-Free) (Subscription Users)</h4>
-                    <ul class="text-purple-700 space-y-1 text-sm">
-                      <li>• Send to EliteLine channels</li>
-                      <li>• Our team manually reviews</li>
-                      <li>• Direct addition to MyBag</li>
-                      <li>• Skip the Review tab entirely</li>
-                      <li>• Premium service with human verification</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 Pro Tips</h3>
-                <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Ensure good lighting when taking photos of coupons</li>
-                  <li>• Include the full coupon text when pasting for better AI accuracy</li>
-                  <li>• Use SmartBot for quick processing with manual review</li>
-                                     <li>• Use EliteLine Submit (Hands-Free) to skip the review process</li>
-                  <li>• Batch process multiple coupons at once to save time</li>
-                  <li>• Always verify AI-extracted details before adding to your collection</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Magic Search -->
-          <section id="magic-search" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">✨</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Magic Search</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                Magic Search is your intelligent coupon finder! Instead of searching for specific brand names or coupon codes, you can use natural language to find exactly what you need. It's like having a personal shopping assistant who knows all your coupons.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ How Magic Search Works</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Natural Language:</strong> Search using everyday language, not just keywords</li>
-                  <li>• <strong>Smart Matching:</strong> AI understands context and intent behind your search</li>
-                  <li>• <strong>Cross-Category Search:</strong> Find coupons across all categories at once</li>
-                  <li>• <strong>Personalized Results:</strong> Results tailored to your usage patterns</li>
-                  <li>• <strong>Real-time Updates:</strong> Searches include newly added coupons instantly</li>
-                  <li>• <strong>Multi-Source Search:</strong> Searches both MyBag and Discover tab offers</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 Search Examples</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-green-800 mb-2">Food & Dining</h4>
-                    <ul class="text-green-700 space-y-1 text-sm">
-                      <li>• "pizza delivery coupons"</li>
-                      <li>• "food coupons under ₹500"</li>
-                      <li>• "restaurant deals near me"</li>
-                      <li>• "coffee shop discounts"</li>
-                    </ul>
-                  </div>
-                  <div class="bg-white p-4 rounded-lg">
-                    <h4 class="font-semibold text-green-800 mb-2">Shopping & Services</h4>
-                    <ul class="text-green-700 space-y-1 text-sm">
-                      <li>• "clothing store offers"</li>
-                      <li>• "electronics discounts"</li>
-                      <li>• "travel booking deals"</li>
-                      <li>• "beauty salon coupons"</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-purple-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🎯 Advanced Search Tips</h3>
-                <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Use Specific Terms:</strong> "pizza delivery" instead of just "food"</li>
-                  <li>• <strong>Include Price Ranges:</strong> "coupons under ₹1000" or "deals above 50% off"</li>
-                  <li>• <strong>Mention Timing:</strong> "expiring this week" or "new coupons"</li>
-                  <li>• <strong>Specify Location:</strong> "near me" or "online only"</li>
-                  <li>• <strong>Use Categories:</strong> "entertainment deals" or "shopping offers"</li>
-                  <li>• <strong>Combine Terms:</strong> "pizza delivery under ₹500 expiring soon"</li>
-                </ul>
-              </div>
-
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">💡 Pro Tips</h3>
-                <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Magic Search works best with descriptive, natural language</li>
-                  <li>• The more specific your search, the better the results</li>
-                  <li>• Use Magic Search before making any purchase to find relevant coupons</li>
-                  <li>• Search results include both your saved coupons and available offers</li>
-                  <li>• Try different variations if you don't get the results you want</li>
-                  <li>• Magic Search learns from your usage to provide better results over time</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Manage Subscription -->
-          <section id="subscription" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">💳</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Manage Subscription</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4">
-                View and manage your subscription plan.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✨ Key Features</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• View your current subscription plan and status</li>
-                  <li>• See available subscription tiers (Basic, Pro, Premium, Elite)</li>
-                  <li>• Compare features between different plans</li>
-                  <li>• Upgrade or downgrade your subscription</li>
-                  <li>• Restore previous purchases</li>
-                  <li>• Cancel your subscription if needed</li>
-                  <li>• View subscription expiry dates and billing information</li>
-                </ul>
-              </div>
-
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🚀 How to Use</h3>
-                <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Check your current plan status and features</li>
-                  <li>• Browse available plans and their benefits</li>
-                  <li>• Tap "Subscribe" to upgrade to a higher tier</li>
-                  <li>• Use "Restore Purchases" if you've reinstalled the app</li>
-                  <li>• Access subscription management through your app store if needed</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- FAQ Section -->
-          <section id="faq" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">❓</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Frequently Asked Questions</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Quick answers to common questions about creating and managing coupons in MyCouponBag.
-              </p>
-              
-              <div class="space-y-6">
-                <!-- FAQ 1 -->
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">1. How can I manually add a coupon?</h3>
-                  <p class="text-blue-800 text-sm sm:text-base mb-3">You can add a coupon yourself by:</p>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• Going to the <strong>MyBag tab</strong></li>
-                    <li>• Tapping the <strong>➕ button</strong> (bottom-right)</li>
-                    <li>• Entering details like <strong>Brand, Title, Coupon Code, Expiry Date</strong></li>
-                    <li>• Saving the coupon</li>
-                  </ul>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">2. Can I create coupons using images or documents?</h3>
-                  <p class="text-green-800 text-sm sm:text-base mb-3">Yes! You can use our <strong>AI Submissions</strong> feature:</p>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• Tap the <strong>➕ button</strong> on the MyBag page</li>
-                    <li>• Choose the source (<strong>Image, Document, or Text</strong>)</li>
-                    <li>• Tap <strong>Process</strong> → AI extracts the coupon automatically</li>
-                    <li>• Review and save the coupon</li>
-                  </ul>
-                  <p class="text-green-800 text-sm sm:text-base mt-3">👉 You can also do this through our <strong>browser extensions</strong>.</p>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">3. Can I share coupons from other apps?</h3>
-                  <p class="text-purple-800 text-sm sm:text-base mb-3">Yes. Just share any <strong>coupon image, document, or text</strong> from other apps directly to <strong>MyCouponBag</strong>.</p>
-                  <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• It opens in the <strong>New Coupon page</strong></li>
-                    <li>• Tap <strong>Process</strong> → Edit if required → Save</li>
-                  </ul>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="bg-amber-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-amber-900 mb-3 sm:mb-4 text-sm sm:text-base">4. What is "EliteLine Submissions (Hands-Free)"?</h3>
-                  <p class="text-amber-800 text-sm sm:text-base mb-3"><strong>EliteLine = Hands-Free Service</strong></p>
-                  <ul class="text-amber-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• You send coupon content (image, document, text) to our EliteLine channels</li>
-                    <li>• Our team verifies and securely processes your submission</li>
-                    <li>• Coupons are <strong>directly added to your MyBag (ready-to-use instantly)</strong></li>
-                  </ul>
-                  <p class="text-amber-800 text-sm sm:text-base mt-3 mb-2">📩 EliteLine Channels:</p>
-                  <ul class="text-amber-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• Telegram → <a href="http://t.me/eliteline_mycouponbag_bot" target="_blank" class="text-blue-600 hover:underline">EliteLine-Telegram</a></li>
-                    <li>• Email → <a href="mailto:eliteline@mycouponbag.com" class="text-blue-600 hover:underline">eliteline@mycouponbag.com</a></li>
-                    <li>• WhatsApp → <em>Coming soon</em></li>
-                  </ul>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="bg-indigo-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-indigo-900 mb-3 sm:mb-4 text-sm sm:text-base">5. What is "SmartBot Submissions (Self-Service)"?</h3>
-                  <p class="text-indigo-800 text-sm sm:text-base mb-3"><strong>SmartBot = Self-Service with AI</strong></p>
-                  <ul class="text-indigo-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• You send coupon content (image, document, text) to SmartBot channels</li>
-                    <li>• AI processes it and adds the draft to your <strong>Review Tab</strong></li>
-                    <li>• You can edit/approve it → then move to <strong>MyBag</strong></li>
-                  </ul>
-                  <p class="text-indigo-800 text-sm sm:text-base mt-3 mb-2">📩 SmartBot Channels:</p>
-                  <ul class="text-indigo-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• Telegram → <a href="http://t.me/mycouponbag_bot" target="_blank" class="text-blue-600 hover:underline">SmartBot-Telegram</a></li>
-                    <li>• Email → <a href="mailto:smartbot@mycouponbag.com" class="text-blue-600 hover:underline">smartbot@mycouponbag.com</a></li>
-                    <li>• WhatsApp → <em>Coming soon</em></li>
-                  </ul>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="bg-pink-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-pink-900 mb-3 sm:mb-4 text-sm sm:text-base">6. What's the difference between MyBag and Review tabs?</h3>
-                  <ul class="text-pink-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• <strong>MyBag Tab</strong> → Shows your <strong>ready-to-use coupons</strong></li>
-                    <li>• <strong>Review Tab</strong> → Shows <strong>AI-processed or draft coupons</strong> that you can edit and finalize before moving to MyBag</li>
-                  </ul>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="bg-teal-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-teal-900 mb-3 sm:mb-4 text-sm sm:text-base">7. Which option should I choose?</h3>
-                  <ul class="text-teal-800 space-y-1 sm:space-y-2 text-sm sm:text-base ml-4">
-                    <li>• <strong>Manual Entry</strong> → Best for quick, small edits</li>
-                    <li>• <strong>AI Submissions</strong> → Fastest way to create from images or documents</li>
-                    <li>• <strong>SmartBot (Self-Service)</strong> → Great for self-service users who like to review before saving</li>
-                    <li>• <strong>EliteLine (Hands-Free)</strong> → Perfect for hands-free users who want our team to do everything</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Support Section -->
-          <section id="support" class="section-anchor bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📞</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Need More Help?</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Can't find what you're looking for? Our support team is here to help you!
-              </p>
-              
-              <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 sm:p-8 rounded-lg">
-                <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">📧 Contact Support</h3>
-                <p class="mb-3 sm:mb-4 text-sm sm:text-base">Email us at:</p>
-                <a href="mailto:support@mycouponbag.com" class="text-xl sm:text-2xl font-bold underline hover:no-underline break-all">
-                  support@mycouponbag.com
-                </a>
-                <p class="mt-3 sm:mt-4 text-blue-100 text-sm sm:text-base">We typically respond within 24 hours!</p>
-                <div class="mt-4 flex flex-wrap gap-3">
-                  <a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-indigo-700 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
-                    <span>🆘</span>
-                    <span>Official HelpDesk</span>
-                  </a>
-                  <a href="#" onclick="openLiveSupport(); return false;" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
-                    <span>💬</span>
-                    <span>Live Support</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+      </div>
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-2" id="acc-2" onclick="toggleAccordion('faq-2','acc-2')">Why can’t I add more coupons?</button>
+        <div id="faq-2" class="accordion-panel hidden" role="region" aria-labelledby="acc-2">
+          <p class="text-sm text-[var(--secondary)]">When a limit is hit you may see: “Coupon limit reached for this month”, “Daily coupon limit reached”, or “Email coupon limit reached for this month.” Check your quota in the app (monthly total, daily non-manual, and email/month).</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-3" id="acc-3" onclick="toggleAccordion('faq-3','acc-3')">How does Discover work?</button>
+        <div id="faq-3" class="accordion-panel hidden" role="region" aria-labelledby="acc-3">
+          <p class="text-sm text-[var(--secondary)]">Browse marketplace deals and curated-for-you listings. Tap “Add to My Coupons” to add a deal to your bag; the coupon code is revealed only after you add it.</p>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center p-8 bg-white">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div class="text-left">
-          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">MyCouponBag</h4>
-          <p class="text-sm text-gray-700">Your AI-Powered Coupon Wallet! Never miss a deal again.</p>
+    <h2 class="text-lg font-semibold mt-8 mb-3" style="color: var(--primary);">Need more help?</h2>
+    <p class="text-sm text-[var(--secondary)] mb-4">Contact us:</p>
+    <a href="mailto:support@mycouponbag.com" class="btn-outline inline-block mb-2">support@mycouponbag.com</a>
+    <button type="button" onclick="openLiveSupport()" class="btn-outline block mt-2">Live chat</button>
+  </main>
+
+  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
+          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
         </div>
-        <div class="text-left">
-          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Platforms</h4>
-          <ul class="text-sm space-y-2 text-gray-700">
-            <li>📱 Mobile App</li>
-            <li>🌐 Browser Extensions</li>
-            <li>👑 EliteLine Submit (Hands-Free)</li>
-            <li>🤖 SmartBot Integration (Self-Service)</li>
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
+          <ul class="text-sm space-y-1 text-[var(--secondary)]">
+            <li><a href="/privacy-policy" class="hover:text-[var(--primary)]">Privacy policy</a></li>
+            <li><a href="/partner-help.html" class="hover:text-[var(--primary)]">Partner Help</a></li>
           </ul>
         </div>
-        <div class="text-left">
-          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Features</h4>
-          <ul class="text-sm space-y-2 text-gray-700">
-            <li>🤖 AI-Powered Import</li>
-            <li>🔍 Magic Search</li>
-            <li>📱 Multi-Platform</li>
-          </ul>
-        </div>
-        <div class="text-left">
-          <h4 class="text-lg font-bold mb-4 text-[#1e40af]">Support</h4>
-          <ul class="text-sm space-y-2 text-gray-700">
-            <li><a href="mailto:support@mycouponbag.com" class="hover:text-blue-600 transition-colors">📧 Contact Support</a></li>
-            <li><a href="/help" class="hover:text-blue-600 transition-colors">📖 Help Center</a></li>
-            <li><a href="#" onclick="openLiveSupport(); return false;" class="hover:text-blue-600 transition-colors">💬 Live Support</a></li>
-            <li><a href="https://t.me/helpdesk_mycouponbag_bot" target="_blank" class="hover:text-blue-600 transition-colors">🆘 Official HelpDesk</a></li>
-          </ul>
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
+          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
         </div>
       </div>
-      <div class="border-t border-gray-200 pt-6">
-        <p class="text-sm text-gray-600">
-          &copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India
-        </p>
-        <div class="mt-4 flex justify-center space-x-4">
-          <a href="/privacy-policy" class="text-blue-600 hover:text-blue-800 text-sm">Privacy Policy and Terms & Conditions</a>
-        </div>
+      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+        <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script>
-    // Mobile navigation toggle
-    function toggleMobileNav() {
-      const mobileNav = document.getElementById('mobileNav');
-      const mobileOverlay = document.getElementById('mobileOverlay');
-      
-      mobileNav.classList.toggle('open');
-      mobileOverlay.classList.toggle('open');
-      
-      // Prevent body scroll when mobile nav is open
-      if (mobileNav.classList.contains('open')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
+    function toggleMenu() {
+      var el = document.getElementById('mobile-menu');
+      el.classList.toggle('active');
     }
-
-    // Close mobile nav when clicking on overlay
-    document.getElementById('mobileOverlay').addEventListener('click', toggleMobileNav);
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+    document.querySelectorAll('.mobile-menu a, .mobile-menu button').forEach(function(node) {
+      node.addEventListener('click', function() { document.getElementById('mobile-menu').classList.remove('active'); });
     });
-
-    // Active navigation highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Close mobile nav on window resize (if screen becomes larger)
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        
-        if (mobileNav) mobileNav.classList.remove('open');
-        if (mobileOverlay) mobileOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Enhanced mobile functionality
-    function enhanceMobileExperience() {
-      // Add touch-specific event listeners for mobile
-      if ('ontouchstart' in window) {
-        // Add touch feedback to buttons
-        document.querySelectorAll('.mobile-btn').forEach(button => {
-          button.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-          });
-          
-          button.addEventListener('touchend', function() {
-            this.style.transform = '';
-          });
-        });
-
-        // Add touch feedback to cards
-        document.querySelectorAll('.card-hover').forEach(card => {
-          card.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-          });
-          
-          card.addEventListener('touchend', function() {
-            this.style.transform = '';
-          });
-        });
-      }
-
-      // Enhanced accessibility
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          const mobileNav = document.getElementById('mobileNav');
-          if (mobileNav && mobileNav.classList.contains('open')) {
-            toggleMobileNav();
-          }
-        }
-      });
-
-      // Improved scroll performance
-      let scrollTimeout;
-      window.addEventListener('scroll', () => {
-        if (scrollTimeout) {
-          clearTimeout(scrollTimeout);
-        }
-        scrollTimeout = setTimeout(() => {
-          // Active navigation highlighting logic
-          const sections = document.querySelectorAll('section[id]');
-          const navLinks = document.querySelectorAll('.nav-link');
-          
-          let current = '';
-          sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 200)) {
-              current = section.getAttribute('id');
-            }
-          });
-
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-              link.classList.add('active');
-            }
-          });
-        }, 10);
-      });
+    function toggleAccordion(panelId, triggerId) {
+      var panel = document.getElementById(panelId);
+      var trigger = document.getElementById(triggerId);
+      var isOpen = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden');
+      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
     }
-
-    // Initialize mobile enhancements
-    enhanceMobileExperience();
   </script>
   <script>
     function openLiveSupport() {

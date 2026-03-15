@@ -2,718 +2,275 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - MyCouponBag</title>
   <link rel="icon" type="image/png" href="imgs/mcb-logo.png">
   <link rel="shortcut icon" type="image/png" href="imgs/mcb-logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    :root {
+      --primary: #6750A4;
+      --primary-dark: #5a4790;
+      --secondary: #625B71;
+      --outline: #79747E;
+      --surface: #FFFBFE;
+      --surface-variant: #E7E0EC;
+      --error: #B3261E;
+      --on-surface: #1c1b1f;
+      --on-primary: #fff;
     }
-    .card-hover {
-      transition: all 0.3s ease;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--surface);
+      color: var(--on-surface);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .section-anchor {
-      scroll-margin-top: 100px;
+    .nav-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-variant);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
     .nav-link {
-      transition: all 0.3s ease;
+      color: var(--secondary);
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      transition: color 0.2s, background 0.2s;
     }
     .nav-link:hover {
-      background-color: #f3f4f6;
-      border-radius: 8px;
+      color: var(--primary);
+      background: var(--surface-variant);
     }
-    .nav-link.active {
-      background-color: #3b82f6;
-      color: white;
-      border-radius: 8px;
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.875rem;
     }
-    
-    /* Enhanced Mobile-specific styles */
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .mobile-menu { display: none; }
+    .mobile-menu.active {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-variant);
+    }
     @media (max-width: 768px) {
-      .mobile-nav-toggle {
-        display: block;
-      }
-      .mobile-nav {
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        width: 85vw;
-        max-width: 320px;
-      }
-      .mobile-nav.open {
-        transform: translateX(0);
-      }
-      .mobile-overlay {
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .mobile-overlay.open {
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      /* Mobile text sizing */
-      .mobile-text-lg {
-        font-size: 18px;
-        line-height: 1.6;
-      }
-      .mobile-text-base {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-      
-      /* Mobile button improvements */
-      .mobile-btn {
-        min-height: 44px;
-        padding: 12px 20px;
-        font-size: 16px;
-      }
-      
-      /* Mobile section spacing */
-      .mobile-section {
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 12px;
-      }
-      
-      /* Mobile navigation improvements */
-      .mobile-nav-header {
-        padding: 20px;
-        border-bottom: 1px solid #e5e7eb;
-      }
-      .mobile-nav-content {
-        padding: 16px 20px;
-      }
+      .nav-desktop { display: none !important; }
+      .hamburger { display: block !important; }
     }
-    
-    /* Hide mobile nav toggle on desktop */
     @media (min-width: 769px) {
-      .mobile-nav-toggle {
-        display: none;
-      }
+      .mobile-menu { display: none !important; }
+      .hamburger { display: none !important; }
     }
-    
-    /* Enhanced touch interactions */
-    @media (hover: none) and (pointer: coarse) {
-      .card-hover:hover {
-        transform: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      .nav-link:hover {
-        background-color: transparent;
-      }
-      .nav-link:active {
-        background-color: #f3f4f6;
-        border-radius: 8px;
-      }
-    }
-    
-    /* Improved accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      .card-hover,
-      .nav-link,
-      .mobile-nav,
-      .mobile-overlay {
-        transition: none;
-      }
-    }
+    .section-anchor { scroll-margin-top: 5rem; }
+    .prose-section { margin-bottom: 2rem; }
+    .prose-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem; }
+    .prose-section p, .prose-section li { color: var(--secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 0.5rem; }
+    .prose-section ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-gray-50 font-['Poppins']">
-  <div class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4 sm:py-6">
-          <div class="flex items-center">
-            <a href="/" class="text-xl sm:text-2xl font-bold text-blue-600">MyCouponBag</a>
-          </div>
-          
-          <!-- Mobile Menu Button -->
-          <button class="mobile-nav-toggle md:hidden mobile-btn rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 active:bg-gray-200" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-          
-          <!-- Desktop Navigation -->
-          <nav class="hidden md:flex space-x-8">
-            <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
-          </nav>
+<body>
+  <header class="nav-bar">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold" style="color: var(--primary);">MyCouponBag</a>
+      <div class="nav-desktop flex items-center gap-1 flex-wrap">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#features" class="nav-link">Features</a>
+        <a href="/#plans" class="nav-link">Pricing</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+        <a href="/help" class="nav-link">Help</a>
+        <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+        <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm py-2">Live chat</button>
+      </div>
+      <button type="button" onclick="toggleMenu()" class="hamburger p-2 rounded-lg border border-[var(--outline)]" aria-label="Toggle menu">☰</button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#features" class="nav-link">Features</a>
+      <a href="/#plans" class="nav-link">Pricing</a>
+      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/help" class="nav-link">Help</a>
+      <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+      <button type="button" onclick="openLiveSupport()" class="btn-outline text-sm w-full text-left">Live chat</button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-bold mb-2" style="color: var(--primary);">Privacy Policy</h1>
+    <p class="text-[var(--outline)] text-sm mb-8">Last updated: March 2025. Your privacy is important to us.</p>
+
+    <section id="who-we-are" class="prose-section section-anchor">
+      <h2>Who we are</h2>
+      <p><strong>MyCouponBag</strong> (“we”, “our”, or “us”) operates the website https://mycouponbag.com and the MyCouponBag mobile app (Android). We help you collect, organise, and use coupons in one place.</p>
+    </section>
+
+    <section id="data-we-collect" class="prose-section section-anchor">
+      <h2>Data we collect</h2>
+      <p>We collect information necessary to provide and improve our service:</p>
+      <ul>
+        <li><strong>Account data:</strong> Email address, display name, and authentication details (e.g. via Supabase).</li>
+        <li><strong>Coupon data:</strong> Coupon codes, merchant name, description, expiry date, and optionally image URL and redemption (“Shop now”) link that you add or that we extract from forwarded emails.</li>
+        <li><strong>Push notifications:</strong> FCM (Firebase Cloud Messaging) token so we can send you notifications (e.g. “Coupon from [Merchant] added”, expiry reminders) if you enable them.</li>
+        <li><strong>Usage data:</strong> How you use the app (e.g. features used, interactions) to provide the service, fix issues, and improve the product.</li>
+      </ul>
+    </section>
+
+    <section id="how-we-use" class="prose-section section-anchor">
+      <h2>How we use your data</h2>
+      <p>We use the data to:</p>
+      <ul>
+        <li>Provide and maintain the app (coupons, forward-to-email, Discover, reminders).</li>
+        <li>Send you in-app and optional push notifications (e.g. coupon added from email, expiry reminder).</li>
+        <li>Improve the product and support you (e.g. customer support, troubleshooting).</li>
+      </ul>
+    </section>
+
+    <section id="data-sharing" class="prose-section section-anchor">
+      <h2>Data sharing</h2>
+      <p>We do not sell your personal data. We use trusted service providers that process data on our behalf:</p>
+      <ul>
+        <li><strong>Supabase</strong> — authentication and database (account and coupon data).</li>
+        <li><strong>Mailgun</strong> — to receive and process emails you forward to your private coupon address (e.g. user_xxx@cp.mycouponbag.com).</li>
+        <li><strong>Firebase (FCM)</strong> — to send push notifications when you register a device token.</li>
+      </ul>
+      <p>We may also disclose data if required by law or to protect our rights and safety.</p>
+    </section>
+
+    <section id="data-retention" class="prose-section section-anchor">
+      <h2>Data retention</h2>
+      <p>We keep your data for as long as your account is active and as needed to provide the service. Some data may be retained longer where required by law (e.g. transaction records). If you delete your account, we will delete or anonymise your personal data in line with our retention policy.</p>
+    </section>
+
+    <section id="your-rights" class="prose-section section-anchor">
+      <h2>Your rights</h2>
+      <p>Depending on where you live, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you.</li>
+        <li>Correct inaccurate data.</li>
+        <li>Request deletion of your data.</li>
+        <li>Request a copy of your data (data portability).</li>
+        <li>Object to or restrict certain processing.</li>
+      </ul>
+      <p>To exercise these rights, contact us at <a href="mailto:support@mycouponbag.com" style="color: var(--primary);">support@mycouponbag.com</a>.</p>
+    </section>
+
+    <section id="cookies" class="prose-section section-anchor">
+      <h2>Cookies and similar technologies</h2>
+      <p>Our website may use cookies and similar technologies (e.g. local storage) for essential operation, security, and to improve your experience. You can adjust your browser settings to limit or block cookies.</p>
+    </section>
+
+    <section id="third-party" class="prose-section section-anchor">
+      <h2>Third-party services</h2>
+      <p>We use the following third-party services that have their own privacy policies:</p>
+      <ul>
+        <li><strong>Supabase</strong> — <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Supabase Privacy Policy</a>.</li>
+        <li><strong>Tawk.to Live Chat</strong> — We use Tawk.to to offer live chat support on our website and in the app. Tawk.to may collect chat content, device/browser details, IP address, and information you share in chat. It is used only to assist you and improve support. See <a href="https://www.tawk.to/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Tawk.to Privacy Policy</a>.</li>
+      </ul>
+    </section>
+
+    <section id="coupon-responsibility" class="prose-section section-anchor">
+      <h2>Coupon content and user responsibility</h2>
+      <p>MyCouponBag provides a platform for you to store, organise, and use coupons. We do not create, endorse, or guarantee the accuracy, validity, eligibility, or applicability of any coupon, code, or offer that you add, that is extracted from your emails, or that you obtain from Discover or any other source.</p>
+      <p><strong>All responsibility for the coupons in your bag lies solely with you.</strong> You are responsible for ensuring that any coupon you add or use is valid, used in accordance with the merchant’s or issuer’s terms, and that you have the right to use it. We are not responsible for expired, invalid, or misapplied coupons; for any loss, dispute, or refusal of a merchant to honour a code; or for any other consequence of your use of coupons. Use of the service does not create any liability on our part in respect of coupon content or redemption.</p>
+    </section>
+
+    <section id="children" class="prose-section section-anchor">
+      <h2>Children’s privacy</h2>
+      <p>Our service is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such data, please contact us at <a href="mailto:support@mycouponbag.com" style="color: var(--primary);">support@mycouponbag.com</a> and we will delete it.</p>
+    </section>
+
+    <section id="changes" class="prose-section section-anchor">
+      <h2>Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will post the updated policy on this page and update the “Last updated” date. Significant changes may also be communicated via the app or email. Continued use of the service after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <section id="contact" class="prose-section section-anchor">
+      <h2>Contact us</h2>
+      <p>For any questions about this Privacy Policy or your data:</p>
+      <p>Email: <a href="mailto:support@mycouponbag.com" style="color: var(--primary); font-weight: 600;">support@mycouponbag.com</a></p>
+      <p>Website: <a href="https://mycouponbag.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">https://mycouponbag.com</a></p>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--surface-variant)] bg-[var(--surface-variant)] mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">MyCouponBag</h4>
+          <p class="text-sm text-[var(--secondary)]">Your Coupons, One Bag - Never miss a discount again!</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">Links</h4>
+          <ul class="text-sm space-y-1 text-[var(--secondary)]">
+            <li><a href="/help" class="hover:text-[var(--primary)]">Help</a></li>
+            <li><a href="/partner-help.html" class="hover:text-[var(--primary)]">Partner Help</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2" style="color: var(--primary);">Support</h4>
+          <p class="text-sm text-[var(--secondary)]">Email: <a href="mailto:support@mycouponbag.com" class="hover:text-[var(--primary)]">support@mycouponbag.com</a></p>
+          <button type="button" onclick="openLiveSupport()" class="text-sm mt-2 underline" style="color: var(--primary);">Live chat</button>
         </div>
       </div>
-    </header>
-
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onclick="toggleMobileNav()"></div>
-
-    <!-- Mobile Navigation Sidebar -->
-    <div id="mobileNav" class="mobile-nav fixed left-0 top-0 h-full bg-white shadow-xl z-50 md:hidden overflow-y-auto">
-      <div class="mobile-nav-header">
-        <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold text-gray-900">Navigation</h2>
-          <button onclick="toggleMobileNav()" class="mobile-btn rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 active:bg-gray-200" aria-label="Close navigation">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="mobile-nav-content">
-        <nav class="space-y-1">
-          <a href="#overview" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📋 Overview</a>
-          <a href="#information-collected" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📊 Information We Collect</a>
-          <a href="#how-we-use" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🔧 How We Use Information</a>
-          <a href="#third-party" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🤝 Third-Party Services</a>
-          <a href="#data-sharing" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📤 Data Sharing</a>
-          <a href="#data-retention" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">⏰ Data Retention</a>
-          <a href="#security" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">🔒 Security</a>
-          <a href="#your-rights" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">⚖️ Your Rights</a>
-          <a href="#children-privacy" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">👶 Children's Privacy</a>
-          <a href="#changes" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📝 Changes to Policy</a>
-          <a href="#terms" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📋 Terms and Conditions</a>
-          <a href="#contact" class="nav-link block text-gray-700 hover:text-blue-600 rounded-lg" onclick="toggleMobileNav()">📞 Contact Us</a>
-        </nav>
+      <div class="border-t border-[var(--outline)] pt-6 text-center text-sm text-[var(--outline)]">
+        <p>© 2025 MyCouponBag. All rights reserved. Made with ❤️ in India</p>
       </div>
     </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-      <div class="grid lg:grid-cols-4 gap-4 sm:gap-8">
-        <!-- Sidebar Navigation - Hidden on mobile -->
-        <div class="hidden lg:block lg:col-span-1">
-          <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Navigation</h2>
-            <nav class="space-y-2">
-              <a href="#overview" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📋 Overview</a>
-              <a href="#information-collected" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📊 Information We Collect</a>
-              <a href="#how-we-use" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🔧 How We Use Information</a>
-              <a href="#third-party" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🤝 Third-Party Services</a>
-              <a href="#data-sharing" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📤 Data Sharing</a>
-              <a href="#data-retention" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">⏰ Data Retention</a>
-              <a href="#security" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">🔒 Security</a>
-              <a href="#your-rights" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">⚖️ Your Rights</a>
-              <a href="#children-privacy" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">👶 Children's Privacy</a>
-              <a href="#changes" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📝 Changes to Policy</a>
-              <a href="#terms" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📋 Terms and Conditions</a>
-              <a href="#contact" class="nav-link block px-3 py-2 text-sm text-gray-700 hover:text-blue-600">📞 Contact Us</a>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="lg:col-span-3">
-          <!-- Hero Section -->
-          <div class="gradient-bg text-white rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
-            <h1 class="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">Privacy Policy</h1>
-            <p class="mobile-text-lg sm:text-xl opacity-90">Your privacy is important to us. Learn how we protect and handle your information.</p>
-          </div>
-
-          <!-- Overview Section -->
-          <section id="overview" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📋</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Overview</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                <strong>MyCouponBag</strong> ("we", "our", or "us") values your privacy. This Privacy Policy explains how we collect, use, and share information when you use our mobile application.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">🛡️ Our Commitment</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• We are committed to protecting your personal information</li>
-                  <li>• We only collect information necessary to provide our services</li>
-                  <li>• We never sell your personal data to third parties</li>
-                  <li>• We implement security measures to protect your data</li>
-                </ul>
-              </div>
-              
-              <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">📅 Last Updated</h3>
-                <p class="text-green-800 text-sm sm:text-base">This policy was last updated in August 2025</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Information We Collect -->
-          <section id="information-collected" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📊</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Information We Collect</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We may collect the following types of information to provide and improve our services:
-              </p>
-              
-              <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">👤 Account Information</h3>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Name and email address</li>
-                    <li>• Authentication details</li>
-                    <li>• Profile preferences</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">💳 Purchase Information</h3>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Subscription data via RevenueCat</li>
-                    <li>• Transaction tokens</li>
-                    <li>• Billing information</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">📱 Usage Data</h3>
-                  <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• App interactions and features used</li>
-                    <li>• Click patterns and preferences</li>
-                    <li>• Performance analytics</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">🔧 Device Information</h3>
-                  <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Device model and OS version</li>
-                    <li>• Unique identifiers</li>
-                    <li>• Crash logs (if applicable)</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <p class="text-blue-900 text-sm sm:text-base">
-                  By signing up, you agree to receive occasional promotional offers and newsletters from MyCouponBag.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- How We Use Information -->
-          <section id="how-we-use" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🔧</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">How We Use Your Information</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We use the collected information for the following purposes:
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">🎯 Primary Uses</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Provide and maintain app features and functionality</li>
-                  <li>• Manage and verify subscriptions via RevenueCat</li>
-                  <li>• Improve user experience and app performance</li>
-                  <li>• Communicate important updates and account information</li>
-                  <li>• Provide customer support and resolve issues</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Third-Party Services -->
-          <section id="third-party" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🤝</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Third-Party Services</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We use trusted third-party services to provide functionality:
-              </p>
-              
-              <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">💳 RevenueCat</h3>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Manages subscriptions and purchases</li>
-                    <li>• Processes payment tokens</li>
-                    <li>• Handles billing verification</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🛒 Google Play Billing</h3>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Processes payments securely</li>
-                    <li>• Manages transaction data</li>
-                    <li>• Handles refunds and disputes</li>
-                  </ul>
-                </div>
-
-                <div class="bg-purple-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">💬 Tawk.to Live Chat Support</h3>
-                  <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Provides real-time customer support within our app/website</li>
-                    <li>• May collect chat content, device/browser details, IP, and info you share</li>
-                    <li>• Used only to assist you and improve support; see <a href="https://www.tawk.to/privacy-policy/" class="underline text-purple-700 hover:text-purple-900" target="_blank" rel="noopener noreferrer">Tawk.to Privacy Policy</a></li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg mt-4 sm:mt-6">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">ℹ️ Important Note</h3>
-                <p class="text-yellow-800 text-sm sm:text-base">
-                  These services have their own privacy policies. We recommend reviewing them to understand how they handle your data.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Data Sharing -->
-          <section id="data-sharing" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📤</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Data Sharing</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We do not sell your personal data. We may share data only in the following circumstances:
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✅ When We Share Data</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Service Providers:</strong> RevenueCat, analytics providers to operate the app</li>
-                  <li>• <strong>Partner Brands:</strong> Only aggregated, anonymized coupon usage statistics (no personal information)</li>
-                  <li>• <strong>Legal Requirements:</strong> If required by law or to protect our rights</li>
-                </ul>
-              </div>
-              
-              <div class="bg-red-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-red-900 mb-3 sm:mb-4 text-sm sm:text-base">❌ What We Never Do</h3>
-                <ul class="text-red-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Sell your personal data to third parties</li>
-                  <li>• Share personal information with partner brands</li>
-                  <li>• Use your data for unrelated purposes</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Data Retention -->
-          <section id="data-retention" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">⏰</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Data Retention</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We keep your data for as long as your account is active or as needed to provide services. Some information may be retained longer if required by law.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">📅 Retention Periods</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• <strong>Account Data:</strong> Retained while account is active</li>
-                  <li>• <strong>Usage Data:</strong> Typically retained for 2 years</li>
-                  <li>• <strong>Transaction Data:</strong> Retained as required by law</li>
-                  <li>• <strong>Analytics Data:</strong> Aggregated and anonymized after 1 year</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Security -->
-          <section id="security" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">🔒</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Security</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We implement reasonable security measures to protect your information. However, no method of transmission over the internet or electronic storage is 100% secure.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">🛡️ Security Measures</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Encryption of data in transit and at rest</li>
-                  <li>• Secure authentication and authorization</li>
-                  <li>• Regular security audits and updates</li>
-                  <li>• Access controls and monitoring</li>
-                  <li>• Compliance with industry standards</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Your Rights -->
-          <section id="your-rights" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">⚖️</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Your Rights</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Depending on your location, you may have rights to:
-              </p>
-              
-              <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">📋 Data Rights</h3>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Access your personal data</li>
-                    <li>• Correct inaccurate information</li>
-                    <li>• Delete your personal data</li>
-                    <li>• Port your data to another service</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">🎛️ Control Rights</h3>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Opt out of data collection</li>
-                    <li>• Withdraw consent</li>
-                    <li>• Object to data processing</li>
-                    <li>• Request data restriction</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg mt-4 sm:mt-6">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">📧 How to Exercise Rights</h3>
-                <p class="text-yellow-800 text-sm sm:text-base">
-                  To exercise these rights, contact us at <a href="mailto:support@mycouponbag.com" class="text-blue-600 hover:text-blue-800 underline">support@mycouponbag.com</a>
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Children's Privacy -->
-          <section id="children-privacy" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">👶</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Children's Privacy</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Our app is not directed to children under 13. We do not knowingly collect personal information from children under 13.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">🛡️ Protection Measures</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Age verification during registration</li>
-                  <li>• Parental consent requirements for users under 18</li>
-                  <li>• No targeted advertising to children</li>
-                  <li>• Immediate deletion of any accidentally collected child data</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Changes to Policy -->
-          <section id="changes" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📝</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Changes to This Policy</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                We may update this Privacy Policy from time to time. Changes will be posted within the app and/or on our website with an updated "Last updated" date.
-              </p>
-              
-              <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">📢 Notification Process</h3>
-                <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• In-app notifications for significant changes</li>
-                  <li>• Email notifications to registered users</li>
-                  <li>• Updated "Last updated" date on this page</li>
-                  <li>• Continued use constitutes acceptance of changes</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Terms and Conditions -->
-          <section id="terms" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📋</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Terms and Conditions</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                By using MyCouponBag, you agree to the following terms and conditions:
-              </p>
-              <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                <div class="bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-blue-900 mb-3 sm:mb-4 text-sm sm:text-base">✅ Acceptable Use</h3>
-                  <ul class="text-blue-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Use the app for personal, non-commercial purposes</li>
-                    <li>• Respect intellectual property rights</li>
-                    <li>• Follow applicable laws and regulations</li>
-                    <li>• Maintain account security</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-green-50 p-4 sm:p-6 rounded-lg">
-                  <h3 class="font-semibold text-green-900 mb-3 sm:mb-4 text-sm sm:text-base">❌ Prohibited Activities</h3>
-                  <ul class="text-green-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                    <li>• Sharing account credentials</li>
-                    <li>• Attempting to hack or reverse engineer</li>
-                    <li>• Using automated tools or bots</li>
-                    <li>• Violating any applicable laws</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 class="font-semibold text-yellow-900 mb-3 sm:mb-4 text-sm sm:text-base">💳 Subscription Terms</h3>
-                <ul class="text-yellow-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li>• Subscriptions auto-renew unless cancelled</li>
-                  <li>• Cancellation takes effect at the end of the current period</li>
-                  <li>• No refunds for partial subscription periods</li>
-                  <li>• Price changes will be notified in advance</li>
-                </ul>
-              </div>
-              
-                             <div class="bg-purple-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                 <h3 class="font-semibold text-purple-900 mb-3 sm:mb-4 text-sm sm:text-base">⚖️ Disclaimers</h3>
-                 <ul class="text-purple-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                   <li>• App is provided "as is" without warranties</li>
-                   <li>• We're not liable for indirect or consequential damages</li>
-                   <li>• Coupon availability and validity may vary</li>
-                   <li>• Partner terms and conditions apply to offers</li>
-                 </ul>
-               </div>
-               
-               <div class="bg-red-50 p-4 sm:p-6 rounded-lg">
-                 <h3 class="font-semibold text-red-900 mb-3 sm:mb-4 text-sm sm:text-base">🔄 Modification of Services and Pricing</h3>
-                 <ul class="text-red-800 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                   <li>• MyCouponBag reserves the right to change, suspend, or discontinue any subscription plan, pricing, or related features at any time, with or without prior notice</li>
-                   <li>• We may also introduce new plans, modify limits, or adjust included benefits</li>
-                   <li>• Any updates will be effective once posted within the app or on our website</li>
-                   <li>• Your continued use of the service after changes are effective constitutes your acceptance of the updated terms</li>
-                 </ul>
-               </div>
-            </div>
-          </section>
-
-          <!-- Contact Us -->
-          <section id="contact" class="section-anchor bg-white rounded-lg shadow-sm mobile-section p-6 sm:p-8 mb-6 sm:mb-8 card-hover">
-            <div class="flex items-center mb-4 sm:mb-6">
-              <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">📞</div>
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Contact Us</h2>
-            </div>
-            <div class="prose max-w-none">
-              <p class="mobile-text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                If you have any questions about this Privacy Policy, please contact us:
-              </p>
-              
-              <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 sm:p-8 rounded-lg">
-                <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">📧 Contact Information</h3>
-                <div class="space-y-3 sm:space-y-4">
-                  <div>
-                    <p class="text-sm sm:text-base mb-2">Email us at:</p>
-                    <a href="mailto:support@mycouponbag.com" class="text-xl sm:text-2xl font-bold underline hover:no-underline break-all block">
-                      support@mycouponbag.com
-                    </a>
-                  </div>
-                  <div>
-                    <p class="text-sm sm:text-base mb-2">Visit our website:</p>
-                    <a href="https://mycouponbag.com" class="text-lg sm:text-xl font-semibold underline hover:no-underline">
-                      mycouponbag.com
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-4 sm:mt-6 text-blue-100 text-sm sm:text-base">We typically respond within 24 hours!</p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t mt-8 sm:mt-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        <div class="text-center text-gray-500 text-sm sm:text-base">
-          <p>&copy; 2025 MyCouponBag. All rights reserved. | Made with ❤️ in India</p>
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
 
   <script>
-    // Mobile navigation toggle
-    function toggleMobileNav() {
-      const mobileNav = document.getElementById('mobileNav');
-      const mobileOverlay = document.getElementById('mobileOverlay');
-      
-      mobileNav.classList.toggle('open');
-      mobileOverlay.classList.toggle('open');
-      
-      // Prevent body scroll when mobile nav is open
-      if (mobileNav.classList.contains('open')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
+    function toggleMenu() {
+      var el = document.getElementById('mobile-menu');
+      el.classList.toggle('active');
     }
-
-    // Close mobile nav when clicking on overlay
-    document.getElementById('mobileOverlay').addEventListener('click', toggleMobileNav);
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Active navigation highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Close mobile nav on window resize (if screen becomes larger)
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        
-        mobileNav.classList.remove('open');
-        mobileOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+    document.querySelectorAll('.mobile-menu a, .mobile-menu button').forEach(function(node) {
+      node.addEventListener('click', function() { document.getElementById('mobile-menu').classList.remove('active'); });
     });
   </script>
+  <script>
+    function openLiveSupport() {
+      try {
+        if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+          Tawk_API.maximize();
+          return;
+        }
+      } catch (e) {}
+      window.open('https://tawk.to/chat/68ac7420e7ad9c1921a87191/1j3gqb8m3', '_blank');
+    }
+  </script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/68ac7420e7ad9c1921a87191/1j3gqb8m3';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
