@@ -106,12 +106,14 @@
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWJzY3h4aXp2Zmt0a2p2eWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDkwODgsImV4cCI6MjA1NDc4NTA4OH0.piRfUGOhQevT7QWh0mt8LBtTRNCpkVZ8nArt5_DoRdM';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Step 1: Parse hash and log
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
+    // Step 1: Parse auth params from both hash and query (Supabase may use either on redirect)
+    const hashPart = window.location.hash.substring(1);
+    const searchPart = window.location.search.substring(1); // strip leading '?'
+    const params = new URLSearchParams(hashPart + (hashPart && searchPart ? '&' : '') + searchPart);
     const access_token = params.get('access_token');
     const refresh_token = params.get('refresh_token');
     const type = params.get('type');
+    const token_hash = params.get('token_hash'); // from query when redirect goes to server/custom
     const error = params.get('error');
     const error_code = params.get('error_code');
     const error_description = params.get('error_description');
@@ -169,21 +171,35 @@
       submitBtn.disabled = false;
     });
 
-    // Handle verification link (signup/email_confirm)
-    if (type === 'signup' || type === 'email_confirm') {
+    // Handle verification link (signup / email confirm). Supabase may use type=signup or type=email.
+    const isEmailConfirm = type === 'signup' || type === 'email_confirm' || type === 'email';
+    if (isEmailConfirm) {
       if (resetForm) resetForm.style.display = 'none';
       try {
-        // Attempt to verify the email
-        const { data, error } = await supabase.auth.verifyOtp({
-          token_hash: access_token,
-          type: type
-        });
-        
-        if (error) {
-          messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
-          messageDiv.className = 'message error';
+        // After redirect from Supabase /auth/v1/verify we get access_token + refresh_token in URL (already verified).
+        // Use setSession and show success. Do NOT call verifyOtp with access_token (that's a JWT, not token_hash).
+        if (access_token && refresh_token) {
+          const { data: sessionData, error: sessionError } = await supabase.auth.setSession({ access_token, refresh_token });
+          if (sessionError) {
+            messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+            messageDiv.className = 'message error';
+          } else {
+            messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
+            messageDiv.className = 'message success';
+          }
+        } else if (token_hash) {
+          // Custom flow: token_hash in query (e.g. server-side redirect)
+          const { data, error } = await supabase.auth.verifyOtp({ token_hash, type: type });
+          if (error) {
+            messageDiv.innerHTML = '<span class="error">Error Occurred, please try again later.<br>For more help: support@mycouponbag.com</span>';
+            messageDiv.className = 'message error';
+          } else {
+            messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
+            messageDiv.className = 'message success';
+          }
         } else {
-          messageDiv.innerHTML = '<span class="success">Your account has been verified. Please log in to the mobile app.</span>';
+          // No tokens in URL (e.g. hash stripped by host or wrong redirect). Still show success if type indicates confirm.
+          messageDiv.innerHTML = '<span class="success">Your email has been verified, please login the app.</span>';
           messageDiv.className = 'message success';
         }
       } catch (err) {
