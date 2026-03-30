@@ -40,17 +40,19 @@
   </style>
 </head>
 <body>
-  <!-- Marquee -->
-  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+  <!-- High-energy marquee (click → home Download / launch offer) -->
+  <a href="/#download" class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50 cursor-pointer no-underline block hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-inset" aria-label="Launch offer — limited time for users and partners. Go to Download section.">
     <div class="animate-marquee whitespace-nowrap flex items-center">
-      <span class="px-4">🔥 CRAZY DEALS</span>
-      <span class="px-4">🚀 AI-POWERED</span>
-      <span class="px-4">💸 UNLIMITED SAVINGS</span>
-      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
-      <span class="px-4">🚀 CRAZY DEALS</span>
-      <span class="px-4">💸 AI-POWERED</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
     </div>
-  </div>
+  </a>
 
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -105,6 +107,27 @@
         <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-3" id="acc-3" onclick="toggleAccordion('faq-3','acc-3')">How does Discover work?</button>
         <div id="faq-3" class="accordion-panel hidden" role="region" aria-labelledby="acc-3">
           <p class="text-sm font-bold text-black">Browse marketplace deals and curated-for-you listings. Tap "Add to My Coupons" to add a deal to your bag; the coupon code is revealed only after you add it.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-4" id="acc-4" onclick="toggleAccordion('faq-4','acc-4')">How do I use Universal Importer?</button>
+        <div id="faq-4" class="accordion-panel hidden" role="region" aria-labelledby="acc-4">
+          <ul class="text-sm font-bold text-black space-y-2 list-disc pl-4">
+            <li>In any supported app, open the deal/reward/coupon message.</li>
+            <li>Select the coupon text (or reward) and tap the Android <strong>Share</strong> button.</li>
+            <li>Choose <strong>MyCouponBag</strong> from the share list.</li>
+            <li>Our AI extracts the promo code (and expiry) and saves it into your bag.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-5" id="acc-5" onclick="toggleAccordion('faq-5','acc-5')">Which apps can I share from?</button>
+        <div id="faq-5" class="accordion-panel hidden" role="region" aria-labelledby="acc-5">
+          <p class="text-sm font-bold text-black">
+            Currently you can share from apps like <strong>Amazon</strong>, <strong>Google Pay</strong>, and <strong>CRED</strong>, plus <strong>SMS</strong> messages (and we also support adding from text/images/docs on the New Coupon flow).
+          </p>
         </div>
       </div>
     </div>

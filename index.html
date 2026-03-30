@@ -122,19 +122,6 @@
       box-shadow: 8px 8px 0 0 var(--black);
     }
     .card-coupon a:hover { color: var(--purple); }
-    .card-coupon .tear-line {
-      display: flex;
-      align-items: center;
-      margin: 1rem 0;
-    }
-    .card-coupon .tear-line::before,
-    .card-coupon .tear-line::after {
-      content: '';
-      flex: 1;
-      height: 0;
-      border-top: 3px dashed var(--black);
-    }
-    .card-coupon .tear-line .scissors { margin: 0 0.5rem; font-size: 1.25rem; }
     .section-heading {
       font-size: 1.75rem;
       font-weight: 900;
@@ -164,19 +151,19 @@
   </style>
 </head>
 <body>
-  <!-- High-energy marquee -->
-  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+  <!-- High-energy marquee (click → Download / launch offer) -->
+  <a href="#download" class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50 cursor-pointer no-underline block hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-inset" aria-label="Launch offer — limited time for users and partners. Go to Download section.">
     <div class="animate-marquee whitespace-nowrap flex items-center">
-      <span class="px-4">🔥 CRAZY DEALS</span>
-      <span class="px-4">🚀 AI-POWERED</span>
-      <span class="px-4">💸 UNLIMITED SAVINGS</span>
-      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
-      <span class="px-4">🚀 CRAZY DEALS</span>
-      <span class="px-4">💸 AI-POWERED</span>
-      <span class="px-4">🔥 UNLIMITED SAVINGS</span>
-      <span class="px-4">🚀 NEVER LOSE A COUPON AGAIN</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
     </div>
-  </div>
+  </a>
 
   <!-- Nav -->
   <header class="nav-bar">
@@ -187,7 +174,7 @@
         <a href="#features" class="nav-link">Features</a>
         <a href="#plans" class="nav-link">Plans</a>
         <a href="#download" class="nav-link">Download</a>
-        <a href="#partners" class="nav-link">Partners</a>
+        <a href="/partner-help.html" class="nav-link">Partners</a>
         <a href="#contact" class="nav-link">Contact Us</a>
         <a href="/help" class="nav-link">Help</a>
       </div>
@@ -198,7 +185,7 @@
       <a href="#features" class="nav-link">Features</a>
       <a href="#plans" class="nav-link">Plans</a>
       <a href="#download" class="nav-link">Download</a>
-      <a href="#partners" class="nav-link">Partners</a>
+      <a href="/partner-help.html" class="nav-link">Partners</a>
       <a href="#contact" class="nav-link">Contact Us</a>
       <a href="/help" class="nav-link">Help</a>
     </div>
@@ -226,60 +213,100 @@
         <div class="card-coupon bg-[#FFD700] shadow-brutal">
           <span class="text-3xl mb-2 block">🛍️</span>
           <h3 class="text-xl font-black uppercase text-black mb-2">One place for all coupons</h3>
-          <p class="text-sm font-bold text-black">Add manually, forward by email, scan barcodes, or discover deals in one bag.</p>
-          <div class="tear-line"><span class="scissors">✂️</span></div>
+          <p class="text-sm font-bold text-black">Manual entry, share from other apps, private mail alias, text/images/docs, and Discover—everything lands in one bag.</p>
         </div>
         <div class="card-coupon bg-[#6A0DAD] shadow-brutal relative">
           <div class="absolute -top-2 -right-2 bg-black text-[#8B5CF6] font-black text-xs uppercase px-2 py-1 border-2 border-black shadow-brutal-sm rotate-6">AI!</div>
           <span class="text-3xl mb-2 block">📧</span>
           <h3 class="text-xl font-black uppercase text-white mb-2">Forward email to add</h3>
           <p class="text-sm font-bold text-white">Get a private “forward-to” address in the app, forward coupon emails from your verified inbox, and we extract the coupon details. The coupon code is visible only to you inside MyCouponBag.</p>
-          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
         <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-3xl mb-2 block">✏️</span>
           <h3 class="text-xl font-black uppercase text-black mb-2">Add Manually (with optional photo)</h3>
-          <p class="text-sm font-bold text-black">Enter the coupon code and details (merchant, description, optional expiry date, optional “Shop now” link). Add an optional photo to keep everything organized. From text or images is coming soon.</p>
-          <div class="tear-line"><span class="scissors">✂️</span></div>
+          <p class="text-sm font-bold text-black">Enter code, merchant, optional expiry and “Shop now” link, optional photo—or pull details from text, images, or documents. Barcode scan is coming soon.</p>
         </div>
         <div class="card-coupon bg-[#6A0DAD] shadow-brutal">
           <span class="text-3xl mb-2 block">🔍</span>
           <h3 class="text-xl font-black uppercase text-white mb-2">Discover marketplace + curated picks</h3>
           <p class="text-sm font-bold text-white">Browse marketplace deals and “curated for you” offers. Tap “Add to My Coupons” and the coupon code reveals after you add.</p>
-          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
         <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-3xl mb-2 block">🔔</span>
           <h3 class="text-xl font-black uppercase text-black mb-2">Expiry reminders + push alerts</h3>
           <p class="text-sm font-bold text-black">Stay ahead with in-app expiry reminders and optional push notifications. FREE/PRO limits are enforced server-side.</p>
-          <div class="tear-line"><span class="scissors">✂️</span></div>
+        </div>
+        <div class="card-coupon bg-[#FFD700] shadow-brutal relative">
+          <div class="absolute -top-2 -right-2 bg-black text-[#8B5CF6] font-black text-xs uppercase px-2 py-1 border-2 border-black shadow-brutal-sm rotate-6">AI!</div>
+          <span class="text-3xl mb-2 block">📲</span>
+          <h3 class="text-xl font-black uppercase text-black mb-2">Universal Importer</h3>
+          <p class="text-sm font-bold text-black">Share reward text from Amazon, Google Pay, CRED, SMS &amp; more—tap Android Share → MyCouponBag and AI extracts the code and expiry into your bag.</p>
         </div>
       </div>
+
+      <div class="card-coupon bg-[#F4F4F0] shadow-brutal-lg border-3 border-black max-w-5xl mx-auto mt-10">
+        <p class="text-center text-lg md:text-xl font-black uppercase text-black mb-6">Import From Any App — in the app</p>
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <img src="imgs/universal-importer.png" alt="MyCouponBag Import From Any App: share from Amazon, Google Pay, CRED, and SMS" class="w-full max-w-sm md:max-w-md border-4 border-black shadow-brutal object-contain bg-white" />
+          </div>
+          <div class="w-full lg:w-1/2">
+            <p class="text-sm font-bold text-black"><strong>Import From Any App</strong> lists Amazon, Google Pay, CRED, and SMS—share reward or message text and we bag the code. On the same New Coupon flow you can also add manually, pull from text or images or docs, or use your private mail alias.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="card-coupon bg-[#6A0DAD] shadow-brutal-lg border-3 border-black max-w-3xl mx-auto mt-10">
         <div class="flex items-center justify-center gap-4">
           <span class="text-3xl text-white">⏳</span>
           <h3 class="text-2xl font-black uppercase text-white mb-0">More features coming soon</h3>
         </div>
       </div>
-      <h3 class="section-heading text-xl md:text-2xl text-center mt-12 mb-6">How it works</h3>
+
+      <h3 class="section-heading text-xl md:text-2xl text-center mt-12 mb-2">How it works</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <div class="card-coupon bg-[#FFD700] shadow-brutal">
           <span class="text-2xl mb-2 block">✍️</span>
           <h4 class="text-lg font-black uppercase text-black mb-2">The Manual Glow-up</h4>
-          <p class="text-sm font-bold text-black">Type it, tag it, save it. Pop in the code and merchant details to keep your savings organized and ready to deploy. Clean & Classic.</p>
-          <div class="tear-line"><span class="scissors">✂️</span></div>
+          <p class="text-sm font-bold text-black">Type it, tag it, save it. Pop in the code and merchant details to keep your savings organized and ready to deploy. Clean &amp; Classic.</p>
         </div>
         <div class="card-coupon bg-[#6A0DAD] shadow-brutal">
           <span class="text-2xl mb-2 block">📧</span>
           <h4 class="text-lg font-black uppercase text-white mb-2">The AI Inbox Hack</h4>
           <p class="text-sm font-bold text-white">Stop copy-pasting. Forward any promo email to your private address, and our AI will strip the fine print to grab the code for you. Pure Magic.</p>
-          <div class="tear-line"><span class="scissors text-white">✂️</span></div>
         </div>
         <div class="card-coupon bg-[#87CEEB] shadow-brutal">
           <span class="text-2xl mb-2 block">🕵️‍♂️</span>
           <h4 class="text-lg font-black uppercase text-black mb-2">The Deal Hunter</h4>
           <p class="text-sm font-bold text-black">Don’t have a code? Find one. Browse the Marketplace for curated listings and community-sourced steals. Shop the World.</p>
-          <div class="tear-line"><span class="scissors">✂️</span></div>
+        </div>
+
+        <div class="card-coupon bg-[#F4F4F0] shadow-brutal-lg border-3 border-black md:col-span-3">
+          <div class="flex items-center gap-4 flex-wrap">
+            <span class="text-3xl">🎒</span>
+            <h4 class="text-xl font-black uppercase text-black mb-0">Universal Importer (one flow)</h4>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <div class="flex flex-col">
+              <span class="text-2xl mb-2 block">👀</span>
+              <h5 class="text-lg font-black uppercase text-black mb-2">Spot a deal</h5>
+              <p class="text-sm font-bold text-black">Find a reward, voucher, or discount code in your favorite shopping or payment app.</p>
+            </div>
+
+            <div class="flex flex-col">
+              <span class="text-2xl mb-2 block">📤</span>
+              <h5 class="text-lg font-black uppercase text-black mb-2">Hit Share</h5>
+              <p class="text-sm font-bold text-black">Select the text or reward, tap Android Share, and choose MyCouponBag from the list.</p>
+            </div>
+
+            <div class="flex flex-col">
+              <span class="text-2xl mb-2 block text-[#6A0DAD]">⚡</span>
+              <h5 class="text-lg font-black uppercase text-black mb-2">AI bags it</h5>
+              <p class="text-sm font-bold text-black">Our engine extracts the promo code and expiry and saves it straight to your bag—fast and private.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -311,17 +338,17 @@
     <!-- Download -->
     <section id="download" class="py-12">
       <h2 class="section-heading text-2xl md:text-3xl text-center mb-8">Get the app</h2>
+      <div class="card-coupon bg-[#FFD700] shadow-brutal-lg border-3 border-black max-w-3xl mx-auto mb-8 text-center">
+        <p class="text-xs font-black uppercase text-black mb-2">Launch offer — limited time</p>
+        <p class="text-sm md:text-base font-bold text-black">
+          <strong>Users:</strong> Register on the app and follow us on any social channel — get <strong>PRO subscription free for your first month</strong>.
+        </p>
+        <p class="text-sm font-bold text-black mt-4">
+          <strong>Partners:</strong> Limited-period launch benefits — see <a href="/partner-help.html" class="underline decoration-2 underline-offset-2 hover:text-[#6A0DAD]">Partner Help</a> or contact <a href="mailto:support@mycouponbag.com" class="underline decoration-2 underline-offset-2 hover:text-[#6A0DAD]">support@mycouponbag.com</a>.
+        </p>
+      </div>
       <div class="text-center">
         <a href="https://play.google.com/store/apps/details?id=com.mycouponbag.app" target="_blank" rel="noopener noreferrer" class="btn-primary btn-brutal">Download on Google Play</a>
-      </div>
-    </section>
-
-    <!-- Partners -->
-    <section id="partners" class="py-12">
-      <div class="card-coupon bg-[#6A0DAD] shadow-brutal max-w-3xl mx-auto text-center border-3 border-black">
-        <h3 class="font-black text-xl uppercase text-white mb-2">For partners</h3>
-        <p class="text-sm font-bold text-white/95 mb-4">List your deals on our marketplace or offer curated coupons to users. Grow your reach and drive redemption.</p>
-        <a href="/partner-help.html" class="btn-outline btn-brutal border-white text-white hover:bg-white hover:text-[#6A0DAD]">Partner Help</a>
       </div>
     </section>
 

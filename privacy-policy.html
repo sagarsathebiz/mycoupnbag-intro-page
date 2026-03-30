@@ -17,8 +17,6 @@
     }
     body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--black); min-height: 100vh; margin: 0; padding: 0; }
     .shadow-brutal-sm { box-shadow: 2px 2px 0 0 var(--black); }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .animate-marquee { animation: marquee 25s linear infinite; display: inline-flex; gap: 2rem; }
     .nav-bar { background: var(--offwhite); border-bottom: 3px solid var(--black); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 0 var(--black); }
     .nav-link { color: var(--black); font-weight: 700; text-decoration: none; padding: 0.5rem 0.75rem; border: 2px solid transparent; transition: all 0.15s; }
     .nav-link:hover { background: var(--purple); color: white; border-color: var(--black); box-shadow: 3px 3px 0 0 var(--black); }
@@ -39,18 +37,6 @@
   </style>
 </head>
 <body>
-  <!-- Marquee -->
-  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
-    <div class="animate-marquee whitespace-nowrap flex items-center">
-      <span class="px-4">🔥 CRAZY DEALS</span>
-      <span class="px-4">🚀 AI-POWERED</span>
-      <span class="px-4">💸 UNLIMITED SAVINGS</span>
-      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
-      <span class="px-4">🚀 CRAZY DEALS</span>
-      <span class="px-4">💸 AI-POWERED</span>
-    </div>
-  </div>
-
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="text-xl font-black uppercase tracking-tight text-black">MyCouponBag</a>

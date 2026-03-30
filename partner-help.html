@@ -39,17 +39,19 @@
   </style>
 </head>
 <body>
-  <!-- Marquee -->
-  <div class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50">
+  <!-- High-energy marquee (click → home Download / launch offer) -->
+  <a href="/#download" class="relative flex overflow-x-hidden bg-[#111111] text-[#8B5CF6] font-black text-base sm:text-xl py-3 border-b-4 border-black z-50 cursor-pointer no-underline block hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-inset" aria-label="Launch offer — limited time for users and partners. Go to Download section.">
     <div class="animate-marquee whitespace-nowrap flex items-center">
-      <span class="px-4">🔥 CRAZY DEALS</span>
-      <span class="px-4">🚀 AI-POWERED</span>
-      <span class="px-4">💸 UNLIMITED SAVINGS</span>
-      <span class="px-4">🔥 NEVER LOSE A COUPON AGAIN</span>
-      <span class="px-4">🚀 CRAZY DEALS</span>
-      <span class="px-4">💸 AI-POWERED</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
+      <span class="px-4">🎁 LAUNCH OFFER — LIMITED TIME</span>
+      <span class="px-4">🙌 USERS &amp; PARTNERS — EXCLUSIVE LAUNCH BENEFITS</span>
+      <span class="px-4">⭐ USERS: Register + follow us on social → PRO free 1st month</span>
+      <span class="px-4">🤝 PARTNERS: Limited-period launch — tap for details</span>
     </div>
-  </div>
+  </a>
 
   <header class="nav-bar">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -77,18 +79,83 @@
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="section-heading text-2xl md:text-3xl mb-6">For partners</h1>
+    <div class="card-coupon bg-[#6A0DAD] shadow-brutal-lg border-3 border-black text-white mb-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">For partners</h1>
+          <p class="text-sm font-bold text-white/95 mb-3">
+            MyCouponBag lets partners list deals on our <strong>marketplace</strong> and send
+            <strong>curated</strong> coupons to specific users. End users see your offers in Discover and add
+            them to their bag to reveal the code.
+          </p>
+          <p class="text-sm font-bold text-white/95">
+            Partner Portal is in development right now. Meanwhile, if you want to launch deals for users,
+            contact us at
+            <a href="mailto:support@mycouponbag.com" class="text-[#FFD700] underline decoration-2 underline-offset-2 hover:opacity-95">support@mycouponbag.com</a>.
+          </p>
+        </div>
 
-    <p class="text-sm font-bold text-black mb-6">MyCouponBag lets partners list deals on our <strong>marketplace</strong> and send <strong>curated</strong> coupons to specific users. End users see your offers in Discover and add them to their bag to reveal the code.</p>
+        <div class="flex items-center justify-start md:justify-end">
+          <span class="inline-flex items-center justify-center w-12 h-12 rounded-full border-[3px] border-black shadow-brutal-sm bg-[#FFD700] text-black text-2xl" aria-hidden="true">🤝</span>
+        </div>
+      </div>
+    </div>
 
-    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Marketplace</h2>
+    <div class="card-coupon bg-[#FFD700] shadow-brutal-lg border-3 border-black mb-8">
+      <h2 class="text-lg font-black uppercase text-black mb-3 flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-black shadow-brutal-sm bg-white text-base" aria-hidden="true">🎁</span>
+        Launch offer (partners)
+      </h2>
+      <p class="text-sm font-bold text-black mb-4">Limited-time benefits for partners who get in early — availability is based on entries and is first come, first served.</p>
+      <ul class="text-sm font-bold text-black space-y-3 list-disc pl-5">
+        <li><strong>One marketplace coupon free</strong> — for a limited time, based on entries.</li>
+        <li><strong>Publish banner ads for free</strong> — limited-time access to run in-app banner ads (image + redemption URL), based on entries.</li>
+        <li><strong>Top visible placement</strong> — first come, first served for the most prominent slots while capacity lasts.</li>
+      </ul>
+      <p class="text-sm font-bold text-black mt-4">
+        To claim or ask about eligibility, email
+        <a href="mailto:support@mycouponbag.com" class="underline decoration-2 underline-offset-2 hover:text-[#6A0DAD]">support@mycouponbag.com</a>.
+      </p>
+    </div>
+
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3 flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-black shadow-brutal-sm bg-[#FFD700]" aria-hidden="true">🛒</span>
+      Marketplace
+    </h2>
     <div class="card-coupon shadow-brutal mb-4">
       <p class="text-sm font-bold text-black">Create coupons that appear in the Discover marketplace for all users. Users tap "Add to My Coupons" to add a copy to their bag (your code is shown only after they add). Partner accounts have access to create marketplace listings subject to plan limits (curated_per_day / curated_per_month).</p>
     </div>
 
-    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3">Curated for you</h2>
+    <h2 class="text-lg font-black uppercase text-black mt-8 mb-3 flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-black shadow-brutal-sm bg-[#6A0DAD]" aria-hidden="true">
+        <span class="text-white text-sm leading-none">🎯</span>
+      </span>
+      Curated for you
+    </h2>
     <div class="card-coupon shadow-brutal mb-4">
       <p class="text-sm font-bold text-black">Create curated coupons for a specific user (by user_id). They appear in that user's "Curated for you" section in Discover. The user adds the coupon to see the code. Same partner quota applies as for marketplace.</p>
+    </div>
+
+    <h2 class="text-lg font-black uppercase text-black mt-10 mb-3 flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-black shadow-brutal-sm bg-[#87CEEB]" aria-hidden="true">📣</span>
+      Banner ads in app
+    </h2>
+    <div class="card-coupon shadow-brutal mb-6">
+      <p class="text-sm font-bold text-black">
+        Partners can place banner ads inside the app. Each ad can include an image plus a <strong>redemption URL</strong> (the link users open when they tap the banner).
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-[#F4F4F0] border-[3px] border-black p-3">
+          <img src="imgs/dashboard-web.png" alt="Partner banner ad location on Dashboard screen" class="w-full max-w-none border-4 border-black shadow-brutal object-contain bg-white" />
+          <p class="text-xs md:text-sm font-bold text-black mt-3">Dashboard</p>
+        </div>
+
+        <div class="bg-[#F4F4F0] border-[3px] border-black p-3">
+          <img src="imgs/profile-web.png" alt="Partner banner ad location on Profile screen" class="w-full max-w-none border-4 border-black shadow-brutal object-contain bg-white" />
+          <p class="text-xs md:text-sm font-bold text-black mt-3">Profile</p>
+        </div>
+      </div>
     </div>
 
     <h3 class="text-sm font-black uppercase text-black mb-4">Questions? Ideas? Talk to us:</h3>
